@@ -5,27 +5,80 @@ import classNames from "classnames";
 import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "styles/jss/nextjs-material-kit/pages/components.js";
+import comp from "styles/jss/nextjs-material-kit/pages/components.js";
 //components used
 import Layout from "components/Layout/Layout.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import Parallax from "components/Parallax/Parallax.js";import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import Button from "components/CustomButtons/Button.js";
+import PostList from "components/PostList/PostList.js"
+//material styles
+import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
+import { cardTitle } from "styles/jss/nextjs-material-kit.js";
+
+const styles = {
+  ...imagesStyles,
+  cardTitle,
+  ...comp
+};
 
 const useStyles = makeStyles(styles);
 
-const index = () => {
+const index = ({ posts }) => {
   const classes = useStyles();
   return (
     <Layout>
-      <div>
-        Hello World!
-    </div><div>
-        Hello World!
-    </div><div>
-        Hello World!
-    </div><div>
-        Hello World!
-    </div>
+      <Parallax image="/img/hca-eagles-banner.jpeg">
+        <div className={classes.container}>
+          <GridContainer>
+            <GridItem>
+              <div className={classes.brand}>
+                <h1 className={classes.title}>Hapkido College of Australia</h1>
+                <h3 className={classes.subtitle}>
+                  A passion for a history of excellence.
+                </h3>
+              </div>
+            </GridItem>
+          </GridContainer>
+        </div>
+      </Parallax>
+
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <div className={classes.sections}>
+          <div className={classes.container}>
+            <div className={classes.title}>
+              <h2>Our Services</h2>
+              <h3>Come along for a free trial if you are interested in any of our services!</h3>
+              <div>
+              <PostList posts={posts} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  // Create an instance of the Contentful JavaScript SDK
+  const client = require("contentful").createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  })
+
+  // Fetch all entries of content_type `blogPost`
+  const posts = await client
+    .getEntries({ content_type: "blogPost" })
+    .then((response) => response.items)
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 
 export default index;

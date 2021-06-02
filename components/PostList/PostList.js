@@ -1,11 +1,13 @@
 import React from "react"
 import Link from "next/link"
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
 
 export default function PostList({ posts = [] }) {
   return (
-    <section>
+    <GridContainer spacing={4}>
       {posts.map((post) => (
-        <article key={post.sys.id}>
+        <GridItem xs={3} key={post.sys.id}>
           <header>
             <h1>
               <Link href={`/post/${post.fields.slug}`}>
@@ -22,8 +24,8 @@ export default function PostList({ posts = [] }) {
               <a>Continue reading »</a>
             </Link>
           </p>
-        </article>
+        </GridItem>
       ))}
-</section>
+</GridContainer>
   )
 }

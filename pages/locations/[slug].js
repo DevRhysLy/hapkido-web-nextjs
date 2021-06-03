@@ -2,14 +2,15 @@ import React from "react"
 import Head from "next/head"
 import Layout from "components/Layout/Layout.js";
 import Post from "components/Post/Post.js";
+import StudioLocation from "../../components/StudioLocation/StudioLocation";
 
-export default function Slug({ post ,allLocations }) {
+export default function Slug({ studioLocations ,allLocations }) {
   return (
     <Layout studioLocations={allLocations}>
       <Head>
-        <title>{post.fields.title} — My Next.js Static Blog</title>
+        <title>Hapkido College of Australia | {studioLocations.fields.location}</title>
       </Head>
-      <Post post={post} />
+      <StudioLocation studioLocation={studioLocations} />
     </Layout>
   )
 }
@@ -24,7 +25,7 @@ export async function getStaticProps(context) {
   // Fetch all results where `fields.slug` is equal to the `slug` param
   const result = await client
     .getEntries({
-      content_type: "blogPost",
+      content_type: "studioLocations",
       "fields.slug": context.params.slug,
     })
     .then((response) => response.items)
@@ -36,19 +37,19 @@ export async function getStaticProps(context) {
 
   // Since `slug` was set to be a unique field, we can be confident that
   // the only result in the query is the correct post.
-  const post = result.pop()
+  const studioLocations = result.pop()
 
   // If nothing was found, return an empty object for props, or else there would
   // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!post) {
+  if (!studioLocations) {
     return { props: {} }
   }
 
   // Return the post as props
   return {
     props: {
-      post,
-      allLocations,
+        studioLocations,
+        allLocations,
     },
   }
 }
@@ -61,14 +62,14 @@ export async function getStaticPaths() {
   })
 
   // Query Contentful for all blog posts in the space
-  const posts = await client
-    .getEntries({ content_type: "blogPost" })
+  const allLocations = await client
+    .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
   // Map the result of that query to a list of slugs.
   // This will give Next the list of all blog post pages that need to be
   // rendered at build time.
-  const paths = posts.map(({ fields: { slug } }) => ({ params: { slug } }))
+  const paths = allLocations.map(({ fields: { slug } }) => ({ params: { slug } }))
 
   return {
     paths,

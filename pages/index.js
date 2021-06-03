@@ -26,10 +26,10 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const index = ({ posts }) => {
+const index = ({ posts, studioLocations }) => {
   const classes = useStyles();
   return (
-    <Layout>
+    <Layout studioLocations={studioLocations}>
       <Parallax image="/img/hca-eagles-banner.jpeg">
         <div className={classes.container}>
           <GridContainer>
@@ -74,9 +74,13 @@ export async function getStaticProps() {
     .getEntries({ content_type: "blogPost" })
     .then((response) => response.items)
 
+  const studioLocations = await client
+    .getEntries({ content_type: "studioLocations" })
+    .then((response) => response.items)
   return {
     props: {
       posts,
+      studioLocations
     },
   }
 }

@@ -23,7 +23,7 @@ import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.j
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+export default function HeaderLinks({ studioLocations = [] }) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
@@ -99,21 +99,13 @@ export default function HeaderLinks(props) {
           hoverColor="black"
           buttonIcon={LocationOnIcon}
           dropdownList={[
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Croydon</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Ermington West</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Belrose</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Yarrawarrah</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>West Hoxton</a>
-            </Link>,
+              studioLocations.map((studio) => (
+            <div key={studio.sys.id}>
+                  <Link href={`/locations/${studio.fields.slug}`}>
+                    <a className={classes.dropdownLink}>{studio.fields.location}</a>
+                  </Link>
+            </div>
+          ))
           ]}
         />
       </ListItem>

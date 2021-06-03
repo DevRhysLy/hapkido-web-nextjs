@@ -14,6 +14,7 @@ import Parallax from "components/Parallax/Parallax.js";import Card from "compone
 import CardBody from "components/Card/CardBody.js";
 import Button from "components/CustomButtons/Button.js";
 import PostList from "components/PostList/PostList.js"
+import SectionLogin from "pages-sections/Components-Sections/SectionLogin.js";
 //material styles
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 import { cardTitle } from "styles/jss/nextjs-material-kit.js";
@@ -33,13 +34,16 @@ const index = ({ posts, studioLocations }) => {
       <Parallax image="/img/hca-eagles-banner.jpeg">
         <div className={classes.container}>
           <GridContainer>
-            <GridItem>
+            <GridItem xs={12}>
               <div className={classes.brand}>
                 <h1 className={classes.title}>Hapkido College of Australia</h1>
                 <h3 className={classes.subtitle}>
                   A passion for a history of excellence.
                 </h3>
               </div>
+            </GridItem>
+            <GridItem xs={12}>
+              <SectionLogin />
             </GridItem>
           </GridContainer>
         </div>

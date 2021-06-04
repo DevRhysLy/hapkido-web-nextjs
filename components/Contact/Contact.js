@@ -5,13 +5,24 @@ import styled from "styled-components";
 import axios from 'axios';
 import Button from 'components/CustomButtons/Button.js';
 
+//form fields
+const GOOGLE_FORM_NAME_ID = "entry.331089697"
+const GOOGLE_FORM_EMAIL_ID = "entry.2027886443"
+const GOOGLE_FORM_AGE_OR_SERVICE_ID = "entry.1200914398"
+const GOOGLE_FORM_STUDIO_LOCATION_ID = "entry.782662881"
+const GOOGLE_FORM_MESSAGE_ID = "entry.1698893146"
+//google post action
+const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfrT-beEOnvaPtzcdZ141Km45kSNwvuodFxrM2LrXUNaHABgQ/formResponse"
 
 //age options
 const ageGroupOptions = [
     'Little Tigers: 4 - 5 Years old',
     'Childrens: 6 - 11 Years old',
     'Youth: 12 - 17 Years old',
-    'Adults 18+'
+    'Adults 18+',
+    'Demonstration Team',
+    'Private Lessons',
+    ''
 ]
 //studio options
 const studioLocationOptions = [
@@ -81,14 +92,10 @@ class Contact extends Component {
                         </FormField>
                         <FormField label="Age Group">
                             <Select
-                                multiple={true}
-                                selected={selectedAge}
                                 value={age}
                                 onChange={event =>
                                     this.setState({
                                         age: event.value,
-                                        selectedAge: event.selected,
-                                        options: ageGroupOptions
                                     })
                                 }
                                 options={ageOptions}
@@ -96,14 +103,10 @@ class Contact extends Component {
                         </FormField>
                         <FormField label="Studio Location">
                             <Select
-                                multiple={true}
-                                selected={selectedStudio}
                                 value={studio}
                                 onChange={event =>
                                     this.setState({
                                         studio: event.value,
-                                        selectedStudio: event.selected,
-                                        options: studioLocationOptions
                                     })
                                 }
                                 options={studioOptions}

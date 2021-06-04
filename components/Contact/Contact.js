@@ -4,6 +4,7 @@ import { FormDown, FormUp } from "grommet-icons";
 import styled from "styled-components";
 import axios from 'axios';
 import Button from 'components/CustomButtons/Button.js';
+import toast, { Toaster } from 'react-hot-toast';
 
 //form fields
 const GOOGLE_FORM_NAME_ID = "entry.331089697"
@@ -22,7 +23,7 @@ const ageGroupOptions = [
     'Adults 18+',
     'Demonstration Team',
     'Private Lessons',
-    ''
+    'Birthday Parties'
 ]
 //studio options
 const studioLocationOptions = [
@@ -52,23 +53,61 @@ class Contact extends Component {
         }
     }
 
+    notify = () => {
+        toast.success('Enquiry sent! We will get back to you ASAP!', {
+            duration: 5000,
+            position: "bottom-center"
+        })
+    }
+
     //when a user types there data handle the changes
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value })
     }
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.setState({
+            sendingMessage: true
+        })
+        this.sendMessage()
         console.log(this.state.firstName);
         console.log(this.state.email);
         console.log(this.state.age);
         console.log(this.state.studio);
     }
+    sendMessage = () => {
+        //puts form data into google form
+        const formData = new FormData()
+        formData.append(GOOGLE_FORM_MESSAGE_ID, this.state.message)
+        formData.append(GOOGLE_FORM_EMAIL_ID, this.state.email)
+        formData.append(GOOGLE_FORM_NAME_ID, this.state.firstName)
+        formData.append(GOOGLE_FORM_AGE_OR_SERVICE_ID, this.state.age)
+        formData.append(GOOGLE_FORM_STUDIO_LOCATION_ID, this.state.studio)
 
+        //sends data using the google form
+        axios.post(GOOGLE_FORM_ACTION, formData)
+            .then(() => {
+                this.setState({
+                    messageSent: true,
+                    sendingMessage: false,
+                    message: '',
+                    email: '',
+                    firstName: '',
+                    age: '',
+                    studio: ''
+
+                })
+            }).catch(() => {
+                this.notify()
+            })
+    }
     render() {
-        const { studioOptions, selectedAge, selectedStudio, age, studio, ageOptions } = this.state;
+        const { studioOptions, age, studio, ageOptions } = this.state;
         return (
             <div>
                 Contact us for a free Trial lesson!
                 <div>
+                <Toaster />
                     <Form onSubmit={this.handleSubmit}>
                         <FormField label="Name">
                             <TextInput
@@ -90,7 +129,7 @@ class Contact extends Component {
                                 placeholder="your@email.com"
                             />
                         </FormField>
-                        <FormField label="Age Group">
+                        <FormField label="Age Group/Service">
                             <Select
                                 value={age}
                                 onChange={event =>
@@ -110,6 +149,18 @@ class Contact extends Component {
                                     })
                                 }
                                 options={studioOptions}
+                            />
+                        </FormField>
+                        <FormField label="Name">
+                            <TextArea
+                                name='message'
+                                id='message'
+                                value={this.state.message}
+                                onChange={this.handleChange}
+                                required
+                                placeholder="Your Message"
+                                required
+                                rows="6"
                             />
                         </FormField>
                         <Button type="submit" color="info">Send</Button>

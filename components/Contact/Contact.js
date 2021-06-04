@@ -151,7 +151,7 @@ class Contact extends Component {
                                 options={studioOptions}
                             />
                         </FormField>
-                        <FormField label="Name">
+                        <FormField label="Message">
                             <TextArea
                                 name='message'
                                 id='message'

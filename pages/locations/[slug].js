@@ -30,7 +30,7 @@ export async function getStaticProps(context) {
     })
     .then((response) => response.items)
 
-    //gets studio location data for layout
+    //Gets studio location data for Layout.js
     const allLocations = await client
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)

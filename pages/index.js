@@ -10,11 +10,10 @@ import comp from "styles/jss/nextjs-material-kit/pages/components.js";
 import Layout from "components/Layout/Layout.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Parallax from "components/Parallax/Parallax.js";import Card from "components/Card/Card.js";
+import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
 import PostList from "components/PostList/PostList.js"
-import SectionLogin from "pages-sections/Components-Sections/SectionLogin.js";
 //material styles
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 import { cardTitle } from "styles/jss/nextjs-material-kit.js";
@@ -40,7 +39,6 @@ const index = ({ posts, studioLocations }) => {
                 <h3 className={classes.subtitle}>
                   A passion for a history of excellence.
                 </h3>
-                <Contact />
               </div>
             </GridItem>
           </GridContainer>
@@ -50,7 +48,7 @@ const index = ({ posts, studioLocations }) => {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.sections}>
           <div className={classes.container}>
-          <SectionLogin />
+          <Contact />
             <div className={classes.title}>
               <h2>Our Services</h2>
               <h3>Come along for a free trial if you are interested in any of our services!</h3>

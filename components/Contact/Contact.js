@@ -1,64 +1,119 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { useState } from 'react'
+import React, { Component, useState } from "react";
+import { Box, Text, Grommet, Form, FormField, Heading, Header, TextArea, Select, TextInput } from "grommet";
+import { FormDown, FormUp } from "grommet-icons";
+import styled from "styled-components";
+import axios from 'axios';
+import Button from 'components/CustomButtons/Button.js';
 
-export default function Contact() {
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+//age options
+const ageGroupOptions = [
+    'Little Tigers: 4 - 5 Years old',
+    'Childrens: 6 - 11 Years old',
+    'Youth: 12 - 17 Years old',
+    'Adults 18+'
+]
+//studio options
+const studioLocationOptions = [
+    'Croydon HQ',
+    'Ermington West',
+    'Belrose',
+    'Yarrawarrah',
+    'West Hoxton'
+]
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Sending')
+class Contact extends Component {
 
-    let data = {
-        name,
-        email,
-        message
+    constructor(props) {
+        super(props)
+        this.state = {
+            message: '',
+            email: '',
+            firstName: '',
+            age: '',
+            studio: '',
+            showForm: false,
+            sendingMessage: false,
+            messageSent: false,
+            messageError: false,
+            studioOptions: studioLocationOptions,
+            ageOptions: ageGroupOptions
+        }
     }
 
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then((res) => {
-        console.log('Response received')
-        if (res.status === 200) {
-            console.log('Response succeeded!')
-            setSubmitted(true) 
-            setName('')
-            setEmail('')
-            setMessage('')
-        }
-    })
-  }
+    //when a user types there data handle the changes
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+    handleSubmit = () => {
+        console.log(this.state.firstName);
+        console.log(this.state.email);
+        console.log(this.state.age);
+        console.log(this.state.studio);
+    }
 
-  return (
-    <div className={styles.container}>
-      < form className={styles.main} >
-
-        < formGroup className={styles.inputGroup} >
-          < label htmlFor='name'>Name</label>
-          < input type='text' onChange={(e)=>{setName(e.target.value)}} name='name' className={styles.inputField} />
-        </formGroup>
-
-        < formGroup className={styles.inputGroup} >
-          < label htmlFor='email'>Email</label>
-          < input type='email' onChange={(e)=>{setEmail(e.target.value)}} name='email' className={styles.inputField} />
-        </formGroup>
-
-        < formGroup className={styles.inputGroup} >
-          < label htmlFor='message'>Message</label>
-          < input type='text' onChange={(e)=>{setMessage(e.target.value)}} name='message' className={styles.inputField} />
-        </formGroup>
-
-        < input type='submit' onClick={(e)=>{handleSubmit(e)}}/>
-      </form >
-    </div>
-  )
+    render() {
+        const { studioOptions, selectedAge, selectedStudio, age, studio, ageOptions } = this.state;
+        return (
+            <div>
+                Contact us for a free Trial lesson!
+                <div>
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormField label="Name">
+                            <TextInput
+                                name='firstName'
+                                id='firstName'
+                                value={this.state.firstName}
+                                onChange={this.handleChange}
+                                required
+                                placeholder="Your Name"
+                            />
+                        </FormField>
+                        <FormField label="Email">
+                            <TextInput
+                                name='email'
+                                id='email'
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                                required
+                                placeholder="your@email.com"
+                            />
+                        </FormField>
+                        <FormField label="Age Group">
+                            <Select
+                                multiple={true}
+                                selected={selectedAge}
+                                value={age}
+                                onChange={event =>
+                                    this.setState({
+                                        age: event.value,
+                                        selectedAge: event.selected,
+                                        options: ageGroupOptions
+                                    })
+                                }
+                                options={ageOptions}
+                            />
+                        </FormField>
+                        <FormField label="Studio Location">
+                            <Select
+                                multiple={true}
+                                selected={selectedStudio}
+                                value={studio}
+                                onChange={event =>
+                                    this.setState({
+                                        studio: event.value,
+                                        selectedStudio: event.selected,
+                                        options: studioLocationOptions
+                                    })
+                                }
+                                options={studioOptions}
+                            />
+                        </FormField>
+                        <Button type="submit" color="info">Send</Button>
+                    </Form>
+                </div>
+            </div>
+        )
+    }
 }
+export default Contact;

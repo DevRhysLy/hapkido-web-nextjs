@@ -1,16 +1,15 @@
 import React from "react"
 import Head from "next/head"
 import Layout from "components/Layout/Layout.js";
-import Post from "components/Post/Post.js";
-import StudioLocation from "../../components/StudioLocation/StudioLocation";
+import Service from "components/Service/Service";
 
-export default function Slug({ studioLocations ,allLocations, allServices }) {
+export default function Slug({ services ,allLocations, allServices }) {
   return (
     <Layout studioLocations={allLocations} services={allServices}>
       <Head>
-        <title>Hapkido College of Australia | {studioLocations.fields.location}</title>
+        <title>Hapkido College of Australia | {services.fields.service}</title>
       </Head>
-      <StudioLocation studioLocation={studioLocations} />
+      <Service services={services} />
     </Layout>
   )
 }
@@ -25,12 +24,12 @@ export async function getStaticProps(context) {
   // Fetch all results where `fields.slug` is equal to the `slug` param
   const result = await client
     .getEntries({
-      content_type: "studioLocations",
+      content_type: "services",
       "fields.slug": context.params.slug,
     })
     .then((response) => response.items)
 
-    //Gets studio location data for Layout.js
+    //Gets studio location ans sercives data for Layout.js
     const allLocations = await client
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
@@ -41,18 +40,18 @@ export async function getStaticProps(context) {
 
   // Since `slug` was set to be a unique field, we can be confident that
   // the only result in the query is the correct post.
-  const studioLocations = result.pop()
+  const services = result.pop()
 
   // If nothing was found, return an empty object for props, or else there would
   // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!studioLocations) {
+  if (!services) {
     return { props: {} }
   }
 
   // Return the post as props
   return {
     props: {
-        studioLocations,
+        services,
         allLocations,
         allServices
     },
@@ -67,14 +66,14 @@ export async function getStaticPaths() {
   })
 
   // Query Contentful for all blog posts in the space
-  const allLocations = await client
-    .getEntries({ content_type: "studioLocations" })
+  const allServices = await client
+    .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
   // Map the result of that query to a list of slugs.
   // This will give Next the list of all blog post pages that need to be
   // rendered at build time.
-  const paths = allLocations.map(({ fields: { slug } }) => ({ params: { slug } }))
+  const paths = allServices.map(({ fields: { slug } }) => ({ params: { slug } }))
 
   return {
     paths,

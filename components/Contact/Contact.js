@@ -105,7 +105,6 @@ class Contact extends Component {
         const { studioOptions, age, studio, ageOptions } = this.state;
         return (
             <div>
-                Contact us for a free Trial lesson!
                 <div>
                 <Toaster />
                     <Form onSubmit={this.handleSubmit}>

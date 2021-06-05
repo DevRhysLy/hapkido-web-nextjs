@@ -13,7 +13,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
-import PostList from "components/PostList/PostList.js"
+import ServiceList from "components/ServiceList/ServiceList.js"
 //material styles
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 import { cardTitle } from "styles/jss/nextjs-material-kit.js";
@@ -51,9 +51,9 @@ const index = ({ posts, studioLocations, services }) => {
           <Contact />
             <div className={classes.title}>
               <h2>Our Services</h2>
-              <h3>Come along for a free trial if you are interested in any of our services!</h3>
+              <h3>Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services!</h3>
               <div>
-              {/* <PostList posts={posts} /> */}
+              <ServiceList services={services} />
               </div>
             </div>
           </div>

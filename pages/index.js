@@ -5,7 +5,7 @@ import classNames from "classnames";
 import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import comp from "styles/jss/nextjs-material-kit/pages/components.js";
+import styles from "styles/jss/nextjs-material-kit/pages/components.js";
 //components used
 import Layout from "components/Layout/Layout.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -13,16 +13,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
-import ServiceList from "components/ServiceList/ServiceList.js"
-//material styles
-import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
-import { cardTitle } from "styles/jss/nextjs-material-kit.js";
-
-const styles = {
-  ...imagesStyles,
-  cardTitle,
-  ...comp
-};
+import ServiceList from "components/ServiceList/ServiceList.js";
 
 const useStyles = makeStyles(styles);
 

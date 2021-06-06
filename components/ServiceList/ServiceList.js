@@ -7,14 +7,12 @@ export default function ServiceList({ services = [] }) {
   return (
     <GridContainer spacing={4}>
       {services.map((service) => (
-        <GridItem xs={3} key={service.sys.id}>
-          <header>
-            <h1>
+        <GridItem xs={12} md={3} key={service.sys.id}>
+            <h2>
               <Link href={`/services/${service.fields.slug}`}>
                 <a>{service.fields.service}</a>
               </Link>
-            </h1>
-          </header>
+            </h2>
           <p>{service.fields.shortDescription}</p>
           <p>
             <Link href={`/services/${service.fields.slug}`}>

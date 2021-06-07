@@ -74,7 +74,6 @@ export default function HeaderLinks({ studioLocations = [], services =[] }) {
                       <a className={classes.dropdownLink}>{service.fields.service}</a>
                     </Link>
             ))
-            
           ]}
         />
       </ListItem>

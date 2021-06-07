@@ -41,8 +41,8 @@ const index = ({ posts, studioLocations, services }) => {
           <div className={classes.container}>
           <Contact />
             <div className={classes.title}>
-              <h2>Our Services</h2>
-              <h3>Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services!</h3>
+              <h2 className={classes.h2}>Our Services</h2>
+              <h3 >Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services!</h3>
               <div>
               <ServiceList services={services} />
               </div>

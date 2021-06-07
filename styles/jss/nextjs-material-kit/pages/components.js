@@ -38,6 +38,9 @@ const componentsStyle = {
   textCenter: {
     textAlign: "center",
   },
+  h2:{
+    color: "#2196f3",  
+  }
 };
 
 export default componentsStyle;

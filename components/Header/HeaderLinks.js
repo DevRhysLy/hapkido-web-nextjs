@@ -40,19 +40,13 @@ export default function HeaderLinks({ studioLocations = [], services =[] }) {
           buttonIcon={LocationOnIcon}
           dropdownList={[
             <Link href="/components">
-              <a className={classes.dropdownLink}>Croydon</a>
+              <a className={classes.dropdownLink}>Our College</a>
             </Link>,
             <Link href="/components">
-              <a className={classes.dropdownLink}>Ermington West</a>
+              <a className={classes.dropdownLink}>History of Hapkido</a>
             </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Belrose</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Yarrawarrah</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>West Hoxton</a>
+            <Link href="/our-master-and-instructors">
+              <a className={classes.dropdownLink}>Our Master and Instructors</a>
             </Link>,
           ]}
         />

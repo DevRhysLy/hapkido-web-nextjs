@@ -1,7 +1,22 @@
-import React from "react"
-import Head from "next/head"
+import React from "react";
+// nodejs library that concatenates classes
+import classNames from "classnames";
+// react components for routing our app without refresh
+import Link from "next/link";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "styles/jss/nextjs-material-kit/pages/components.js";
+//components used
 import Layout from "components/Layout/Layout.js";
-import Service from "components/Service/Service";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import Parallax from "components/Parallax/Parallax.js";
+import CardBody from "components/Card/CardBody.js";
+import Contact from "components/Contact/Contact.js";
+import PostList from "components/PostList/PostList.js";
+import Head from "next/head";
+
+const useStyles = makeStyles(styles);
 
 export default function Slug({ allLocations, allServices, aboutPages, allAboutPages }) {
   return (
@@ -9,7 +24,32 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
       <Head>
         <title>Hapkido College of Australia | {allAboutPages.fields.title}</title>
       </Head>
-      <Service services={services} />
+      <Parallax image={allAboutPages.fields.bannerImage.fields.file.url} responsive={true}>
+        <div className={classes.container}>
+          <GridContainer>
+            <GridItem xs={12} md={6}>
+              <div className={classes.brand}>
+                <h1 className={classes.title}>heading</h1>
+                <h3 className={classes.subtitle}>
+                  subheading
+                </h3>
+              </div>
+            </GridItem>
+          </GridContainer>
+        </div>
+      </Parallax>
+
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <div className={classes.sections}>
+          <div className={classes.container}>
+            <div className={classes.title}>
+              <h2 className={classes.h2}>content</h2>
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -48,7 +88,7 @@ export async function getStaticProps(context) {
 
   // If nothing was found, return an empty object for props, or else there would
   // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!services) {
+  if (!allAboutPages) {
     return { props: {} }
   }
 

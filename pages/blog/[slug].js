@@ -3,13 +3,13 @@ import Head from "next/head"
 import Layout from "components/Layout/Layout.js";
 import Post from "components/Post/Post.js";
 
-export default function Slug({ post ,allLocations }) {
+export default function Slug({ posts ,allLocations, allServices, aboutPages }) {
   return (
-    <Layout studioLocations={allLocations}>
+    <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
-        <title>{post.fields.title} — My Next.js Static Blog</title>
+        <title>{posts.fields.title} — Hapkido College of Australia Blog</title>
       </Head>
-      <Post post={post} />
+      <Post post={posts} />
     </Layout>
   )
 }
@@ -29,26 +29,37 @@ export async function getStaticProps(context) {
     })
     .then((response) => response.items)
 
-    //gets studio location data for layout
+    //Gets studio location ans sercives data for Layout.js
     const allLocations = await client
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
+    const allServices = await client
+    .getEntries({ content_type: "services" })
+    .then((response) => response.items)
+
+    const aboutPages = await client
+    .getEntries({ content_type: "aboutPages" })
+    .then((response) => response.items)
+
+
   // Since `slug` was set to be a unique field, we can be confident that
   // the only result in the query is the correct post.
-  const post = result.pop()
+  const posts = result.pop()
 
   // If nothing was found, return an empty object for props, or else there would
   // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!post) {
+  if (!posts) {
     return { props: {} }
   }
 
   // Return the post as props
   return {
     props: {
-      post,
-      allLocations,
+        posts,
+        allLocations,
+        allServices,
+        aboutPages
     },
   }
 }

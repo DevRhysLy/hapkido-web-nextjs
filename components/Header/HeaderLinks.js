@@ -94,6 +94,18 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
+          id="blog"
+          title="Checkout Our Blog!"
+          placement={"top"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+          <Link href="/blog">
+            <a className={classes.navLink}>Blog</a>
+          </Link>
+        </Tooltip>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Tooltip
           id="instagram-facebook"
           title="Follow us on Facebook"
           placement={"top"}

@@ -10,7 +10,7 @@ export default function PostList({ posts = [] }) {
         <GridItem xs={3} key={post.sys.id}>
           <header>
             <h1>
-              <Link href={`/post/${post.fields.slug}`}>
+              <Link href={`/blog/${post.fields.slug}`}>
                 <a>{post.fields.title}</a>
               </Link>
             </h1>
@@ -20,7 +20,7 @@ export default function PostList({ posts = [] }) {
           </header>
           <p>{post.fields.description}</p>
           <p>
-            <Link href={`/post/${post.fields.slug}`}>
+            <Link href={`/blog/${post.fields.slug}`}>
               <a>Continue reading »</a>
             </Link>
           </p>

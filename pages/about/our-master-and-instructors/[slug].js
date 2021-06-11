@@ -1,12 +1,11 @@
 import React from "react"
 import Head from "next/head"
 import Layout from "components/Layout/Layout.js";
-import Post from "components/Post/Post.js";
-import MainInstructors from "../../components/MainInstructors/MainInstructors";
+import MainInstructors from "components/MainInstructors/MainInstructors.js";
 
-export default function Slug({ instructors ,allLocations, allServices }) {
+export default function Slug({ instructors ,allLocations, allServices, aboutPages }) {
   return (
-    <Layout studioLocations={allLocations} services={allServices}>
+    <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
         <title>Hapkido College of Australia | {instructors.fields.location}</title>
       </Head>
@@ -39,6 +38,10 @@ export async function getStaticProps(context) {
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
+    const aboutPages = await client
+    .getEntries({ content_type: "aboutPages" })
+    .then((response) => response.items)
+
   // Since `slug` was set to be a unique field, we can be confident that
   // the only result in the query is the correct post.
   const instructors = result.pop()
@@ -54,7 +57,8 @@ export async function getStaticProps(context) {
     props: {
         instructors,
         allLocations,
-        allServices
+        allServices,
+        aboutPages
     },
   }
 }

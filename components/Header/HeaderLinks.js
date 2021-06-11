@@ -23,7 +23,7 @@ import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.j
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks({ studioLocations = [], services =[] }) {
+export default function HeaderLinks({ studioLocations = [], services = [], aboutPages = [] }) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
@@ -39,15 +39,14 @@ export default function HeaderLinks({ studioLocations = [], services =[] }) {
           hoverColor="black"
           buttonIcon={LocationOnIcon}
           dropdownList={[
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Our College</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>History of Hapkido</a>
-            </Link>,
-            <Link href="/our-master-and-instructors">
+            aboutPages.map((aboutPage, id) => (
+              <Link key={id} href={`/about/${aboutPage.fields.slug}`}>
+                <a className={classes.dropdownLink}>{aboutPage.fields.title}</a>
+              </Link>
+            )),
+            <Link href="/about/our-master-and-instructors">
               <a className={classes.dropdownLink}>Our Master and Instructors</a>
-            </Link>,
+            </Link>
           ]}
         />
       </ListItem>
@@ -64,9 +63,9 @@ export default function HeaderLinks({ studioLocations = [], services =[] }) {
           buttonIcon={LocationOnIcon}
           dropdownList={[
             services.map((service, id) => (
-                    <Link key={id} href={`/services/${service.fields.slug}`}>
-                      <a className={classes.dropdownLink}>{service.fields.service}</a>
-                    </Link>
+              <Link key={id} href={`/services/${service.fields.slug}`}>
+                <a className={classes.dropdownLink}>{service.fields.service}</a>
+              </Link>
             ))
           ]}
         />
@@ -83,13 +82,13 @@ export default function HeaderLinks({ studioLocations = [], services =[] }) {
           hoverColor="none"
           buttonIcon={LocationOnIcon}
           dropdownList={[
-              studioLocations.map((studio) => (
-            <div key={studio.sys.id}>
-                  <Link href={`/locations/${studio.fields.slug}`}>
-                    <a className={classes.dropdownLink}>{studio.fields.location}</a>
-                  </Link>
-            </div>
-          ))
+            studioLocations.map((studio) => (
+              <div key={studio.sys.id}>
+                <Link href={`/locations/${studio.fields.slug}`}>
+                  <a className={classes.dropdownLink}>{studio.fields.location}</a>
+                </Link>
+              </div>
+            ))
           ]}
         />
       </ListItem>

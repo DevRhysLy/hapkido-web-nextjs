@@ -17,10 +17,10 @@ import ServiceList from "components/ServiceList/ServiceList.js";
 
 const useStyles = makeStyles(styles);
 
-const index = ({ posts, studioLocations, services }) => {
+const index = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
   return (
-    <Layout studioLocations={studioLocations} services={services}>
+    <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
         <div className={classes.container}>
           <GridContainer>
@@ -73,11 +73,16 @@ export async function getStaticProps() {
     const services = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
+
+    const aboutPages = await client
+    .getEntries({ content_type: "aboutPages" })
+    .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
-      services
+      services, 
+      aboutPages
     },
   }
 }

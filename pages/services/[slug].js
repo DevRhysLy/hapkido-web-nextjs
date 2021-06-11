@@ -3,9 +3,9 @@ import Head from "next/head"
 import Layout from "components/Layout/Layout.js";
 import Service from "components/Service/Service";
 
-export default function Slug({ services ,allLocations, allServices }) {
+export default function Slug({ services ,allLocations, allServices, aboutPages }) {
   return (
-    <Layout studioLocations={allLocations} services={allServices}>
+    <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
         <title>Hapkido College of Australia | {services.fields.service}</title>
       </Head>
@@ -38,6 +38,10 @@ export async function getStaticProps(context) {
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
+    const aboutPages = await client
+    .getEntries({ content_type: "aboutPages" })
+    .then((response) => response.items)
+
   // Since `slug` was set to be a unique field, we can be confident that
   // the only result in the query is the correct post.
   const services = result.pop()
@@ -53,7 +57,8 @@ export async function getStaticProps(context) {
     props: {
         services,
         allLocations,
-        allServices
+        allServices,
+        aboutPages
     },
   }
 }

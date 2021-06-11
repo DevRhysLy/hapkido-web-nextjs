@@ -34,7 +34,7 @@ export default function MainInstructorList({ instructors = [] }) {
             <CardBody>
               <h4 className={classes.cardTitle}>{instructor.fields.title}</h4>
               <p>{instructor.fields.bio}</p>
-              <Link href={`/our-master-and-instructors/${instructor.fields.slug}`}>
+              <Link href={`/about/our-master-and-instructors/${instructor.fields.slug}`}>
                 <a>Learn More »</a>
               </Link>
             </CardBody>

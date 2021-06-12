@@ -13,7 +13,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
-import ServiceList from "components/ServiceList/ServiceList.js";
+import PostList from "components/PostList/PostList.js";
 
 const useStyles = makeStyles(styles);
 
@@ -26,9 +26,9 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
           <GridContainer>
             <GridItem xs={12} md={6}>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Hapkido College of Australia</h1>
+                <h1 className={classes.title}>Our Blog</h1>
                 <h3 className={classes.subtitle}>
-                  A passion for a history of excellence.
+                  Updates and quick answers for our members of HCA.
                 </h3>
               </div>
             </GridItem>
@@ -39,12 +39,10 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.sections}>
           <div className={classes.container}>
-          <Contact />
             <div className={classes.title}>
-              <h2 className={classes.h2}>Our Services</h2>
-              <h3 >Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services!</h3>
+              <h2 className={classes.h2}>Our Blogs</h2>
               <div>
-              <ServiceList services={services} />
+              <PostList posts={posts} />
               </div>
             </div>
           </div>

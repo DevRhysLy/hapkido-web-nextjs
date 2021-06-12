@@ -13,15 +13,15 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
-import ServiceList from "components/ServiceList/ServiceList.js";
+import MainInstructorsList from "components/MainInstructorsList/MainInstructorsList.js";
 
 const useStyles = makeStyles(styles);
 
-const index = ({ posts, studioLocations, services, aboutPages }) => {
+const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPages }) => {
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
-      <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
+      <Parallax image="/img/hca-banner-2.jpeg" responsive={true}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} md={6}>
@@ -39,13 +39,12 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.sections}>
           <div className={classes.container}>
-          <Contact />
             <div className={classes.title}>
-              <h2 className={classes.h2}>Our Services</h2>
-              <h3 >Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services!</h3>
+              <h2 className={classes.h2}>Our Master and Instructors</h2>
+              <h3 >Meet the Master and Instructors of HCA!</h3>
               <div>
-              <ServiceList services={services} />
               </div>
+              <MainInstructorsList instructors={instructors} />
             </div>
           </div>
         </div>
@@ -61,7 +60,7 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   })
 
-  // Fetch all entries of content_type `blogPost`
+  // Fetch all entries of content_type that is wanted
   const posts = await client
     .getEntries({ content_type: "blogPost" })
     .then((response) => response.items)
@@ -74,6 +73,10 @@ export async function getStaticProps() {
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
+    const instructors = await client
+    .getEntries({ content_type: "mainInstructor" })
+    .then((response) => response.items)
+
     const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
@@ -81,10 +84,11 @@ export async function getStaticProps() {
     props: {
       posts,
       studioLocations,
-      services, 
+      services,
+      instructors,
       aboutPages
     },
   }
 }
 
-export default index;
+export default InstructorPage;

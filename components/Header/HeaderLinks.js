@@ -98,10 +98,13 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
           title="Checkout Our Blog!"
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
-        >
+        ><Button 
+        color="transparent"
+        className={classes.navLink}>
           <Link href="/blog">
-            <a className={classes.navLink}>Blog</a>
+            <a className={classes.blogLink}>Blog</a>
           </Link>
+          </Button>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>

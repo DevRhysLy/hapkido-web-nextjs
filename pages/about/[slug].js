@@ -15,10 +15,12 @@ import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
 import PostList from "components/PostList/PostList.js";
 import Head from "next/head";
+import ReactMarkdown from "react-markdown"
 
 const useStyles = makeStyles(styles);
 
 export default function Slug({ allLocations, allServices, aboutPages, allAboutPages }) {
+  const classes = useStyles();
   return (
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
@@ -29,10 +31,8 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
           <GridContainer>
             <GridItem xs={12} md={6}>
               <div className={classes.brand}>
-                <h1 className={classes.title}>heading</h1>
-                <h3 className={classes.subtitle}>
-                  subheading
-                </h3>
+                <h1 className={classes.title}>{allAboutPages.fields.title}</h1>
+                <h3 className={classes.subtitle}>{allAboutPages.fields.subtitle}</h3>
               </div>
             </GridItem>
           </GridContainer>
@@ -42,11 +42,9 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.sections}>
           <div className={classes.container}>
-            <div className={classes.title}>
-              <h2 className={classes.h2}>content</h2>
-              <div>
+            <div>
+                <ReactMarkdown>{allAboutPages.fields.pageContent}</ReactMarkdown>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -69,16 +67,16 @@ export async function getStaticProps(context) {
     })
     .then((response) => response.items)
 
-    //Gets studio location ans sercives data for Layout.js
-    const allLocations = await client
+  //Gets studio location ans sercives data for Layout.js
+  const allLocations = await client
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
-    const allServices = await client
+  const allServices = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
-    const aboutPages = await client
+  const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
 
@@ -95,10 +93,10 @@ export async function getStaticProps(context) {
   // Return the post as props
   return {
     props: {
-        allAboutPages,
-        allLocations,
-        allServices,
-        aboutPages
+      allAboutPages,
+      allLocations,
+      allServices,
+      aboutPages
     },
   }
 }

@@ -21,20 +21,20 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
-      {/* <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
+      <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} md={6}>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Hapkido College of Australia</h1>
+                <h1 className={classes.title}>Our Blog</h1>
                 <h3 className={classes.subtitle}>
-                  A passion for a history of excellence.
+                  Updates and quick answers for our members of HCA.
                 </h3>
               </div>
             </GridItem>
           </GridContainer>
         </div>
-      </Parallax> */}
+      </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.sections}>
@@ -42,7 +42,6 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
             <div className={classes.title}>
               <h2 className={classes.h2}>Our Blogs</h2>
               <div>
-              {console.log(posts)}
               <PostList posts={posts} />
               </div>
             </div>

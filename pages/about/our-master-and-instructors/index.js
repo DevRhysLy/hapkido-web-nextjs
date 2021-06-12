@@ -17,10 +17,10 @@ import MainInstructorsList from "components/MainInstructorsList/MainInstructorsL
 
 const useStyles = makeStyles(styles);
 
-const InstructorPage = ({ posts, studioLocations, services, instructors }) => {
+const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPages }) => {
   const classes = useStyles();
   return (
-    <Layout studioLocations={studioLocations} services={services}>
+    <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Parallax image="/img/hca-banner-2.jpeg" responsive={true}>
         <div className={classes.container}>
           <GridContainer>
@@ -76,12 +76,17 @@ export async function getStaticProps() {
     const instructors = await client
     .getEntries({ content_type: "mainInstructor" })
     .then((response) => response.items)
+
+    const aboutPages = await client
+    .getEntries({ content_type: "aboutPages" })
+    .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
       services,
-      instructors
+      instructors,
+      aboutPages
     },
   }
 }

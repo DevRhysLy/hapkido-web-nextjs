@@ -38,7 +38,13 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
               <h2 className={classes.h2}>Contact Us</h2>
               <h3 >Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services, have any questions or you just want to reach out!</h3>
               <div>
-              <Contact />
+                <GridContainer>
+                  <GridItem xs={12} md={6}>
+                    <div className={classes.brand}>
+                      <Contact />
+                    </div>
+                  </GridItem>
+                </GridContainer>
               </div>
             </div>
           </div>
@@ -64,18 +70,18 @@ export async function getStaticProps() {
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
-    const services = await client
+  const services = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
-    const aboutPages = await client
+  const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
-      services, 
+      services,
       aboutPages
     },
   }

@@ -14,10 +14,11 @@ import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
 import ServiceList from "components/ServiceList/ServiceList.js";
+import Testimonial from "components/Testimonials/Testimonial.js";
 
 const useStyles = makeStyles(styles);
 
-const index = ({ posts, studioLocations, services, aboutPages }) => {
+const index = ({ posts, studioLocations, services, aboutPages, testimonials }) => {
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
@@ -39,6 +40,7 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.sections}>
           <div className={classes.container}>
+            <Testimonial testimonials={testimonials}/>
           <Contact />
             <div className={classes.title}>
               <h2 className={classes.h2}>Our Services</h2>
@@ -77,12 +79,17 @@ export async function getStaticProps() {
     const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
+
+    const testimonials = await client
+    .getEntries({ content_type: "testimonials" })
+    .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
       services, 
-      aboutPages
+      aboutPages,
+      testimonials
     },
   }
 }

@@ -1,61 +1,35 @@
 import React, { Component } from "react";
-import Carousel from 'react-multi-carousel';
-import "react-multi-carousel/lib/styles.css";
+import Slider from "react-slick";
 import StarsRating from 'stars-rating';
 import Quote from "components/Typography/Quote.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Testimonial({ testimonials = [] }) {
-    const sizing = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 3000 },
-            items: 2
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 1
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 1
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
-        }
-    }
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      };
     return (
-        <div>
+        <div style={{margin: "32px"}}>
             <h2 style={{textAlign: "center"}}>Testimonials</h2>
-            <Carousel
-                additionalTransfrom={0}
-                arrows
-                autoPlay
-                autoPlaySpeed={4000}
-                centerMode={true}
-                className=""
-                containerClass="container-with-dots"
-                dotListClass=""
-                draggable
-                focusOnSelect={false}
-                itemClass=""
-                keyBoardControl
-                minimumTouchDrag={80}
-                renderButtonGroupOutside={false}
-                renderDotsOutside={false}
-                responsive={sizing}
-                showDots={false}
-                sliderClass=""
-                slidesToSlide={1}
-                swipeable>
+            <Slider {...settings}>
+                {console.log(testimonials)}
                 {testimonials.map((testimonial) => (
                     <div style={{margin: "32px"}}>
-                        <div>
+                        <div style={{margin: "24px"}}>
                             <Card>
                                 <CardHeader style={{alignSelf:"center"}}>
-                                    <img src="/img/faces/avatar.jpg" style={{ height: "75px", width: "75px", overflow: "hidden", borderRadius: "50%" }}/>
+                                    <img src={testimonial.fields.avatar.fields.file.url} style={{ height: "75px", width: "75px", overflow: "hidden", borderRadius: "50%" }}/>
                                 </CardHeader>
                                 <CardBody>
                                     <Quote
@@ -73,7 +47,7 @@ function Testimonial({ testimonials = [] }) {
                         </div>
                     </div>
                 ))}
-            </Carousel>
+            </Slider>
         </div>
     )
 }

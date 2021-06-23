@@ -5,6 +5,8 @@ import styled from "styled-components";
 import axios from 'axios';
 import Button from 'components/CustomButtons/Button.js';
 import toast, { Toaster } from 'react-hot-toast';
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
 
 //form fields
 const GOOGLE_FORM_NAME_ID = "entry.331089697"
@@ -105,65 +107,73 @@ class Contact extends Component {
         const { studioOptions, age, studio, ageOptions } = this.state;
         return (
             <div>
-                <div>
-                <Toaster />
-                    <Form onSubmit={this.handleSubmit}>
-                        <FormField label="Name">
-                            <TextInput
-                                name='firstName'
-                                id='firstName'
-                                value={this.state.firstName}
-                                onChange={this.handleChange}
-                                required
-                                placeholder="Your Name"
-                            />
-                        </FormField>
-                        <FormField label="Email">
-                            <TextInput
-                                name='email'
-                                id='email'
-                                value={this.state.email}
-                                onChange={this.handleChange}
-                                required
-                                placeholder="your@email.com"
-                            />
-                        </FormField>
-                        <FormField label="Age Group/Service">
-                            <Select
-                                value={age}
-                                onChange={event =>
-                                    this.setState({
-                                        age: event.value,
-                                    })
-                                }
-                                options={ageOptions}
-                            />
-                        </FormField>
-                        <FormField label="Studio Location">
-                            <Select
-                                value={studio}
-                                onChange={event =>
-                                    this.setState({
-                                        studio: event.value,
-                                    })
-                                }
-                                options={studioOptions}
-                            />
-                        </FormField>
-                        <FormField label="Message">
-                            <TextArea
-                                name='message'
-                                id='message'
-                                value={this.state.message}
-                                onChange={this.handleChange}
-                                required
-                                placeholder="Your Message"
-                                required
-                                rows="6"
-                            />
-                        </FormField>
-                        <Button type="submit" color="info">Send</Button>
-                    </Form>
+                 <h2 style={{textAlign: "center"}}>Contact Us</h2>
+                <div style={{margin: "24px"}}>
+                    <Card>
+                        <CardBody>
+                            <Toaster />
+                            <Form onSubmit={this.handleSubmit}>
+                                <FormField label="Name">
+                                    <TextInput
+                                        name='firstName'
+                                        id='firstName'
+                                        value={this.state.firstName}
+                                        onChange={this.handleChange}
+                                        required
+                                        placeholder="Your Name"
+                                    />
+                                </FormField>
+                                <FormField label="Email">
+                                    <TextInput
+                                        name='email'
+                                        id='email'
+                                        value={this.state.email}
+                                        onChange={this.handleChange}
+                                        required
+                                        placeholder="your@email.com"
+                                    />
+                                </FormField>
+                                <FormField label="Age Group/Service">
+                                    <Select
+                                        value={age}
+                                        onChange={event =>
+                                            this.setState({
+                                                age: event.value,
+                                            })
+                                        }
+                                        options={ageOptions}
+                                    />
+                                </FormField>
+                                <FormField label="Studio Location">
+                                    <Select
+                                        value={studio}
+                                        onChange={event =>
+                                            this.setState({
+                                                studio: event.value,
+                                            })
+                                        }
+                                        options={studioOptions}
+                                    />
+                                </FormField>
+                                <FormField label="Message">
+                                    <TextArea
+                                        name='message'
+                                        id='message'
+                                        value={this.state.message}
+                                        onChange={this.handleChange}
+                                        required
+                                        placeholder="Your Message"
+                                        required
+                                        rows="6"
+                                    />
+                                </FormField>
+                                <div style={{textAlign: "center"}}>
+                                <Button type="submit" color="info">Send</Button>
+                                </div>
+                            </Form>
+                        </CardBody>
+                    </Card>
+
                 </div>
             </div>
         )

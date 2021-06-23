@@ -27,28 +27,26 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
                 <h1 className={classes.title}>Contact</h1>
               </div>
             </GridItem>
+
           </GridContainer>
         </div>
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.sections}>
-          <div className={classes.container}>
-            <div className={classes.title}>
-              <h2 className={classes.h2}>Contact Us</h2>
-              <h3 >Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services, have any questions or you just want to reach out!</h3>
-              <div>
-                <GridContainer>
-                  <GridItem xs={12} md={6}>
-                    <div className={classes.brand}>
-                      <Contact />
-                    </div>
-                  </GridItem>
-                </GridContainer>
-              </div>
-            </div>
-          </div>
-        </div>
+            <GridContainer>
+              <GridItem xs={12} md={6}>
+                  <Contact />
+              </GridItem><GridItem xs={12} md={6}>
+                <div style={{textAlign: "center"}}>
+                  <h2 >We'd love to hear from you!</h2>
+                  <h3>Our Headquarters</h3>
+                  <h4>146 Parramatta Rd, Croydon NSW 2132</h4>
+                  <h3>Phone Contact</h3>
+                  <h4>97 470 822</h4>
+                  <img style={{width:"45%"}} src="/img/hca-logo.png"/>
+                  </div>
+              </GridItem>
+            </GridContainer>
       </div>
     </Layout>
   );

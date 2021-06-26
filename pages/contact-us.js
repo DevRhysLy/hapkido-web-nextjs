@@ -38,13 +38,30 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
                   <Contact />
               </GridItem><GridItem xs={12} md={6}>
                 <div style={{textAlign: "center"}}>
-                  <h2 >We'd love to hear from you!</h2>
+                  <h2 >Contact Us</h2>
                   <h3>Our Headquarters</h3>
                   <h4>146 Parramatta Rd, Croydon NSW 2132</h4>
                   <h3>Phone Contact</h3>
-                  <h4>97 470 822</h4>
+                  <h4>97-470-822</h4>
                   <img style={{width:"45%"}} src="/img/hca-logo.png"/>
                   </div>
+                  <h5>Other Locations</h5>
+                  <div>
+                    <ul>
+                      <li>
+                        <Link href="/locations/ermington-west"><a className={classes.contactLink}>Ermington West</a></Link>
+                        </li>
+                      <li>
+                        <Link href="/locations/ermington-west"><a className={classes.contactLink}>Belrose</a></Link>
+                        </li>
+                      <li>
+                        <Link href="/locations/yarrawarrah"><a className={classes.contactLink}>Yarrawarrah</a></Link>
+                        </li>
+                      <li>
+                        <Link href="/locations/ermington-west"><a className={classes.contactLink}>West Hoxton</a></Link>
+                        </li>
+                    </ul>
+                    </div>
               </GridItem>
             </GridContainer>
       </div>

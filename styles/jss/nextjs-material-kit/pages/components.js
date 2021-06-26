@@ -40,7 +40,29 @@ const componentsStyle = {
   },
   h2:{
     color: "#2196f3",  
-  }
+  },
+  contactLink:{
+    color: "#016db8",
+     "&:hover": {
+      color: "#016db8",
+      textDecoration: "underline",
+    }, 
+  },
+  infoAreaDiv: {
+    display: "flex",
+    flexDirection: "row",
+    "@media (max-width: 768px)": {
+      flexDirection: "column"
+    },
+  },
+  indexRaised: {
+    marginTop: "-60px",
+    background: "white",
+    // "@media (max-width: 830px)": {
+    //   marginLeft: "10px",
+    //   marginRight: "10px",
+    // },
+  },
 };
 
 export default componentsStyle;

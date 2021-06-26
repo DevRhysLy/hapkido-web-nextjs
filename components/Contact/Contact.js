@@ -107,10 +107,7 @@ class Contact extends Component {
         const { studioOptions, age, studio, ageOptions } = this.state;
         return (
             <div>
-                 <h2 style={{textAlign: "center"}}>Contact Us</h2>
                 <div style={{margin: "24px"}}>
-                    <Card>
-                        <CardBody>
                             <Toaster />
                             <Form onSubmit={this.handleSubmit}>
                                 <FormField label="Name">
@@ -171,8 +168,6 @@ class Contact extends Component {
                                 <Button type="submit" color="info">Send</Button>
                                 </div>
                             </Form>
-                        </CardBody>
-                    </Card>
 
                 </div>
             </div>

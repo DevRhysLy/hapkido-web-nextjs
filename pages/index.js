@@ -15,6 +15,10 @@ import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
 import ServiceList from "components/ServiceList/ServiceList.js";
 import Testimonial from "components/Testimonials/Testimonial.js";
+import InfoArea from "components/InfoArea/InfoArea.js";
+import Timeline from "@material-ui/icons/Timeline";
+import SportsKabaddiIcon from '@material-ui/icons/SportsKabaddi';
+import PublicIcon from '@material-ui/icons/Public';
 
 const useStyles = makeStyles(styles);
 
@@ -37,21 +41,42 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
         </div>
       </Parallax>
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className={classNames(classes.main, classes.indexRaised)}>
         <div className={classes.sections}>
-          <div className={classes.container}>
-            <Testimonial testimonials={testimonials}/>
-          <Contact />
+          {/* <div className={classes.container}> */}
+            <h1 className={classes.title}>Welcom to HCA!</h1>
+            <div className={classes.infoAreaDiv}>
+              <InfoArea
+                title="ABOUT HCA"
+                description="Hapkido College of Australia is a Martial Arts organisation dedicated to teaching excellence in Self-Defence, 
+      Fitness and Discipline to improve personal development, health and well-being to all ages"
+                icon={PublicIcon}
+                iconColor="info"
+              />
+              <InfoArea
+                title="Trial Lesson"
+                description="HCA offers a free trial lesson for you to get a taste of what we have to offer. Contact us to book in a trial lesson."
+                icon={SportsKabaddiIcon}
+                iconColor="info"
+              />
+            </div>
+            <div style={{ width: "100%", display: "block", background: "linear-gradient(to right,white,grey)", borderBottom: "solid"}}>
             <div className={classes.title}>
-              <h2 className={classes.h2}>Our Services</h2>
-              <h3 >Please <Link href="/contact-us">contact us</Link> if you are interested in any of our services!</h3>
+              <h2>Our Services</h2>
+              <h3 >Please <Link href="/contact-us"><a className={classes.contactLink}>contact us</a></Link> if you are interested in any of our services!</h3>
               <div>
-              <ServiceList services={services} />
+
               </div>
             </div>
+            <ServiceList services={services} />
+            </div>
+            <Testimonial testimonials={testimonials} />
+            <h2>Contact Us</h2>
+            <Contact />
+            
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </Layout>
   );
 }
@@ -72,22 +97,22 @@ export async function getStaticProps() {
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
-    const services = await client
+  const services = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
-    const aboutPages = await client
+  const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
 
-    const testimonials = await client
+  const testimonials = await client
     .getEntries({ content_type: "testimonials" })
     .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
-      services, 
+      services,
       aboutPages,
       testimonials
     },

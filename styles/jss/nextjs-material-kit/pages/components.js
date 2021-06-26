@@ -40,7 +40,89 @@ const componentsStyle = {
   },
   h2:{
     color: "#2196f3",  
-  }
+  },
+  contactLink:{
+    color: "#016db8",
+     "&:hover": {
+      color: "#016db8",
+      textDecoration: "underline",
+    }, 
+  },
+  infoDivRow: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    margin: "24px",
+    borderTop: "solid",
+    "@media (max-width: 768px)": {
+      flexDirection: "column"
+    },
+  },
+  infoDivColumn: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    margin: "24px",
+    borderTop: "solid",
+  },
+  indexRaised: {
+    marginTop: "-60px",
+    background: "white",
+    paddingTop: "1px",
+  },
+  jumboHeading: {
+    marginTop: "10px",
+    marginBottom: "15px",
+    fontSize: "96px",
+    fontWeight: "400",
+    lineHeight: "50px",
+    textTransform: "none",
+    "@media only screen and (max-width: 900px)": {
+      fontSize: "56px",
+    },
+
+  },
+  jumboHeadingContainer: {
+    marginTop: "85px",
+    marginBottom: "85px",
+    textAlign: "center",
+  },
+  buttonGrey: {
+    color: "white",
+    background: "#212121"
+  },
+  infoContent: {
+    padding: "24px",
+    margin: "24px",
+    alignSelf: "center",
+    width: "100%",
+  },
+  scaledImg: {
+    overflow: "hidden",
+    maxWidth: "100%",
+    // "@media (max-width: 768px)": {
+    //   flexDirection: "column"
+    // },
+  },
+  h3: {
+    fontSize: "36px",
+    fontWeight: "500",
+    "@media only screen and (max-width: 900px)": {
+      fontSize: "24px",
+    },
+  },
+  h4: {
+    fontSize: "28px",
+    "@media only screen and (max-width: 900px)": {
+      fontSize: "18px",
+    },
+  },
+  linkBtn:{
+    color: "white",
+    "&:hover": {
+      color: "#212121",
+    }, 
+  },
 };
 
 export default componentsStyle;

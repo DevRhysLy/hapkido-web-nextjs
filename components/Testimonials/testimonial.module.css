@@ -1,0 +1,8 @@
+.quoteDiv{
+    padding: 0.9375rem 1.875rem;
+}
+@media only screen and (max-width: 360px) {
+    .quoteDiv{
+        padding: 8px;
+      }
+    }

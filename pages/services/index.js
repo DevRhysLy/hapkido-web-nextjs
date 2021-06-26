@@ -10,7 +10,7 @@ import styles from "styles/jss/nextjs-material-kit/pages/components.js";
 import Layout from "components/Layout/Layout.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Contact from "components/Contact/Contact.js";
-import ServiceList from "components/ServiceList/ServiceList.js";
+import ServicePageList from "components/ServicePageList/ServicePageList.js";
 import Testimonial from "components/Testimonials/Testimonial.js";
 import Button from 'components/CustomButtons/Button.js';
 
@@ -33,51 +33,15 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
 
       <div className={classNames(classes.main, classes.indexRaised)}>
         <div className={classes.jumboHeadingContainer}>
-          <h1 className={classes.jumboHeading}>Welcom to HCA!</h1>
+          <h1 className={classes.jumboHeading}>Services!</h1>
         </div>
-        <div className={classes.infoDivRow}>
-          <div className={classes.infoContent}>
-            <h3 className={classes.h3}>About</h3>
-            <h4 className={classes.h4}>
-              Hapkido College of Australia is a Martial Arts organisation dedicated to teaching
-              excellence in Self-Defence, Fitness and Discipline to improve personal development,
-              health and well-being to all ages.
-            </h4>
-            <Link href="/about/about-us">
-              <Button className={classes.buttonGrey}>
-                <a className={classes.linkBtn}>Learn More!</a>
-              </Button>
-            </Link>
-
-          </div>
-          <div className={classes.infoContent}>
-            <img className={classes.scaledImg} src="/img/hca-banner-2.jpeg" />
-          </div>
-        </div>
-
-
         <div className={classes.infoDivColumn}>
           <div className={classes.infoContent} >
-            <h3 className={classes.h3}>Our Services</h3>
-            <h4 className={classes.h4}>Please <Link href="/contact-us"><a className={classes.contactLink}>contact us</a></Link> if you are interested in any of our services!</h4>
+            {/* <h3 className={classes.h3}>Our Services</h3>
+            <h4 className={classes.h4}>Please <Link href="/contact-us"><a className={classes.contactLink}>contact us</a></Link> if you are interested in any of our services!</h4> */}
             <div>
             </div>
-            <ServiceList services={services} />
-
-            <Link href="/services">
-              <Button className={classes.buttonGrey}>
-                <a className={classes.linkBtn}>View All {`>>`}</a>
-              </Button>
-            </Link>
-          </div>
-        </div>
-        <div className={classes.infoDivColumn}>
-          <Testimonial testimonials={testimonials} />
-        </div>
-        <div className={classes.infoDivColumn}>
-          <div className={classes.infoContent} >
-            <h3 className={classes.h3}>Contact Us</h3>
-            <Contact />
+            <ServicePageList services={services} />
           </div>
         </div>
       </div>

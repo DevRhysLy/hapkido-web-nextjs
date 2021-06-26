@@ -24,11 +24,11 @@ export default function ServiceList({ services = [] }) {
   const classes = useStyles();
   return (
     <GridContainer spacing={4}>
-      {services.slice(0, 3).map((service) => (
+      {services.map((service) => (
         <GridItem xs={12} sm={6} md={4} key={service.sys.id}>
           <Link href={`/services/${service.fields.slug}`}>
             <a className={classes.serviceCardLink} >
-              <Card>
+              <Card >
                 <img
                   style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
                   className={classes.imgCardTop}

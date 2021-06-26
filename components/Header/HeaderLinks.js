@@ -59,15 +59,15 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
             className: classes.navLink,
             color: "transparent",
           }}
-          hoverColor="none"
+          hoverColor="black"
           buttonIcon={LocationOnIcon}
-          dropdownList={[
+          dropdownList={
             services.map((service, id) => (
               <Link key={id} href={`/services/${service.fields.slug}`}>
                 <a className={classes.dropdownLink}>{service.fields.service}</a>
               </Link>
             ))
-          ]}
+          }
         />
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -79,9 +79,9 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
             className: classes.navLink,
             color: "transparent",
           }}
-          hoverColor="none"
+          hoverColor="black"
           buttonIcon={LocationOnIcon}
-          dropdownList={[
+          dropdownList={
             studioLocations.map((studio) => (
               <div key={studio.sys.id}>
                 <Link href={`/locations/${studio.fields.slug}`}>
@@ -89,7 +89,7 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
                 </Link>
               </div>
             ))
-          ]}
+          }
         />
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -103,6 +103,21 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
         className={classes.navLink}>
           <Link href="/blog">
             <a className={classes.blogLink}>Blog</a>
+          </Link>
+          </Button>
+        </Tooltip>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Tooltip
+          id="blog"
+          title="Get in touch with HCA!"
+          placement={"top"}
+          classes={{ tooltip: classes.tooltip }}
+        ><Button 
+        color="transparent"
+        className={classes.navLink}>
+          <Link href="/contact-us">
+            <a className={classes.blogLink}>Contact Us</a>
           </Link>
           </Button>
         </Tooltip>

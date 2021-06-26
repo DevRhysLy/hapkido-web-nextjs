@@ -1,17 +1,16 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
+import styles from "./markdown.module.css"
 
 export default function Service({ services }) {
   return (
-    <article>
-      <header>
+    <div>
+      <div className={styles.container}>
         <h1>{services.fields.service}</h1>
-      </header>
-      <section>
-      <ReactMarkdown>{services.fields.longDescription}</ReactMarkdown>
-      </section>
-      <footer>
-      </footer>
-      </article>
+        <ReactMarkdown
+          className={styles.reactMarkDown}
+        >{services.fields.longDescription}</ReactMarkdown>
+      </div>
+    </div>
   )
 }

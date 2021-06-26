@@ -123,11 +123,6 @@ const componentsStyle = {
       color: "#212121",
     }, 
   },
-  serviceCardLink:{
-     "&:hover": {
-      cursor: "pointer",
-    }, 
-  },
 };
 
 export default componentsStyle;

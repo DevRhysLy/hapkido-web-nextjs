@@ -11,6 +11,12 @@ const componentsStyle = {
     fontWeight: "600",
     display: "inline-block",
     position: "relative",
+    "@media only screen and (max-width: 950px)": {
+      fontSize: "56px",
+    },
+    "@media (max-width: 768px)": {
+      fontSize: "46px",
+    },
   },
   subtitle: {
     fontSize: "1.313rem",
@@ -80,7 +86,9 @@ const componentsStyle = {
     "@media only screen and (max-width: 950px)": {
       fontSize: "56px",
     },
-
+    "@media (max-width: 768px)": {
+      fontSize: "46px",
+    },
   },
   jumboHeadingContainer: {
     marginTop: "85px",

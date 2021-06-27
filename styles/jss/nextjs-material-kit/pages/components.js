@@ -38,15 +38,15 @@ const componentsStyle = {
   textCenter: {
     textAlign: "center",
   },
-  h2:{
-    color: "#2196f3",  
+  h2: {
+    color: "#2196f3",
   },
-  contactLink:{
+  contactLink: {
     color: "#016db8",
-     "&:hover": {
+    "&:hover": {
       color: "#016db8",
       textDecoration: "underline",
-    }, 
+    },
   },
   infoDivRow: {
     display: "flex",
@@ -77,7 +77,7 @@ const componentsStyle = {
     fontWeight: "400",
     lineHeight: "50px",
     textTransform: "none",
-    "@media only screen and (max-width: 900px)": {
+    "@media only screen and (max-width: 950px)": {
       fontSize: "56px",
     },
 
@@ -107,22 +107,34 @@ const componentsStyle = {
   h3: {
     fontSize: "36px",
     fontWeight: "500",
-    "@media only screen and (max-width: 900px)": {
+    "@media only screen and (max-width: 950px)": {
       fontSize: "24px",
     },
   },
   h4: {
     fontSize: "28px",
-    "@media only screen and (max-width: 900px)": {
+    "@media only screen and (max-width: 950px)": {
       fontSize: "18px",
     },
   },
-  linkBtn:{
+  linkBtn: {
     color: "white",
     "&:hover": {
       color: "#212121",
-    }, 
+    },
   },
+  singleImgDiv: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  singleImg: {
+    borderRadius:"12px",
+    display: "flex",
+    maxWidth: "20%",
+    "@media only screen and (max-width: 950px)": {
+      maxWidth: "50%",
+    },
+  }
 };
 
 export default componentsStyle;

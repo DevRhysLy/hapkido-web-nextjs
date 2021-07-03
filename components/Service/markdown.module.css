@@ -23,6 +23,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    margin-top: 2%;
   }
   .reactMarkDown p {
       font-size: 24px;
@@ -31,8 +32,15 @@
   .reactMarkDown h2 {
     font-size: 32px;
     margin: 24px;
+    font-weight: 400;
   }
   .reactMarkDown h1 {
     font-size: 46px;
     margin: 24px;
+    border-bottom: solid;
+    font-weight: 500;
+  }
+
+  .reactMarkDown blockquote{
+    text-align: center;
   }

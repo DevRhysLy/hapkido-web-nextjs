@@ -75,13 +75,14 @@ const componentsStyle = {
     marginTop: "-60px",
     background: "white",
     paddingTop: "1px",
+    paddingBottom: "20px",
   },
   jumboHeading: {
     marginTop: "10px",
     marginBottom: "15px",
     fontSize: "96px",
     fontWeight: "400",
-    lineHeight: "50px",
+    lineHeight: "100px",
     textTransform: "none",
     "@media only screen and (max-width: 950px)": {
       fontSize: "56px",

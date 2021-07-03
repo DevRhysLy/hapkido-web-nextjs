@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/jss/nextjs-material-kit/pages/components.js";
 import classNames from "classnames";
 import Parallax from "components/Parallax/Parallax.js";
-import style from "./markdown.module.css"
+import style from "components/Markdown/markdown.module.css"
 import ResponsivePlayer from "components/ResponsivePlayer/ResponsivePlayer.js";
 
 const useStyles = makeStyles(styles);

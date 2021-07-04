@@ -24,21 +24,23 @@ export default function MainInstructorList({ instructors = [] }) {
     <GridContainer spacing={4}>
       {instructors.map((instructor) => (
         <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
-          <Card >
-            <img
-              style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
-              className={classes.imgCardTop}
-              src={instructor.fields.avatar.fields.file.url}
-              alt={instructor.fields.title}
-            />
-            <CardBody>
-              <h4 className={classes.cardTitle}>{instructor.fields.title}</h4>
-              <p>{instructor.fields.bio}</p>
-              <Link href={`/about/our-master-and-instructors/${instructor.fields.slug}`}>
-                <a>Learn More »</a>
-              </Link>
-            </CardBody>
-          </Card>
+          <Link href={`/about/our-master-and-instructors/${instructor.fields.slug}`}>
+            <a className={classes.serviceCardLink} >
+              <Card >
+                <img
+                  style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
+                  className={classes.imgCardTop}
+                  src={instructor.fields.avatar.fields.file.url}
+                  alt={instructor.fields.title}
+                />
+                <CardBody>
+                  <h4 className={classes.cardTitle}>{instructor.fields.title}</h4>
+                  <p>{instructor.fields.bio}</p>
+                  <a>Learn More »</a>
+                </CardBody>
+              </Card>
+            </a>
+          </Link>
 
         </GridItem>
       ))}

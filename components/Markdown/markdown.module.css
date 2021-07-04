@@ -1,0 +1,46 @@
+.reactMarkDown {
+    width: 100%;
+  }
+  
+  .reactMarkDown ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style: disc outside none;
+    font-size: 24px;
+  }
+  
+  .reactMarkDown ul li {
+    margin-left: 2em;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 24px;
+  }
+
+  .reactMarkDown img {
+    overflow: hidden;
+    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 2%;
+  }
+  .reactMarkDown p {
+      font-size: 24px;
+      margin: 24px;
+  }
+  .reactMarkDown h2 {
+    font-size: 32px;
+    margin: 24px;
+    font-weight: 400;
+  }
+  .reactMarkDown h1 {
+    font-size: 46px;
+    margin: 24px;
+    border-bottom: solid;
+    font-weight: 500;
+  }
+
+  .reactMarkDown blockquote{
+    text-align: center;
+  }

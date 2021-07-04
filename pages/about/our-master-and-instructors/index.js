@@ -17,7 +17,7 @@ import MainInstructorsList from "components/MainInstructorsList/MainInstructorsL
 
 const useStyles = makeStyles(styles);
 
-const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPages }) => {
+const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPages, blackbelts=[] }) => {
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
@@ -36,7 +36,7 @@ const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPa
         </div>
       </Parallax>
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className={classNames(classes.main, classes.indexRaised)}>
         <div className={classes.sections}>
           <div className={classes.container}>
             <div className={classes.title}>
@@ -46,6 +46,12 @@ const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPa
               </div>
               <MainInstructorsList instructors={instructors} />
             </div>
+            <h3>Meet our Black Belt Club</h3>
+            {blackbelts.map((blackbelt)=> 
+            <li>
+              {blackbelt.fields.blackbeltName}
+            </li>
+            )}
           </div>
         </div>
       </div>
@@ -80,13 +86,18 @@ export async function getStaticProps() {
     const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
+
+    const blackbelts = await client
+    .getEntries({ content_type: "blackbelts" })
+    .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
       services,
       instructors,
-      aboutPages
+      aboutPages,
+      blackbelts
     },
   }
 }

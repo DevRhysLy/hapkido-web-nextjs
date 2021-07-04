@@ -11,6 +11,12 @@ const componentsStyle = {
     fontWeight: "600",
     display: "inline-block",
     position: "relative",
+    "@media only screen and (max-width: 950px)": {
+      fontSize: "56px",
+    },
+    "@media (max-width: 768px)": {
+      fontSize: "46px",
+    },
   },
   subtitle: {
     fontSize: "1.313rem",
@@ -38,15 +44,15 @@ const componentsStyle = {
   textCenter: {
     textAlign: "center",
   },
-  h2:{
-    color: "#2196f3",  
+  h2: {
+    color: "#2196f3",
   },
-  contactLink:{
+  contactLink: {
     color: "#016db8",
-     "&:hover": {
+    "&:hover": {
       color: "#016db8",
       textDecoration: "underline",
-    }, 
+    },
   },
   infoDivRow: {
     display: "flex",
@@ -69,18 +75,21 @@ const componentsStyle = {
     marginTop: "-60px",
     background: "white",
     paddingTop: "1px",
+    paddingBottom: "20px",
   },
   jumboHeading: {
     marginTop: "10px",
     marginBottom: "15px",
     fontSize: "96px",
     fontWeight: "400",
-    lineHeight: "50px",
+    lineHeight: "100px",
     textTransform: "none",
-    "@media only screen and (max-width: 900px)": {
+    "@media only screen and (max-width: 950px)": {
       fontSize: "56px",
     },
-
+    "@media (max-width: 768px)": {
+      fontSize: "46px",
+    },
   },
   jumboHeadingContainer: {
     marginTop: "85px",
@@ -107,22 +116,34 @@ const componentsStyle = {
   h3: {
     fontSize: "36px",
     fontWeight: "500",
-    "@media only screen and (max-width: 900px)": {
+    "@media only screen and (max-width: 950px)": {
       fontSize: "24px",
     },
   },
   h4: {
     fontSize: "28px",
-    "@media only screen and (max-width: 900px)": {
+    "@media only screen and (max-width: 950px)": {
       fontSize: "18px",
     },
   },
-  linkBtn:{
+  linkBtn: {
     color: "white",
     "&:hover": {
       color: "#212121",
-    }, 
+    },
   },
+  singleImgDiv: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  singleImg: {
+    borderRadius:"12px",
+    display: "flex",
+    maxWidth: "20%",
+    "@media only screen and (max-width: 950px)": {
+      maxWidth: "50%",
+    },
+  }
 };
 
 export default componentsStyle;

@@ -6,6 +6,7 @@ import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/jss/nextjs-material-kit/pages/components.js";
+import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 //components used
 import Layout from "components/Layout/Layout.js";
 import Parallax from "components/Parallax/Parallax.js";
@@ -14,7 +15,24 @@ import ServiceList from "components/ServiceList/ServiceList.js";
 import Testimonial from "components/Testimonials/Testimonial.js";
 import Button from 'components/CustomButtons/Button.js';
 
+import Gallery from "react-photo-gallery";
+
+
 const useStyles = makeStyles(styles);
+
+const photos = [
+
+  {
+    src: '/img/master-kim-3.png',
+    width: 1,
+    height: 1
+  },
+  {
+    src: '/img/master-kim.jpg',
+    width: 4,
+    height: 5
+  }
+];
 
 const index = ({ posts, studioLocations, services, aboutPages, testimonials }) => {
   const classes = useStyles();
@@ -44,9 +62,11 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
               health and well-being to all ages.
             </h4>
             <Link href="/about/about-us">
-              <Button className={classes.buttonGrey}>
-                <a className={classes.linkBtn}>Learn More!</a>
-              </Button>
+              <a className={classes.linkBtn}>
+                <Button className={classes.buttonGrey}>
+                  Learn More!
+                </Button>
+              </a>
             </Link>
 
           </div>
@@ -65,9 +85,25 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
             <ServiceList services={services} />
 
             <Link href="/services">
-              <Button className={classes.buttonGrey}>
-                <a className={classes.linkBtn}>View All {`>>`}</a>
-              </Button>
+              <a className={classes.linkBtn}>
+                <Button className={classes.buttonGrey}>
+                  View All {`>>`}
+                </Button>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <div className={classes.infoDivRow}>
+          <div className={classes.infoContent}>
+            <h3 className={classes.h3}>Our Master</h3>
+            <Gallery photos={photos} />
+            <h4 className={classes.h4}>Master Yong Kil Kim originates from South Korea and has over 30 years experience in studying and teaching various martial arts, predominantly Hapkido.</h4>
+            <Link href="/about/our-master-and-instructors">
+              <a className={classes.linkBtn}>
+                <Button className={classes.buttonGrey}>
+                  More About Our Instructors {`>>`}
+                </Button>
+              </a>
             </Link>
           </div>
         </div>

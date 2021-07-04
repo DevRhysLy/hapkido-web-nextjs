@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown"
 export default function MainInstructors({ instructors }) {
   return (
     <article>
+      {console.log(instructors)}
       <header>
         <h1>{instructors.fields.name}</h1>
       </header>

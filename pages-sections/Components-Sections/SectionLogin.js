@@ -15,117 +15,71 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import Button from "components/CustomButtons/Button.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import Select from 'react-select';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import styles from "styles/jss/nextjs-material-kit/pages/componentsSections/loginStyle.js";
 
 const useStyles = makeStyles(styles);
 
+const ageGroup = [
+  { value: 'Little Tigers: 4 - 5 Years old', label: 'Little Tigers: 4 - 5 Years old' },
+  { value: 'Childrens: 6 - 11 Years old', label: 'Childrens: 6 - 11 Years old' },
+  { value: 'Youth: 12 - 17 Years old', label: 'Youth: 12 - 17 Years old' },
+  { value: 'Adults: 18+', label: 'Adults 18+' }
+]
+const studioLocation = [
+  { value: 'Croydon HQ', label: 'Croydon HQ' },
+  { value: 'Ermington West', label: 'Ermington West' },
+  { value: 'Belrose', label: 'Belrose' },
+  { value: 'Yarrawarrah', label: 'Yarrawarrah' },
+  { value: 'West Hoxton', label: 'West Hoxton' }
+
+]
+
 export default function SectionLogin() {
   const classes = useStyles();
   return (
-    <div className={classes.section}>
-      <div className={classes.container}>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={6} md={4}>
-            <Card>
-              <form className={classes.form}>
-                <CardHeader color="primary" className={classes.cardHeader}>
-                  <h4>Login</h4>
-                  <div className={classes.socialLine}>
-                    <Button
-                      justIcon
-                      href="#pablo"
-                      target="_blank"
-                      color="transparent"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className={classes.socialIcons + " fab fa-twitter"} />
-                    </Button>
-                    <Button
-                      justIcon
-                      href="#pablo"
-                      target="_blank"
-                      color="transparent"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i className={classes.socialIcons + " fab fa-facebook"} />
-                    </Button>
-                    <Button
-                      justIcon
-                      href="#pablo"
-                      target="_blank"
-                      color="transparent"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <i
-                        className={
-                          classes.socialIcons + " fab fa-google-plus-g"
-                        }
-                      />
-                    </Button>
-                  </div>
-                </CardHeader>
-                <p className={classes.divider}>Or Be Classical</p>
-                <CardBody>
-                  <CustomInput
-                    labelText="First Name..."
-                    id="first"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={{
-                      type: "text",
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <People className={classes.inputIconsColor} />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Email..."
-                    id="email"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={{
-                      type: "email",
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <Email className={classes.inputIconsColor} />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Password"
-                    id="pass"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={{
-                      type: "password",
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <Icon className={classes.inputIconsColor}>
-                            lock_outline
-                          </Icon>
-                        </InputAdornment>
-                      ),
-                      autoComplete: "off",
-                    }}
-                  />
-                </CardBody>
-                <CardFooter className={classes.cardFooter}>
-                  <Button simple color="primary" size="lg">
-                    Get started
+    <GridContainer justify="center">
+      <GridItem xs={12} md={10}>
+        <Card>
+          <form className={classes.form}>
+            <h4>Come for a free trial lesson</h4>
+            <p className={classes.divider}>If you are interested in our college you are welcome to try it out.</p>
+            <CardBody>
+              <CustomInput
+                labelText="Your Name"
+                id="name"
+                formControlProps={{
+                  fullWidth: true
+                }}
+              />
+              <Select options={ageGroup} />
+              <Select options={studioLocation} />
+              <CustomInput
+                labelText="Your Email"
+                id="email"
+                formControlProps={{
+                  fullWidth: true
+                }}
+                inputProps={{
+                  type: "email"
+                }}
+              />
+              <TextareaAutosize
+                minRows={2}
+                maxRows={6}
+                defaultValue="Just a single line..."
+              />
+            </CardBody>
+            <CardFooter className={classes.cardFooter}>
+              <Button type="button" color="info" size="lg">
+                Send Enquiry
                   </Button>
-                </CardFooter>
-              </form>
-            </Card>
-          </GridItem>
-        </GridContainer>
-      </div>
-    </div>
+            </CardFooter>
+          </form>
+        </Card>
+      </GridItem>
+    </GridContainer>
   );
 }

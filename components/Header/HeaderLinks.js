@@ -23,7 +23,7 @@ import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.j
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+export default function HeaderLinks({ studioLocations = [], services = [], aboutPages = [] }) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
@@ -39,21 +39,14 @@ export default function HeaderLinks(props) {
           hoverColor="black"
           buttonIcon={LocationOnIcon}
           dropdownList={[
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Croydon</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Ermington West</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Belrose</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Yarrawarrah</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>West Hoxton</a>
-            </Link>,
+            aboutPages.map((aboutPage, id) => (
+              <Link key={id} href={`/about/${aboutPage.fields.slug}`}>
+                <a className={classes.dropdownLink}>{aboutPage.fields.title}</a>
+              </Link>
+            )),
+            <Link href="/about/our-master-and-instructors">
+              <a className={classes.dropdownLink}>Our Master and Instructors</a>
+            </Link>
           ]}
         />
       </ListItem>
@@ -68,23 +61,13 @@ export default function HeaderLinks(props) {
           }}
           hoverColor="black"
           buttonIcon={LocationOnIcon}
-          dropdownList={[
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Croydon</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Ermington West</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Belrose</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Yarrawarrah</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>West Hoxton</a>
-            </Link>,
-          ]}
+          dropdownList={
+            services.map((service, id) => (
+              <Link key={id} href={`/services/${service.fields.slug}`}>
+                <a className={classes.dropdownLink}>{service.fields.service}</a>
+              </Link>
+            ))
+          }
         />
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -98,52 +81,57 @@ export default function HeaderLinks(props) {
           }}
           hoverColor="black"
           buttonIcon={LocationOnIcon}
-          dropdownList={[
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Croydon</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Ermington West</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Belrose</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>Yarrawarrah</a>
-            </Link>,
-            <Link href="/components">
-              <a className={classes.dropdownLink}>West Hoxton</a>
-            </Link>,
-          ]}
+          dropdownList={
+            studioLocations.map((studio) => (
+              <div key={studio.sys.id}>
+                <Link href={`/locations/${studio.fields.slug}`}>
+                  <a className={classes.dropdownLink}>{studio.fields.location}</a>
+                </Link>
+              </div>
+            ))
+          }
         />
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
+          id="blog"
+          title="Checkout Our Blog!"
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
+        ><Button 
+        color="transparent"
+        className={classes.navLink}>
+          <Link href="/blog">
+            <a className={classes.blogLink}>Blog</a>
+          </Link>
+          </Button>
+        </Tooltip>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Tooltip
+          id="blog"
+          title="Get in touch with HCA!"
+          placement={"top"}
+          classes={{ tooltip: classes.tooltip }}
+        ><Button 
+        color="transparent"
+        className={classes.navLink}>
+          <Link href="/contact-us">
+            <a className={classes.blogLink}>Contact Us</a>
+          </Link>
           </Button>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
-          title="Follow us on facebook"
+          title="Follow us on Facebook"
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
             color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
+            href="https://www.facebook.com/HapkidoCollegeofAustralia"
             target="_blank"
             className={classes.navLink}
           >
@@ -154,13 +142,13 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-tooltip"
-          title="Follow us on instagram"
+          title="Follow us on Instagram"
           placement={"top"}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
             color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+            href="https://www.instagram.com/hapkido_college_of_australia/"
             target="_blank"
             className={classes.navLink}
           >

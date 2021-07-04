@@ -25,12 +25,18 @@ const typographyStyle = {
   quoteText: {
     margin: "0 0 10px",
     fontStyle: "italic",
+    "@media (max-width: 425px)": {
+      fontSize: "9px",
+    },
   },
   quoteAuthor: {
     display: "block",
     fontSize: "80%",
     lineHeight: "1.42857143",
     color: "#777",
+    "@media (max-width: 425px)": {
+      fontSize: "9px",
+    },
   },
   mutedText: {
     color: "#777",

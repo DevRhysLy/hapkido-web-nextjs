@@ -17,7 +17,7 @@ const Layout = ({ children, props, studioLocations, services, aboutPages }) => {
                 {...rest}
             />
             { children }  
-            <Footer />
+            <Footer studioLocations={studioLocations} services={services} aboutPages={aboutPages}/>
         </div>
     );
 }

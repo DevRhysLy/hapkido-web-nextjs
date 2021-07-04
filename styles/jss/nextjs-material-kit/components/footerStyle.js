@@ -15,6 +15,7 @@ const footerStyle = {
   left: {
     float: "left!important",
     display: "block",
+    padding: "24px"
   },
   right: {
     padding: "15px 0",
@@ -29,13 +30,13 @@ const footerStyle = {
     position: "relative",
   },
   a: {
-    color: primaryColor,
+    color: "#016db8",
     textDecoration: "none",
     backgroundColor: "transparent",
   },
   footerWhiteFont: {
     "&,&:hover,&:focus": {
-      color: "#FFFFFF",
+      color: "#016db8",
     },
   },
   container,
@@ -55,5 +56,17 @@ const footerStyle = {
     position: "relative",
     top: "3px",
   },
+  footerLink: {
+    color: "inherit",
+    "&:hover": {
+      color: "#016db8",
+      textDecoration: "underline",
+    },
+  },
+  linkHeading: {
+    fontWeight: "bold",
+    fontSize: "24px",
+    paddingBottom: "12px",
+  }
 };
 export default footerStyle;

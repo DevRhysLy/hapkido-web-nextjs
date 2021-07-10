@@ -36,15 +36,10 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
         </div>
       </Parallax>
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.sections}>
-          <div className={classes.container}>
-            <div className={classes.title}>
-              <h2 className={classes.h2}>Our Blogs</h2>
-              <div>
-              <PostList posts={posts} />
-              </div>
-            </div>
+      <div className={classNames(classes.main, classes.indexRaised)}>
+        <div className={classes.infoDivRow}>
+          <div className={classes.infoContent}>
+            <PostList posts={posts} />
           </div>
         </div>
       </div>
@@ -68,18 +63,18 @@ export async function getStaticProps() {
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
-    const services = await client
+  const services = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
-    const aboutPages = await client
+  const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
   return {
     props: {
       posts,
       studioLocations,
-      services, 
+      services,
       aboutPages
     },
   }

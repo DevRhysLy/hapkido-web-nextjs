@@ -3,8 +3,14 @@ import { container } from "styles/jss/nextjs-material-kit.js";
 const componentsStyle = {
   container,
   brand: {
-    color: "#FFFFFF",
-    textAlign: "left",
+    background: "#ffffff73",
+    color: "#212121",
+    paddingLeft: "24px",
+    borderRadius: "0px 8px 8px 0px",
+    paddingRight: "12px",
+    paddingBottom: "12px",
+    display: "flex",
+    flexDirection: "column"
   },
   title: {
     fontSize: "4.2rem",
@@ -22,6 +28,7 @@ const componentsStyle = {
     fontSize: "1.313rem",
     maxWidth: "510px",
     margin: "10px 0 0",
+    fontWeight: "400"
   },
   main: {
     background: "#FFFFFF",

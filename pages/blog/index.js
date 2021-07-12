@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
@@ -15,10 +15,8 @@ import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
 import PostList from "components/PostList/PostList.js";
 import Card from "components/Card/Card.js";
-import { cardTitle, cardLink, cardSubtitle } from "styles/jss/nextjs-material-kit.js";
-import CardHeader from "components/Card/CardHeader.js";
 
-import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
+import Pagination from "react-js-pagination";
 
 const useStyles = makeStyles(styles);
 
@@ -26,61 +24,91 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
   const sortedPosts = posts.slice().sort((a, b) => new Date(b.fields.publishDate) - new Date(a.fields.publishDate));
   const firstElement = sortedPosts.shift();
+  
+  const postsPerPage = 6;
+  const [activePage, setCurrentPage] = useState(1);
+
+  // Logic for displaying current posts
+  const indexOfLastPost = activePage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const renderPosts = currentPost.map((post) => {
+    return (
+      <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
+        <Link href={`/blog/${post.fields.slug}`}>
+          <a className={classes.serviceCardLink} >
+            <Card >
+              <img
+                style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
+                className={classes.imgCardTop}
+                src={post.fields.bannerImage.fields.file.url}
+                alt={post.fields.title}
+              />
+              <CardBody>
+                <h4 className={classes.cardTitle}>{post.fields.title}</h4>
+                <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
+                <p>By: {post.fields.author.fields.name}</p>
+                {/*to do - add ternary if string is larger than 120 then do: 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          */}
+                <p>{post.fields.description}</p>
+                <a>Learn More »</a>
+              </CardBody>
+            </Card>
+          </a>
+        </Link>
+      </GridItem>)
+  });
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber)
+    window.scrollTo(0, 650);
+  };
+
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Parallax image={firstElement.fields.bannerImage.fields.file.url} responsive={true}>
-        <div className={classes.container}>
-              <div className={classes.brand}>
-                Our Latest Blog
-                <h1 className={classes.title}>{firstElement.fields.title}</h1>
-                <h3 className={classes.subtitle}>
-                  {firstElement.fields.description}
-                </h3>
-                <Link href={`/blog/${firstElement.fields.slug}`}>
-                  <a className={classes.serviceCardLink}>
-                    Read More
-                  </a>
-                </Link>
-              </div>
+        <div className={classes.parallaxContainer}>
+          <div className={classes.brand}>
+            Our Latest Blog
+            <h1 className={classes.title}>{firstElement.fields.title}</h1>
+            <h3 className={classes.subtitle}>
+              {firstElement.fields.description}
+            </h3>
+            <Link href={`/blog/${firstElement.fields.slug}`}>
+              <a className={classes.serviceCardLink}>
+                Read More
+              </a>
+            </Link>
+          </div>
         </div>
       </Parallax>
 
       <div className={classNames(classes.main, classes.indexRaised)}>
-      <div className={classes.jumboHeadingContainer}>
+        <div className={classes.jumboHeadingContainer}>
           <h1 className={classes.jumboHeading}>All Blogs</h1>
         </div>
         <div className={classes.infoDivRow}>
           <div className={classes.infoContent}>
             <GridContainer spacing={4}>
-              {sortedPosts.map((post) => (
-                <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
-                  <Link href={`/blog/${post.fields.slug}`}>
-                    <a className={classes.serviceCardLink} >
-                      <Card >
-                        <img
-                          style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
-                          className={classes.imgCardTop}
-                          src={post.fields.bannerImage.fields.file.url}
-                          alt={post.fields.title}
-                        />
-                        <CardBody>
-                          <h4 className={classes.cardTitle}>{post.fields.title}</h4>
-                          <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
-                          <p>By: {post.fields.author.fields.name}</p>
-                          {/*to do - add ternary if string is larger than 120 then do: 
-                      white-space: nowrap;
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                    */}
-                          <p>{post.fields.description}</p>
-                          <a>Learn More »</a>
-                        </CardBody>
-                      </Card>
-                    </a>
-                  </Link>
-                </GridItem>
-              ))}
+              {renderPosts}
             </GridContainer>
+            
+            <Pagination
+              activePage={activePage}
+              itemsCountPerPage={6}
+              totalItemsCount={sortedPosts.length}
+              pageRangeDisplayed={6}
+              onChange={handlePageChange}
+              innerClass={classes.pagination}
+              activeClass={classes.paginationActiveLink}
+              itemClass={classes.paginationLink}
+              linkClass={classes.paginationLink}
+              activeLinkClass={classes.paginationActiveLink}
+            />
           </div>
         </div>
       </div>

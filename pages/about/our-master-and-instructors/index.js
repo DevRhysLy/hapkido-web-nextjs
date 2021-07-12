@@ -38,7 +38,7 @@ const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPa
 
       <div className={classNames(classes.main, classes.indexRaised)}>
         <div className={classes.sections}>
-          <div className={classes.container}>
+          <div className={classes.parallaxContainer}>
             <div className={classes.title}>
               <h2 className={classes.h2}>Our Master and Instructors</h2>
               <h3 >Meet the Master and Instructors of HCA!</h3>

@@ -46,7 +46,6 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
       </div>
       <div className={classes.left}>
         <List className={classes.list}>
-          {console.log(aboutPages)}
           <div className={classes.linkHeading}>Locations</div>
           {studioLocations.map((studio) => (
             <div key={studio.sys.id}>

@@ -14,7 +14,7 @@ export default function Service({ services }) {
   return (
     <div>
       <Parallax image={services.fields.image.fields.file.url} responsive={true}>
-        <div className={classes.container}>
+        <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>{services.fields.service}</h1>
             <h3 className={classes.subtitle}>

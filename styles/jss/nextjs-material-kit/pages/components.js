@@ -2,6 +2,9 @@ import { container } from "styles/jss/nextjs-material-kit.js";
 
 const componentsStyle = {
   container,
+  parallaxContainer: {
+    marginRight: "48px",
+  },
   brand: {
     background: "#ffffff73",
     color: "#212121",
@@ -149,6 +152,39 @@ const componentsStyle = {
     maxWidth: "20%",
     "@media only screen and (max-width: 950px)": {
       maxWidth: "50%",
+    },
+  },
+  pagination: {
+    display: "flex",
+    paddingLeft: "0",
+    margin: "0 0 20px 0",
+    borderRadius: "4px",
+    justifyContent: "center",
+  },
+  paginationItem: {
+    display: "inline",
+  },
+  paginationLink: {
+    color: "#212121",
+    float: "left",
+    padding: "8px 16px",
+    textDecoration: "none",
+    listStyle: "none",
+    "&:hover": {
+      color: "#212121",
+      textDecoration: "underline",
+      },
+  },
+  paginationActiveLink: {
+    color: "#212121",
+    float: "left",
+    padding: "8px 16px",
+    listStyle: "none",
+    background: "#e5e5e5",
+    "&:hover, &:focus": {
+    color: "#212121",
+    textDecoration: "underline",
+    fontWeight: "bold",
     },
   }
 };

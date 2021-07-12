@@ -28,14 +28,10 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
       </Head>
       <Parallax image={allAboutPages.fields.bannerImage.fields.file.url} responsive={true}>
         <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} md={6}>
               <div className={classes.brand}>
                 <h1 className={classes.title}>{allAboutPages.fields.title}</h1>
                 <h3 className={classes.subtitle}>{allAboutPages.fields.subtitle}</h3>
               </div>
-            </GridItem>
-          </GridContainer>
         </div>
       </Parallax>
 

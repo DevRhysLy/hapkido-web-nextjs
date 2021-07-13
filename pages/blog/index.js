@@ -16,6 +16,8 @@ import Contact from "components/Contact/Contact.js";
 import PostList from "components/PostList/PostList.js";
 import Card from "components/Card/Card.js";
 
+import Button from 'components/CustomButtons/Button.js';
+
 import Pagination from "react-js-pagination";
 
 const useStyles = makeStyles(styles);
@@ -24,7 +26,7 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
   const sortedPosts = posts.slice().sort((a, b) => new Date(b.fields.publishDate) - new Date(a.fields.publishDate));
   const firstElement = sortedPosts.shift();
-  
+
   const postsPerPage = 6;
   const [activePage, setCurrentPage] = useState(1);
 
@@ -73,15 +75,15 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
       <Parallax image={firstElement.fields.bannerImage.fields.file.url} responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
-            Our Latest Blog
-            <h1 className={classes.title}>{firstElement.fields.title}</h1>
-            <h3 className={classes.subtitle}>
-              {firstElement.fields.description}
-            </h3>
-            <Link href={`/blog/${firstElement.fields.slug}`}>
-              <a className={classes.serviceCardLink}>
-                Read More
-              </a>
+           <div className={classes.blogHead}> Our Latest Blog</div>
+            <Link href={`/blog/${firstElement.fields.slug}`} className={classes.title}>
+              <div className={classes.simpleHover}>
+                <h1 className={classes.title}>{firstElement.fields.title}</h1>
+                <h3 className={classes.subtitle}>
+                  {firstElement.fields.description}
+                </h3>
+                <Button color="primary" round>Read More</Button>
+              </div>
             </Link>
           </div>
         </div>
@@ -96,7 +98,7 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
             <GridContainer spacing={4}>
               {renderPosts}
             </GridContainer>
-            
+
             <Pagination
               activePage={activePage}
               itemsCountPerPage={6}

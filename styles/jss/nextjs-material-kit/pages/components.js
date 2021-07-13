@@ -186,7 +186,17 @@ const componentsStyle = {
     textDecoration: "underline",
     fontWeight: "bold",
     },
-  }
+  },
+  simpleHover: {
+    "&:hover, &:focus": {
+    cursor: "pointer"
+    },
+  },
+  blogHead: {
+    fontWeight: "bold",
+    fontSize: "18px",
+    textDecoration: "underline"
+  },
 };
 
 export default componentsStyle;

@@ -20,6 +20,7 @@ const componentsStyle = {
     fontWeight: "600",
     display: "inline-block",
     position: "relative",
+    lineHeight: "42px",
     "@media only screen and (max-width: 950px)": {
       fontSize: "56px",
     },

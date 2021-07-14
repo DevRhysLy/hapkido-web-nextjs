@@ -12,12 +12,8 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
-import Contact from "components/Contact/Contact.js";
-import PostList from "components/PostList/PostList.js";
 import Card from "components/Card/Card.js";
-
 import Button from 'components/CustomButtons/Button.js';
-
 import Pagination from "react-js-pagination";
 
 const useStyles = makeStyles(styles);
@@ -26,41 +22,31 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
   const sortedPosts = posts.slice().sort((a, b) => new Date(b.fields.publishDate) - new Date(a.fields.publishDate));
   const firstElement = sortedPosts.shift();
-
   const postsPerPage = 6;
   const [activePage, setCurrentPage] = useState(1);
-
-  // Logic for displaying current posts
+  // Logic for displaying posts for pagination
   const indexOfLastPost = activePage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPost = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
-
   const renderPosts = currentPost.map((post) => {
-    const desc = post.fields.description.length;
+  const desc = post.fields.description.length;
+
     return (
       <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
         <Link href={`/blog/${post.fields.slug}`}>
           <a className={classes.serviceCardLink} >
             <Card style={{height: "450px"}}>
               <img
-                style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
+                style={{ borderRadius: "4px 4px 0px 0px", height: "180px", width: "100%", display: "block", objectFit: "cover" }}
                 className={classes.imgCardTop}
                 src={post.fields.bannerImage.fields.file.url}
-                alt={post.fields.title}
-              />
+                alt={post.fields.title}/>
               <CardBody>
-                <h4 className={classes.cardTitle}>{post.fields.title}</h4>
+                <h4 style={{fontSize: "24px", fontWeight: "bold"}}>{post.fields.title}</h4>
                 <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
                 <p>By: {post.fields.author.fields.name}</p>
-                {/*to do - add ternary if string is larger than 120 then do: 
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            style={{whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"}}
-          */}
-
                 <p style={ desc > 120 ? {whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"} : {fontSize: "14px"}}>{post.fields.description}</p>
-                <a>Learn More »</a>
+                <Button color="primary" round>Read More</Button>
               </CardBody>
             </Card>
           </a>

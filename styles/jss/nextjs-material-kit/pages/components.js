@@ -2,15 +2,25 @@ import { container } from "styles/jss/nextjs-material-kit.js";
 
 const componentsStyle = {
   container,
+  parallaxContainer: {
+    marginRight: "48px",
+  },
   brand: {
-    color: "#FFFFFF",
-    textAlign: "left",
+    background: "#ffffff73",
+    color: "#212121",
+    paddingLeft: "24px",
+    borderRadius: "0px 8px 8px 0px",
+    paddingRight: "12px",
+    paddingBottom: "12px",
+    display: "flex",
+    flexDirection: "column"
   },
   title: {
     fontSize: "4.2rem",
     fontWeight: "600",
     display: "inline-block",
     position: "relative",
+    lineHeight: "42px",
     "@media only screen and (max-width: 950px)": {
       fontSize: "56px",
     },
@@ -22,6 +32,7 @@ const componentsStyle = {
     fontSize: "1.313rem",
     maxWidth: "510px",
     margin: "10px 0 0",
+    fontWeight: "400"
   },
   main: {
     background: "#FFFFFF",
@@ -143,7 +154,50 @@ const componentsStyle = {
     "@media only screen and (max-width: 950px)": {
       maxWidth: "50%",
     },
-  }
+  },
+  pagination: {
+    display: "flex",
+    paddingLeft: "0",
+    margin: "0 0 20px 0",
+    borderRadius: "4px",
+    justifyContent: "center",
+  },
+  paginationItem: {
+    display: "inline",
+  },
+  paginationLink: {
+    color: "#212121",
+    float: "left",
+    padding: "8px 16px",
+    textDecoration: "none",
+    listStyle: "none",
+    "&:hover": {
+      color: "#212121",
+      textDecoration: "underline",
+      },
+  },
+  paginationActiveLink: {
+    color: "#212121",
+    float: "left",
+    padding: "8px 16px",
+    listStyle: "none",
+    background: "#e5e5e5",
+    "&:hover, &:focus": {
+    color: "#212121",
+    textDecoration: "underline",
+    fontWeight: "bold",
+    },
+  },
+  simpleHover: {
+    "&:hover, &:focus": {
+    cursor: "pointer"
+    },
+  },
+  blogHead: {
+    fontWeight: "bold",
+    fontSize: "18px",
+    textDecoration: "underline"
+  },
 };
 
 export default componentsStyle;

@@ -125,7 +125,7 @@ const headerStyle = {
   },
   dark: {
     color: "#FFFFFF",
-    backgroundColor: "#212121 !important",
+    backgroundColor: "#0B395B !important",
     boxShadow:
       "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)",
   },
@@ -133,8 +133,8 @@ const headerStyle = {
     border: "0",
     padding: "0.625rem 0",
     marginBottom: "20px",
-    color: "#555",
-    backgroundColor: "#fff !important",
+    color: "#212121",
+    backgroundColor: "#6FABD3 !important",
     boxShadow:
       "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
   },

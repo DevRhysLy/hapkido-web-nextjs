@@ -21,7 +21,7 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
-        <div className={classes.container}>
+        <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>Hapkido College of Australia</h1>
             <h3 className={classes.subtitle}>

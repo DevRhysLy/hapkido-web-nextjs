@@ -20,50 +20,46 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} md={6}>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>Contact</h1>
-              </div>
-            </GridItem>
-
-          </GridContainer>
+        <div className={classes.parallaxContainer}>
+          <div className={classes.brand}>
+            <h1 className={classes.title}>Contact</h1>
+          </div>
         </div>
       </Parallax>
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
-            <GridContainer>
-              <GridItem xs={12} md={6}>
-                  <Contact />
-              </GridItem><GridItem xs={12} md={6}>
-                <div style={{textAlign: "center"}}>
-                  <h2 >Contact Us</h2>
-                  <h3>Our Headquarters</h3>
-                  <h4>146 Parramatta Rd, Croydon NSW 2132</h4>
-                  <h3>Phone Contact</h3>
-                  <h4>97-470-822</h4>
-                  <img style={{width:"45%"}} src="/img/hca-logo.png"/>
-                  </div>
-                  <h5>Other Locations</h5>
-                  <div>
-                    <ul>
-                      <li>
-                        <Link href="/locations/ermington-west"><a className={classes.contactLink}>Ermington West</a></Link>
-                        </li>
-                      <li>
-                        <Link href="/locations/ermington-west"><a className={classes.contactLink}>Belrose</a></Link>
-                        </li>
-                      <li>
-                        <Link href="/locations/yarrawarrah"><a className={classes.contactLink}>Yarrawarrah</a></Link>
-                        </li>
-                      <li>
-                        <Link href="/locations/ermington-west"><a className={classes.contactLink}>West Hoxton</a></Link>
-                        </li>
-                    </ul>
-                    </div>
-              </GridItem>
-            </GridContainer>
+      <div className={classNames(classes.main, classes.indexRaised)}>
+        <div className={classes.infoDivRow}>
+          <div className={classes.infoContent}>
+            <Contact />
+            </div>
+            <div className={classes.infoContent}>
+            <div style={{ textAlign: "center" }}>
+              <h2 >Contact Us</h2>
+              <h3>Our Headquarters</h3>
+              <h4>146 Parramatta Rd, Croydon NSW 2132</h4>
+              <h3>Phone Contact</h3>
+              <h4>97-470-822</h4>
+              <img style={{ width: "45%" }} src="/img/hca-logo.png" />
+            </div>
+            <h5>Other Locations</h5>
+            <div>
+              <ul>
+                <li>
+                  <Link href="/locations/ermington-west"><a className={classes.contactLink}>Ermington West</a></Link>
+                </li>
+                <li>
+                  <Link href="/locations/ermington-west"><a className={classes.contactLink}>Belrose</a></Link>
+                </li>
+                <li>
+                  <Link href="/locations/yarrawarrah"><a className={classes.contactLink}>Yarrawarrah</a></Link>
+                </li>
+                <li>
+                  <Link href="/locations/ermington-west"><a className={classes.contactLink}>West Hoxton</a></Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   );

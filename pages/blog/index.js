@@ -36,11 +36,12 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
   const currentPost = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   const renderPosts = currentPost.map((post) => {
+    const desc = post.fields.description.length;
     return (
       <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
         <Link href={`/blog/${post.fields.slug}`}>
           <a className={classes.serviceCardLink} >
-            <Card >
+            <Card style={{height: "450px"}}>
               <img
                 style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
                 className={classes.imgCardTop}
@@ -55,8 +56,10 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            style={{whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"}}
           */}
-                <p>{post.fields.description}</p>
+
+                <p style={ desc > 120 ? {whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"} : {fontSize: "14px"}}>{post.fields.description}</p>
                 <a>Learn More »</a>
               </CardBody>
             </Card>

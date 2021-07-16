@@ -9,11 +9,11 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#000000" />
-          <link rel="shortcut icon" href="/img/hca-logo.png" />
+          <link rel="shortcut icon" href="/img/android-chrome-192x192.png" />
           <link
             rel="apple-touch-icon"
             sizes="76x76"
-            href="/img/hca-logo.png"
+            href="/img/apple-touch-icon.png"
           />
           {/* Fonts and icons */}
           <link

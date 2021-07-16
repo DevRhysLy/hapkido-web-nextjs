@@ -9,6 +9,7 @@ import CardBody from "components/Card/CardBody.js";
 import { makeStyles } from "@material-ui/core/styles";
 import { cardTitle, cardLink, cardSubtitle } from "styles/jss/nextjs-material-kit.js";
 import CardHeader from "components/Card/CardHeader.js";
+import Button from 'components/CustomButtons/Button.js';
 
 const styles = {
   ...imagesStyles,
@@ -42,7 +43,8 @@ export default function PostList({ posts = [] }) {
               <p>Published: {new Date(firstElement.fields.publishDate).toDateString()}</p>
               <p>By: {firstElement.fields.author.fields.name}</p>
               <p>{firstElement.fields.description}</p>
-              <a>Learn More »</a>
+              <Button color="primary" round>Learn More</Button>
+
             </CardBody>
           </Card>
         </a>

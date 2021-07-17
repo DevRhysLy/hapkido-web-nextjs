@@ -8,6 +8,7 @@ import { cardTitle, cardLink, cardSubtitle } from "styles/jss/nextjs-material-ki
 import { makeStyles } from "@material-ui/core/styles";
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 import index from "styles/jss/nextjs-material-kit/pages/components.js";
+import Button from 'components/CustomButtons/Button.js';
 
 const styles = {
   ...imagesStyles,
@@ -38,7 +39,8 @@ export default function ServiceList({ services = [] }) {
                 <CardBody>
                   <h4 className={classes.cardTitle}>{service.fields.service}</h4>
                   <p>{service.fields.shortDescription}</p>
-                  <a>Learn More »</a>
+                  <Button color="primary" round>Learn More</Button>
+
                 </CardBody>
               </Card>
             </a>
@@ -48,15 +50,3 @@ export default function ServiceList({ services = [] }) {
     </GridContainer>
   )
 }
-
-{/* <h2>
-              <Link href={`/services/${service.fields.slug}`}>
-                <a>{service.fields.service}</a>
-              </Link>
-            </h2>
-          <p>{service.fields.shortDescription}</p>
-          <p>
-            <Link href={`/services/${service.fields.slug}`}>
-              <a>Learn More »</a>
-            </Link>
-          </p> */}

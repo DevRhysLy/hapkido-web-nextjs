@@ -8,14 +8,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/jss/nextjs-material-kit/pages/components.js";
 //components used
 import Layout from "components/Layout/Layout.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
-import CardBody from "components/Card/CardBody.js";
-import Contact from "components/Contact/Contact.js";
-import PostList from "components/PostList/PostList.js";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown"
+import style from "components/Markdown/markdown.module.css"
 
 const useStyles = makeStyles(styles);
 
@@ -34,16 +30,14 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
               </div>
         </div>
       </Parallax>
-
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.sections}>
-          <div className={classes.container}>
-            <div>
-                <ReactMarkdown>{allAboutPages.fields.pageContent}</ReactMarkdown>
-              </div>
-          </div>
+      <div className={classNames(classes.main, classes.indexRaised)}>
+      <div className={classes.container}>
+        <div className={classes.jumboHeadingContainer}>
+          <h1 className={classes.jumboHeading}>{allAboutPages.fields.title}</h1>
         </div>
-      </div>
+          <ReactMarkdown className={style.reactMarkDown}>{allAboutPages.fields.pageContent}</ReactMarkdown>
+          </div>
+          </div>
     </Layout>
   )
 }

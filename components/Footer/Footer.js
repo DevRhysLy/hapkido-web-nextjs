@@ -22,40 +22,42 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
     // <footer className={footerClasses}>
     <div className={classes.container}>
       <div>
-      <div className={classes.left}>
-        <List className={classes.list}>
-          <div className={classes.linkHeading}>About</div>
-          {aboutPages.map((aboutPage, id) => (
-            <Link className={classes.footerLink} key={id} href={`/about/${aboutPage.fields.slug}`}>
-              <a className={classes.footerLink}>{aboutPage.fields.title}</a>
-            </Link>
-          ))}
-        </List>
-      </div>
-      <div className={classes.left}>
-        <List className={classes.list}>
-          <div className={classes.linkHeading}>Services</div>
-          {services.map((service, id) => (
-            <div key={service.sys.id}>
-              <Link className={classes.footerLink} href={`/services/${service.fields.slug}`}>
-                <a className={classes.footerLink}>{service.fields.service}</a>
-              </Link>
-            </div>
-          ))}
-        </List>
-      </div>
-      <div className={classes.left}>
-        <List className={classes.list}>
-          <div className={classes.linkHeading}>Locations</div>
-          {studioLocations.map((studio) => (
-            <div key={studio.sys.id}>
-              <Link className={classes.footerLink} href={`/locations/${studio.fields.slug}`}>
-                <a className={classes.footerLink}>{studio.fields.location}</a>
-              </Link>
-            </div>
-          ))}
-        </List>
-      </div>
+        <div className={classes.left}>
+          <List className={classes.list}>
+            <div className={classes.linkHeading}>About</div>
+            {aboutPages.map((aboutPage, id) => (
+              <div key={aboutPage.sys.id}>
+                <Link className={classes.footerLink} key={id} href={`/about/${aboutPage.fields.slug}`}>
+                  <a className={classes.footerLink}>{aboutPage.fields.title}</a>
+                </Link>
+              </div>
+            ))}
+          </List>
+        </div>
+        <div className={classes.left}>
+          <List className={classes.list}>
+            <div className={classes.linkHeading}>Services</div>
+            {services.map((service, id) => (
+              <div key={service.sys.id}>
+                <Link className={classes.footerLink} href={`/services/${service.fields.slug}`}>
+                  <a className={classes.footerLink}>{service.fields.service}</a>
+                </Link>
+              </div>
+            ))}
+          </List>
+        </div>
+        <div className={classes.left}>
+          <List className={classes.list}>
+            <div className={classes.linkHeading}>Locations</div>
+            {studioLocations.map((studio) => (
+              <div key={studio.sys.id}>
+                <Link className={classes.footerLink} href={`/locations/${studio.fields.slug}`}>
+                  <a className={classes.footerLink}>{studio.fields.location}</a>
+                </Link>
+              </div>
+            ))}
+          </List>
+        </div>
       </div>
       <div className={classes.right}>
         &copy; {1900 + new Date().getYear()} Hapkido College of Australia

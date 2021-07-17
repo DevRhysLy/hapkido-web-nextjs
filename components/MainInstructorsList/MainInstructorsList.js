@@ -7,6 +7,7 @@ import CardBody from "components/Card/CardBody.js";
 import { cardTitle, cardLink, cardSubtitle } from "styles/jss/nextjs-material-kit.js";
 import { makeStyles } from "@material-ui/core/styles";
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
+import Button from 'components/CustomButtons/Button.js';
 
 const styles = {
   ...imagesStyles,
@@ -36,7 +37,8 @@ export default function MainInstructorList({ instructors = [] }) {
                 <CardBody>
                   <h4 className={classes.cardTitle}>{instructor.fields.title}</h4>
                   <p>{instructor.fields.bio}</p>
-                  <a>Learn More »</a>
+                  <Button color="primary" round>Learn More</Button>
+
                 </CardBody>
               </Card>
             </a>

@@ -1,19 +1,31 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
+import style from "components/Markdown/markdown.module.css"
+import classNames from "classnames";
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "styles/jss/nextjs-material-kit/pages/components.js";
+
+const useStyles = makeStyles(styles);
 
 export default function MainInstructors({ instructors }) {
+  const classes = useStyles();
   return (
-    <article>
-      {console.log(instructors)}
-      <header>
-        <h1>{instructors.fields.name}</h1>
-      </header>
-      <img src={instructors.fields.avatar.fields.file.url}/>
-      <section>
-      <ReactMarkdown>{instructors.fields.fullBio}</ReactMarkdown>
-      </section>
-      <footer>
-      </footer>
-      </article>
+    <div className={classNames(classes.main, classes.indexRaised)}>
+      <div className={classes.container}>
+      <div style={{marginTop: "240px"}} className={classes.infoDivRow}>
+          <div style={{alignSelf: "auto"}} className={classes.infoContent}>
+        <div className={classes.title}>{instructors.fields.name}</div>
+        <img
+          style={{ marginTop: "24px", width: "100%", display: "block", objectFit: "cover" }}
+          src={instructors.fields.avatar.fields.file.url}
+          alt={instructors.fields.name} />
+          </div>
+          
+          <div className={classes.infoContent}>
+        <ReactMarkdown className={style.reactMarkDown}>{instructors.fields.fullBio}</ReactMarkdown>
+        </div>
+      </div>
+    </div>
+    </div>
   )
 }

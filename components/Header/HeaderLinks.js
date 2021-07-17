@@ -14,11 +14,9 @@ import { Apps, CloudDownload } from "@material-ui/icons";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
-
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
-
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -38,16 +36,12 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
           }}
           hoverColor="black"
           buttonIcon={LocationOnIcon}
-          dropdownList={[
+          dropdownList={
             aboutPages.map((aboutPage, id) => (
               <Link key={id} href={`/about/${aboutPage.fields.slug}`}>
                 <a className={classes.dropdownLink}>{aboutPage.fields.title}</a>
               </Link>
-            )),
-            <Link href="/about/our-master-and-instructors">
-              <a className={classes.dropdownLink}>Our Master and Instructors</a>
-            </Link>
-          ]}
+            ))}
         />
       </ListItem>
       <ListItem className={classes.listItem}>

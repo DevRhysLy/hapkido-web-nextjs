@@ -17,42 +17,37 @@ import MainInstructorsList from "components/MainInstructorsList/MainInstructorsL
 
 const useStyles = makeStyles(styles);
 
-const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPages, blackbelts=[] }) => {
+const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPages, blackbelts = [] }) => {
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Parallax image="/img/hca-banner-2.jpeg" responsive={true}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} md={6}>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>Hapkido College of Australia</h1>
-                <h3 className={classes.subtitle}>
-                  A passion for a history of excellence.
-                </h3>
-              </div>
-            </GridItem>
-          </GridContainer>
+        <div className={classes.parallaxContainer}>
+          <div className={classes.brand}>
+            <h1 className={classes.title}>Hapkido College of Australia</h1>
+            <h3 className={classes.subtitle}>
+              A passion for a history of excellence.
+            </h3>
+          </div>
         </div>
       </Parallax>
 
       <div className={classNames(classes.main, classes.indexRaised)}>
-        <div className={classes.sections}>
-          <div className={classes.parallaxContainer}>
-            <div className={classes.title}>
-              <h2 className={classes.h2}>Our Master and Instructors</h2>
-              <h3 >Meet the Master and Instructors of HCA!</h3>
-              <div>
-              </div>
-              <MainInstructorsList instructors={instructors} />
-            </div>
-            <h3>Meet our Black Belt Club</h3>
-            {blackbelts.map((blackbelt)=> 
+        <div className={classes.container}>
+          <div className={classes.jumboHeadingContainer}>
+            <h1 className={classes.jumboHeading}>Our Master and Instructors</h1>
+          </div>
+          <h2 className={classes.h2}></h2>
+          <h3 >Meet the Master and Instructors of HCA!</h3>
+          <div>
+          </div>
+          <MainInstructorsList instructors={instructors} />
+          <h3>Meet our Black Belt Club</h3>
+          {blackbelts.map((blackbelt) =>
             <li>
               {blackbelt.fields.blackbeltName}
             </li>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </Layout>
@@ -75,19 +70,19 @@ export async function getStaticProps() {
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
-    const services = await client
+  const services = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
-    const instructors = await client
+  const instructors = await client
     .getEntries({ content_type: "mainInstructor" })
     .then((response) => response.items)
 
-    const aboutPages = await client
+  const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
 
-    const blackbelts = await client
+  const blackbelts = await client
     .getEntries({ content_type: "blackbelts" })
     .then((response) => response.items)
   return {

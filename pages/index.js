@@ -14,6 +14,7 @@ import Contact from "components/Contact/Contact.js";
 import ServiceList from "components/ServiceList/ServiceList.js";
 import Testimonial from "components/Testimonials/Testimonial.js";
 import Button from 'components/CustomButtons/Button.js';
+import Head from "next/head"
 
 import Gallery from "react-photo-gallery";
 
@@ -23,7 +24,7 @@ const useStyles = makeStyles(styles);
 const photos = [
 
   {
-    src: '/img/master-kim-3.png',
+    src: '/img/master-kim-4.jpg',
     width: 1,
     height: 1
   },
@@ -38,6 +39,9 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
+      <Head>
+        <title>Hapkido College of Australia | A Passion for a History of Excellence</title>
+      </Head>
       <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
@@ -96,7 +100,9 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
         <div className={classes.infoDivRow}>
           <div className={classes.infoContent}>
             <h3 className={classes.h3}>Our Master</h3>
+            <div>
             <Gallery photos={photos} />
+            </div>
             <h4 className={classes.h4}>Master Yong Kil Kim originates from South Korea and has over 30 years experience in studying and teaching various martial arts, predominantly Hapkido.</h4>
             <Link href="/about/our-master-and-instructors">
               <a className={classes.linkBtn}>

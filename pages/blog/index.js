@@ -15,6 +15,7 @@ import CardBody from "components/Card/CardBody.js";
 import Card from "components/Card/Card.js";
 import Button from 'components/CustomButtons/Button.js';
 import Pagination from "react-js-pagination";
+import Head from "next/head"
 
 const useStyles = makeStyles(styles);
 
@@ -61,6 +62,9 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
 
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
+      <Head>
+        <title>Blogs | Hapkido College of Australia</title>
+      </Head>
       <Parallax image={firstElement.fields.bannerImage.fields.file.url} responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>

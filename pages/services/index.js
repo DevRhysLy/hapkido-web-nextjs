@@ -20,6 +20,9 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
+      <Head>
+        <title>Our Services | Hapkido College of Australia</title>
+      </Head>
       <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>

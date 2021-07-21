@@ -8,7 +8,7 @@ export default function Slug({ studioLocations ,allLocations, allServices, about
   return (
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
-        <title>Hapkido College of Australia | {studioLocations.fields.location}</title>
+        <title>{studioLocations.fields.location} | Hapkido College of Australia</title>
       </Head>
       <StudioLocation studioLocation={studioLocations} />
     </Layout>

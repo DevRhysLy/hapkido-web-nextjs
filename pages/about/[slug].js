@@ -20,7 +20,7 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
   return (
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
-        <title>Hapkido College of Australia | {allAboutPages.fields.title}</title>
+        <title>{allAboutPages.fields.title} | Hapkido College of Australia</title>
       </Head>
       <Parallax image={allAboutPages.fields.bannerImage.fields.file.url} responsive={true}>
         <div className={classes.parallaxContainer}>

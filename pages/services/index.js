@@ -13,6 +13,7 @@ import Contact from "components/Contact/Contact.js";
 import ServicePageList from "components/ServicePageList/ServicePageList.js";
 import Testimonial from "components/Testimonials/Testimonial.js";
 import Button from 'components/CustomButtons/Button.js';
+import Head from 'next/head';
 
 const useStyles = makeStyles(styles);
 

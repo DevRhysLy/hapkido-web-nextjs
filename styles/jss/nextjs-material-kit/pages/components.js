@@ -198,6 +198,24 @@ const componentsStyle = {
     fontSize: "18px",
     textDecoration: "underline"
   },
+  ul: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    maxWidth: "1200px",
+    listStyle: "none"
+  },
+  li: {
+    padding: "12px",
+    margin: "12px",
+  },
+  listDiv: {
+    display: "flex",
+    flexDirection: "column",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
 };
 
 export default componentsStyle;

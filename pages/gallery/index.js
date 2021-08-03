@@ -7,16 +7,16 @@ import styles from "styles/jss/nextjs-material-kit/pages/components.js";
 //components used
 import Layout from "components/Layout/Layout.js";
 import Parallax from "components/Parallax/Parallax.js";
-import Head from "next/head"
+import Head from "next/head";
+import Link from "next/link"
 import ImageGallery from "components/ImageGallery/ImageGallery.js";
+import { height } from "@material-ui/system";
 
 const useStyles = makeStyles(styles);
 
-const GalleryPage = ({ posts, studioLocations, services, instructors, aboutPages, imageGallery = [] }) => {
+const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] }) => {
 
     const classes = useStyles();
-    const gallery = imageGallery.map(subGallery => subGallery);
-    const image = gallery.map((images) => images.fields.images.map((img) => img.fields.file.url));
 
     return (
         <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
@@ -38,8 +38,18 @@ const GalleryPage = ({ posts, studioLocations, services, instructors, aboutPages
                 <div className={classes.container}>
                     <div className={classes.jumboHeadingContainer}>
                         <h1 className={classes.jumboHeading}>Our Gallery</h1>
-                        {imageGallery.map((subGallery) => <ImageGallery subGallery={subGallery} />)}
-                        
+                        <ul className={classes.ul}>
+                            {console.log(imageGallery)}
+                        {imageGallery.map((subGallery) => <li className={classes.li}>
+                            <Link href={`/gallery/${subGallery.fields.slug}`}>
+                            <div className={classes.listDiv}>
+                                <a className={classes.contactLink}>{subGallery.fields.title}
+                                </a>
+                                <img style={{width:"200px"}} src={subGallery.fields.images[0].fields.file.url} />
+                                </div>
+                                </Link>
+                                </li>)}
+                    </ul>
                     </div>
             </div>
             </div>

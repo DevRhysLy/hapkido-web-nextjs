@@ -36,12 +36,22 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
           }}
           hoverColor="black"
           buttonIcon={LocationOnIcon}
-          dropdownList={
-            aboutPages.map((aboutPage, id) => (
-              <Link key={id} href={`/about/${aboutPage.fields.slug}`}>
-                <a className={classes.dropdownLink}>{aboutPage.fields.title}</a>
-              </Link>
-            ))}
+          dropdownList={[
+            //pages need to be hardcoed intil i find a solution
+            // aboutPages.map((aboutPage, id) => (
+            //   <Link key={id} href={`/about/${aboutPage.fields.slug}`}>
+            //     <a className={classes.dropdownLink}>{aboutPage.fields.title}</a>
+            //   </Link>
+            // )),
+            <Link href={`/about/about-us`}>
+              <a className={classes.dropdownLink}>About Us</a>
+            </Link>,
+            <Link href={`/about/history-of-hapkido`}>
+              <a className={classes.dropdownLink}>History of Hapkido</a>
+            </Link>,
+            <Link href={`/about/our-master-and-instructors`}>
+              <a className={classes.dropdownLink}>Our Master and Instructors</a>
+            </Link>]}
         />
       </ListItem>
       <ListItem className={classes.listItem}>

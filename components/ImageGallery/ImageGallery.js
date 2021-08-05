@@ -16,51 +16,64 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 const useStyles = makeStyles(styles);
 
 const ImageGallery = ({ subGallery = [] }) => {
-    const [currentImage, setCurrentImage] = useState(0);
-    const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-    const openLightbox = useCallback((event, { photo, index }) => {
-        setCurrentImage(index);
-        setViewerIsOpen(true);
-    }, []);
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
 
-    const closeLightbox = () => {
-        setCurrentImage(0);
-        setViewerIsOpen(false);
-    };
-    const classes = useStyles();
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+  const classes = useStyles();
 
-    const photosArray = subGallery.fields.images.map(photo => {
-        return {
-            src: photo.fields.file.url,
-            width: photo.fields.file.details.image.width,
-            height: photo.fields.file.details.image.height
-        }
-    })
+  const photosArray = subGallery.fields.images.map(photo => {
+    return {
+      src: photo.fields.file.url,
+      width: photo.fields.file.details.image.width,
+      height: photo.fields.file.details.image.height
+    }
+  })
 
-    console.log("photos",photosArray)
+  console.log("photos", photosArray)
 
-    return (
+  return (
+    <div>
+      <Parallax image={subGallery.fields.images[0].fields.file.url} responsive={true}>
+        <div className={classes.parallaxContainer}>
+          <div className={classes.brand}>
+            <h1 className={classes.title}>{subGallery.fields.title}</h1>
+            <h3 className={classes.subtitle}>
+              {subGallery.fields.description}</h3>
+          </div>
+        </div>
+      </Parallax>
+      <div className={classNames(classes.main, classes.indexRaised)}>
         <div>
-            <div>
-                {subGallery.fields.title}
-            </div>
-      <Gallery photos={photosArray} onClick={openLightbox} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={photosArray.map(x => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+          <div>
+            {subGallery.fields.title}
+          </div>
+          <Gallery photos={photosArray} onClick={openLightbox} />
+          <ModalGateway>
+            {viewerIsOpen ? (
+              <Modal onClose={closeLightbox}>
+                <Carousel
+                  currentIndex={currentImage}
+                  views={photosArray.map(x => ({
+                    ...x,
+                    srcset: x.srcSet,
+                    caption: x.title
+                  }))}
+                />
+              </Modal>
+            ) : null}
+          </ModalGateway>
+        </div>
+      </div>
     </div>
-    );
+  );
 }
 export default ImageGallery;

@@ -36,7 +36,7 @@ export default function MainInstructorList({ instructors = [] }) {
                 />
                 <CardBody>
                   <h4 className={classes.cardTitle}>{instructor.fields.title}</h4>
-                  <p>{instructor.fields.bio}</p>
+                  <p  style={ instructor.fields.bio.length > 120 ? {whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"} : {fontSize: "14px"}}>{instructor.fields.bio}</p>
                   <Button color="primary" round>Learn More</Button>
 
                 </CardBody>

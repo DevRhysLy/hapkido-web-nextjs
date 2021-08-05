@@ -203,7 +203,8 @@ const componentsStyle = {
     flexDirection: "row",
     flexWrap: "wrap",
     maxWidth: "1200px",
-    listStyle: "none"
+    listStyle: "none",
+    justifyContent: "center",
   },
   li: {
     padding: "12px",
@@ -212,6 +213,7 @@ const componentsStyle = {
   listDiv: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
     "&:hover": {
       cursor: "pointer",
     },

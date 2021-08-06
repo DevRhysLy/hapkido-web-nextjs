@@ -148,7 +148,7 @@ const componentsStyle = {
     justifyContent: "center",
   },
   singleImg: {
-    borderRadius:"12px",
+    borderRadius: "12px",
     display: "flex",
     maxWidth: "20%",
     "@media only screen and (max-width: 950px)": {
@@ -174,7 +174,7 @@ const componentsStyle = {
     "&:hover": {
       color: "#212121",
       textDecoration: "underline",
-      },
+    },
   },
   paginationActiveLink: {
     color: "#212121",
@@ -183,20 +183,48 @@ const componentsStyle = {
     listStyle: "none",
     background: "#e5e5e5",
     "&:hover, &:focus": {
-    color: "#212121",
-    textDecoration: "underline",
-    fontWeight: "bold",
+      color: "#212121",
+      textDecoration: "underline",
+      fontWeight: "bold",
     },
   },
   simpleHover: {
     "&:hover, &:focus": {
-    cursor: "pointer"
+      cursor: "pointer"
     },
   },
   blogHead: {
     fontWeight: "bold",
     fontSize: "18px",
     textDecoration: "underline"
+  },
+  ul: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    maxWidth: "1200px",
+    listStyle: "none",
+    justifyContent: "center",
+  },
+  li: {
+    padding: "12px",
+    margin: "12px",
+  },
+  listDiv: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  galleryContainerIndex: {
+    margin: "0px 64px 0px 64px",
+    padding: "0px 240px 0px 240px",
+    "@media only screen and (max-width: 1240px)": {
+      margin: "0px 64px 0px 64px",
+      padding: "0px 64px 0px 64px",
+    },
   },
 };
 

@@ -12,6 +12,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Contact from "components/Contact/Contact.js";
+import Head from "next/head"
 
 const useStyles = makeStyles(styles);
 
@@ -19,6 +20,9 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
+      <Head>
+        <title>Contact Us | Hapkido College of Australia</title>
+      </Head>
       <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>

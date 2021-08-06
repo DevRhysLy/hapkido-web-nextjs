@@ -8,6 +8,14 @@ export default function Slug({ posts ,allLocations, allServices, aboutPages }) {
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
         <title>{posts.fields.title} — Hapkido College of Australia Blog</title>
+        <meta name="description" content={posts.fields.description} />
+        <meta property="og:title" content={posts.fields.title} />
+        <meta property="og:description" content={posts.fields.description} />
+        <meta property="og:image" content={posts.fields.bannerImage.fields.file.url} />
+        <meta property="og:url" content="www.hapkidocollege.com.au"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <Post post={posts} />
     </Layout>

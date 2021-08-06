@@ -38,7 +38,7 @@ export default function ServiceList({ services = [] }) {
                 />
                 <CardBody>
                   <h4 className={classes.cardTitle}>{service.fields.service}</h4>
-                  <p>{service.fields.shortDescription}</p>
+                  <p style={ service.fields.shortDescription.length > 120 ? {whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"} : {fontSize: "14px"}}>{service.fields.shortDescription}</p>
                   <Button color="primary" round>Learn More</Button>
 
                 </CardBody>

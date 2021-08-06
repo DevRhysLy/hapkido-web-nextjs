@@ -14,6 +14,7 @@ import Parallax from "components/Parallax/Parallax.js";
 import CardBody from "components/Card/CardBody.js";
 import Contact from "components/Contact/Contact.js";
 import MainInstructorsList from "components/MainInstructorsList/MainInstructorsList.js";
+import Head from "next/head"
 
 const useStyles = makeStyles(styles);
 
@@ -21,6 +22,9 @@ const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPa
   const classes = useStyles();
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
+      <Head>
+        <title>Our Master and Instructors | Hapkido College of Australia</title>
+      </Head>
       <Parallax image="/img/hca-banner-2.jpeg" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>

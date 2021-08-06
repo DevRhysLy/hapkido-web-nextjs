@@ -25,13 +25,13 @@ const photos = [
 
   {
     src: '/img/master-kim-4.jpg',
-    width: 1,
-    height: 1
+    width: 1125,
+    height: 1500
   },
   {
     src: '/img/master-kim.jpg',
-    width: 4,
-    height: 5
+    width: 2250,
+    height: 3000
   }
 ];
 
@@ -101,7 +101,9 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
           <div className={classes.infoContent}>
             <h3 className={classes.h3}>Our Master</h3>
             <div>
+            <div className={classes.galleryContainerIndex}>
             <Gallery photos={photos} />
+            </div>
             </div>
             <h4 className={classes.h4}>Master Yong Kil Kim originates from South Korea and has over 30 years experience in studying and teaching various martial arts, predominantly Hapkido.</h4>
             <Link href="/about/our-master-and-instructors">

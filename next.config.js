@@ -9,3 +9,9 @@ module.exports = withPlugins([[withImages]], {
     return config;
   },
 });
+
+// module.exports = {
+//   images: {
+//     domains: ['images.ctfassets.net'],
+//   },
+// }

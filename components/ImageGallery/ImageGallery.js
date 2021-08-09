@@ -38,8 +38,6 @@ const ImageGallery = ({ subGallery = [] }) => {
     }
   })
 
-  console.log("photos", photosArray)
-
   return (
     <div>
       <Parallax image={subGallery.fields.images[0].fields.file.url} responsive={true}>
@@ -52,7 +50,11 @@ const ImageGallery = ({ subGallery = [] }) => {
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.indexRaised)}>
-        <div>
+        <div style={{
+          maxWidth: "1280px",
+          margin: "0px auto !important",
+          float: "none !important",
+        }}>
           <div>
             {subGallery.fields.title}
           </div>

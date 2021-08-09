@@ -69,8 +69,9 @@ const componentsStyle = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    margin: "24px",
-    borderTop: "solid",
+    maxWidth: "1280px",
+    margin: "0px auto !important",
+    float: "none !important",
     "@media (max-width: 768px)": {
       flexDirection: "column"
     },
@@ -78,9 +79,10 @@ const componentsStyle = {
   infoDivColumn: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    margin: "24px",
-    borderTop: "solid",
+    justifyContent: "center",  
+    maxWidth: "1280px",
+    margin: "0px auto !important",
+    float: "none !important",
   },
   indexRaised: {
     marginTop: "-60px",
@@ -225,6 +227,9 @@ const componentsStyle = {
       margin: "0px 64px 0px 64px",
       padding: "0px 64px 0px 64px",
     },
+  },
+  infoContainer: {
+    borderTop: "solid",
   },
 };
 

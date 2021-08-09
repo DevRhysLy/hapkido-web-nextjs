@@ -72,10 +72,6 @@ class Contact extends Component {
             sendingMessage: true
         })
         this.sendMessage()
-        console.log(this.state.firstName);
-        console.log(this.state.email);
-        console.log(this.state.age);
-        console.log(this.state.studio);
     }
     sendMessage = () => {
         //puts form data into google form

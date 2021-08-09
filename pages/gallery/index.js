@@ -9,7 +9,7 @@ import Layout from "components/Layout/Layout.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Head from "next/head";
 import Link from "next/link"
-import ImageGallery from "components/ImageGallery/ImageGallery.js";
+import GalleryList from "components/GalleryList/GalleryList.js";
 import { height } from "@material-ui/system";
 
 const useStyles = makeStyles(styles);
@@ -38,7 +38,8 @@ const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] 
                 <div className={classes.container}>
                     <div className={classes.jumboHeadingContainer}>
                         <h1 className={classes.jumboHeading}>Our Gallery</h1>
-                        <ul className={classes.ul}>
+                        <GalleryList imageGallery={imageGallery}/>
+                        {/* <ul className={classes.ul}>
                         {imageGallery.map((subGallery) => <li className={classes.li}>
                             <Link href={`/gallery/${subGallery.fields.slug}`}>
                             <div className={classes.listDiv}>
@@ -48,7 +49,7 @@ const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] 
                                 </div>
                                 </Link>
                                 </li>)}
-                    </ul>
+                    </ul> */}
                     </div>
             </div>
             </div>

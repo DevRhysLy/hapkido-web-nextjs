@@ -34,7 +34,6 @@ export default function StudioLocation({ studioLocation }) {
               <MainInstructorsAvatar instructors={studioLocation.fields.mainInstructor} />
               </div>
               </div>
-            {console.log(studioLocation.fields.mainInstructor)}
             
         </div>
     )

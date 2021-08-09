@@ -55,75 +55,88 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
 
       <div className={classNames(classes.main, classes.indexRaised)}>
         <div className={classes.jumboHeadingContainer}>
-          <h1 className={classes.jumboHeading}>Welcom to HCA!</h1>
+          <h1 className={classes.jumboHeading}>Welcome to HCA!</h1>
         </div>
-        <div className={classes.infoDivRow}>
-          <div className={classes.infoContent}>
-            <h3 className={classes.h3}>About</h3>
-            <h4 className={classes.h4}>
-              Hapkido College of Australia is a Martial Arts organisation dedicated to teaching
-              excellence in Self-Defence, Fitness and Discipline to improve personal development,
-              health and well-being to all ages.
-            </h4>
-            <Link href="/about/about-us">
-              <a className={classes.linkBtn}>
-                <Button className={classes.buttonGrey}>
-                  Learn More!
-                </Button>
-              </a>
-            </Link>
+        <div className={classes.infoContainer} >
+          <div className={classes.infoDivRow}>
+            <div className={classes.infoContent}>
+              <h3 className={classes.h3}>About</h3>
+              <h4 className={classes.h4}>
+                Hapkido College of Australia is a Martial Arts organisation dedicated to teaching
+                excellence in Self-Defence, Fitness and Discipline to improve personal development,
+                health and well-being to all ages.
+              </h4>
+              <Link href="/about/about-us">
+                <a className={classes.linkBtn}>
+                  <Button className={classes.buttonGrey}>
+                    Learn More!
+                  </Button>
+                </a>
+              </Link>
 
-          </div>
-          <div className={classes.infoContent}>
-            <img className={classes.scaledImg} src="/img/hca-banner-2.jpeg" />
-          </div>
-        </div>
-
-
-        <div className={classes.infoDivColumn}>
-          <div className={classes.infoContent} >
-            <h3 className={classes.h3}>Our Services</h3>
-            <h4 className={classes.h4}>Please <Link href="/contact-us"><a className={classes.contactLink}>contact us</a></Link> if you are interested in any of our services!</h4>
-            <div>
             </div>
-            <ServiceList services={services} />
+            <div className={classes.infoContent}>
+              <img className={classes.scaledImg} src="/img/hca-banner-2.jpeg" />
+            </div>
+          </div>
+        </div>
 
-            <Link href="/services">
-              <a className={classes.linkBtn}>
-                <Button className={classes.buttonGrey}>
-                  View All {`>>`}
-                </Button>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <div className={classes.infoDivRow}>
-          <div className={classes.infoContent}>
-            <h3 className={classes.h3}>Our Master</h3>
-            <div>
-            <div className={classes.galleryContainerIndex}>
-            <Gallery photos={photos} />
+        <div className={classes.infoContainer}>
+          <div className={classes.infoDivColumn}>
+            <div className={classes.infoContent} >
+              <h3 className={classes.h3}>Our Services</h3>
+              <h4 className={classes.h4}>Please <Link href="/contact-us"><a className={classes.contactLink}>contact us</a></Link> if you are interested in any of our services!</h4>
+              <div>
+              </div>
+              <ServiceList services={services} />
+
+              <Link href="/services">
+                <a className={classes.linkBtn}>
+                  <Button className={classes.buttonGrey}>
+                    View All {`>>`}
+                  </Button>
+                </a>
+              </Link>
             </div>
+          </div>
+        </div>
+
+        <div className={classes.infoContainer}>
+          <div className={classes.infoDivRow}>
+            <div className={classes.infoContent}>
+              <h3 className={classes.h3}>Our Master</h3>
+              <div>
+                <div className={classes.galleryContainerIndex}>
+                  <Gallery photos={photos} />
+                </div>
+              </div>
+              <h4 className={classes.h4}>Master Yong Kil Kim originates from South Korea and has over 30 years experience in studying and teaching various martial arts, predominantly Hapkido.</h4>
+              <Link href="/about/our-master-and-instructors">
+                <a className={classes.linkBtn}>
+                  <Button className={classes.buttonGrey}>
+                    More About Our Instructors {`>>`}
+                  </Button>
+                </a>
+              </Link>
             </div>
-            <h4 className={classes.h4}>Master Yong Kil Kim originates from South Korea and has over 30 years experience in studying and teaching various martial arts, predominantly Hapkido.</h4>
-            <Link href="/about/our-master-and-instructors">
-              <a className={classes.linkBtn}>
-                <Button className={classes.buttonGrey}>
-                  More About Our Instructors {`>>`}
-                </Button>
-              </a>
-            </Link>
           </div>
         </div>
-        <div className={classes.infoDivColumn}>
-          <Testimonial testimonials={testimonials} />
-        </div>
-        <div className={classes.infoDivColumn}>
-          <div className={classes.infoContent} >
-            <h3 className={classes.h3}>Contact Us</h3>
-            <Contact />
+
+        <div className={classes.infoContainer}>
+          <div className={classes.infoDivColumn}>
+            <Testimonial testimonials={testimonials} />
           </div>
         </div>
+
+        <div className={classes.infoContainer}>
+          <div className={classes.infoDivColumn}>
+            <div className={classes.infoContent} >
+              <h3 className={classes.h3}>Contact Us</h3>
+              <Contact />
+            </div>
+          </div>
+        </div>
+        
       </div>
     </Layout>
   );

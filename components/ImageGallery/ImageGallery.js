@@ -40,7 +40,7 @@ const ImageGallery = ({ subGallery = [] }) => {
 
   return (
     <div>
-      <Parallax image={subGallery.fields.images[0].fields.file.url} responsive={true}>
+      <Parallax image={`https:${subGallery.fields.images[0].fields.file.url}`} responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>{subGallery.fields.title}</h1>

@@ -8,10 +8,11 @@ module.exports = withPlugins([[withImages]], {
     config.resolve.modules.push(path.resolve("./"));
     return config;
   },
+  images: {
+    domains: ['images.ctfassets.net','downloads.ctfassets.net'],
+  },
 });
 
 // module.exports = {
-//   images: {
-//     domains: ['images.ctfassets.net'],
-//   },
+//   
 // }

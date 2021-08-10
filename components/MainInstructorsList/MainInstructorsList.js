@@ -8,6 +8,7 @@ import { cardTitle, cardLink, cardSubtitle } from "styles/jss/nextjs-material-ki
 import { makeStyles } from "@material-ui/core/styles";
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 import Button from 'components/CustomButtons/Button.js';
+import CardImage from "components/Card/CardImage.js";
 
 const styles = {
   ...imagesStyles,
@@ -28,17 +29,13 @@ export default function MainInstructorList({ instructors = [] }) {
           <Link href={`/about/our-master-and-instructors/${instructor.fields.slug}`}>
             <a className={classes.serviceCardLink} >
               <Card >
-                <img
-                  style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
-                  className={classes.imgCardTop}
-                  src={instructor.fields.avatar.fields.file.url}
-                  alt={instructor.fields.title}
-                />
+                <CardImage
+                  src={`https:${instructor.fields.avatar.fields.file.url}`}
+                  alt={instructor.fields.title} />
                 <CardBody>
                   <h4 className={classes.cardTitle}>{instructor.fields.title}</h4>
-                  <p  style={ instructor.fields.bio.length > 120 ? {whiteSpace: "nowrap", overflow:"hidden", textOverflow: "ellipsis"} : {fontSize: "14px"}}>{instructor.fields.bio}</p>
+                  <p style={instructor.fields.bio.length > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{instructor.fields.bio}</p>
                   <Button color="primary" round>Learn More</Button>
-
                 </CardBody>
               </Card>
             </a>

@@ -14,7 +14,8 @@ import Contact from "components/Contact/Contact.js";
 import ServiceList from "components/ServiceList/ServiceList.js";
 import Testimonial from "components/Testimonials/Testimonial.js";
 import Button from 'components/CustomButtons/Button.js';
-import Head from "next/head"
+import Head from "next/head";
+import Image from 'next/image'
 
 import Gallery from "react-photo-gallery";
 
@@ -24,12 +25,12 @@ const useStyles = makeStyles(styles);
 const photos = [
 
   {
-    src: '/img/master-kim-4.jpg',
+    src: '/img/master-kim-4.webp',
     width: 1125,
     height: 1500
   },
   {
-    src: '/img/master-kim.jpg',
+    src: '/img/master-kim.webp',
     width: 2250,
     height: 3000
   }
@@ -76,7 +77,11 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
 
             </div>
             <div className={classes.infoContent}>
-              <img className={classes.scaledImg} src="/img/hca-banner-2.jpeg" />
+              <Image 
+              layout="intrinsic" 
+              src="/img/hca-banner-2.jpeg"
+              height={1165}
+              width={1750} />
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ export default function StudioLocation({ studioLocation }) {
     const classes = useStyles();
     return (
         <div>
-          <Parallax image={studioLocation.fields.bannerImage.fields.file.url} responsive={true}>
+          <Parallax image={`https:${studioLocation.fields.bannerImage.fields.file.url}`} responsive={true}>
             <div className={classes.parallaxContainer}>
               <div className={classes.brand}>
                 <h1 className={classes.title}>{studioLocation.fields.location}</h1>

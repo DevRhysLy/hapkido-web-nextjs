@@ -4,6 +4,7 @@ import style from "components/Markdown/markdown.module.css"
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/jss/nextjs-material-kit/pages/components.js";
+import Image from "next/image"
 
 const useStyles = makeStyles(styles);
 
@@ -12,13 +13,16 @@ export default function MainInstructors({ instructors }) {
   return (
     <div className={classNames(classes.main, classes.indexRaised)}>
       <div className={classes.container}>
-      <div style={{marginTop: "240px"}} className={classes.infoDivRow}>
+      <div style={{marginTop: "240px !important"}} className={classes.infoDivRow}>
           <div style={{alignSelf: "auto"}} className={classes.infoContent}>
         <div className={classes.title}>{instructors.fields.name}</div>
-        <img
-          style={{ marginTop: "24px", width: "100%", display: "block", objectFit: "cover" }}
-          src={instructors.fields.avatar.fields.file.url}
+        <div style={{ marginTop: "24px", width: "100%", display: "block", objectFit: "cover" }}>
+        <Image
+          src={`https:${instructors.fields.avatar.fields.file.url}`}
+          height={instructors.fields.avatar.fields.file.details.image.height}
+          width={instructors.fields.avatar.fields.file.details.image.width}
           alt={instructors.fields.name} />
+          </div>
           </div>
           
           <div className={classes.infoContent}>

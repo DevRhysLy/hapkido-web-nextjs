@@ -39,17 +39,6 @@ const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] 
                     <div className={classes.jumboHeadingContainer}>
                         <h1 className={classes.jumboHeading}>Our Gallery</h1>
                         <GalleryList imageGallery={imageGallery}/>
-                        {/* <ul className={classes.ul}>
-                        {imageGallery.map((subGallery) => <li className={classes.li}>
-                            <Link href={`/gallery/${subGallery.fields.slug}`}>
-                            <div className={classes.listDiv}>
-                                <a className={classes.contactLink}>{subGallery.fields.title}
-                                </a>
-                                <img style={{width:"200px", boxShadow: "3px 3px 3px 3px #2b2b2b30", borderRadius:"8px"}} src={subGallery.fields.images[0].fields.file.url} />
-                                </div>
-                                </Link>
-                                </li>)}
-                    </ul> */}
                     </div>
             </div>
             </div>

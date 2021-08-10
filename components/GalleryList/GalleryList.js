@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import imagesStyles from "styles/jss/nextjs-material-kit/imagesStyles.js";
 import index from "styles/jss/nextjs-material-kit/pages/components.js";
 import Button from 'components/CustomButtons/Button.js';
+import CardImage from "components/Card/CardImage.js";
 
 const styles = {
   ...imagesStyles,
@@ -29,17 +30,13 @@ export default function GalleryList({ imageGallery = [] }) {
         <GridItem xs={12} sm={6} md={4} key={subGallery.sys.id}>
           <Link href={`/gallery/${subGallery.fields.slug}`}>
             <a className={classes.serviceCardLink} >
-              <Card >
-                <img
-                  style={{ height: "180px", width: "100%", display: "block", objectFit: "cover" }}
-                  className={classes.imgCardTop}
-                  src={subGallery.fields.images[0].fields.file.url}
-                  alt={subGallery.fields.title}
-                />
+              <Card>
+                <CardImage
+                  src={`https:${subGallery.fields.images[0].fields.file.url}`}
+                  alt={subGallery.fields.title} />
                 <CardBody>
                   <h4 className={classes.cardTitle}>{subGallery.fields.title}</h4>
                   <Button color="primary" round>View Gallery</Button>
-
                 </CardBody>
               </Card>
             </a>

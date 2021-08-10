@@ -18,9 +18,9 @@ const imagesStyles = {
     marginBottom: "2.142rem",
   },
   imgCardTop: {
-    width: "100%",
-    borderTopLeftRadius: "calc(.25rem - 1px)",
-    borderTopRightRadius: "calc(.25rem - 1px)",
+    // width: "100%",
+    // borderTopLeftRadius: "calc(.25rem - 1px)",
+    // borderTopRightRadius: "calc(.25rem - 1px)",
   },
   imgCardBottom: {
     width: "100%",

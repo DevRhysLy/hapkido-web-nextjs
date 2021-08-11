@@ -67,7 +67,10 @@ function Testimonial({ testimonials = [] }) {
                         <div style={{margin: "24px"}}>
                             <TestimonialCard>
                                 <CardHeader style={{alignSelf:"center"}}>
-                                    <img src={testimonial.fields.avatar.fields.file.url} style={{ height: "75px", width: "75px", overflow: "hidden", borderRadius: "50%" }}/>
+                                    <img 
+                                    src={testimonial.fields.avatar.fields.file.url} 
+                                    alt={testimonial.fields.name}
+                                    style={{ height: "75px", width: "75px", overflow: "hidden", borderRadius: "50%" }}/>
                                 </CardHeader>
                                 <div className={styles.quoteDiv}>
                                     <Quote

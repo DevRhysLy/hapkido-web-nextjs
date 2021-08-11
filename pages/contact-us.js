@@ -23,7 +23,7 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
       <Head>
         <title>Contact Us | Hapkido College of Australia</title>
       </Head>
-      <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
+      <Parallax image="/img/hca-eagles-banner.jpeg" alt="Hapkido College - Contact" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>Contact</h1>

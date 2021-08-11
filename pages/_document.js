@@ -8,6 +8,12 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          {/* <meta
+            name="description"
+            content="The Hapkido College of Australia (HCA) is a Martial Arts 
+            organisation dedicated to teaching excellence in Self-Defence, 
+            Fitness and Discipline to improve personal development, health and 
+            well-being to all ages."/> */}
           <meta name="theme-color" content="#000000" />
           <link rel="shortcut icon" href="/img/android-chrome-192x192.png" />
           <link

@@ -42,6 +42,7 @@ export default function Parallax(props) {
     image,
     small,
     responsive,
+    alt,
   } = props;
   const classes = useStyles();
   const parallaxClasses = classNames({
@@ -62,6 +63,7 @@ export default function Parallax(props) {
     ><div style={{zIndex: "-1"}}>
       <Image
         src={image}
+        alt={alt}
         layout="fill"
         objectFit="cover"
         quality={100} />
@@ -78,6 +80,7 @@ Parallax.propTypes = {
   style: PropTypes.string,
   image: PropTypes.string,
   small: PropTypes.bool,
+  alt: PropTypes.string,
   // this will add a min-height of 660px on small screens
   responsive: PropTypes.bool,
 };

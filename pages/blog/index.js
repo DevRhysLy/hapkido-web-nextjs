@@ -65,7 +65,7 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
         <title>Blogs | Hapkido College of Australia</title>
       </Head>
       {console.log(firstElement)}
-      <Parallax image={`https:${firstElement.fields.bannerImage.fields.file.url}`} responsive={true}>
+      <Parallax image={`https:${firstElement.fields.bannerImage.fields.file.url}`} alt={firstElement.fields.title} responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <div className={classes.blogHead}> Our Latest Blog</div>

@@ -27,12 +27,14 @@ const photos = [
   {
     src: '/img/master-kim-4.webp',
     width: 1125,
-    height: 1500
+    height: 1500,
+    alt: "master-kim"
   },
   {
     src: '/img/master-kim.webp',
     width: 2250,
-    height: 3000
+    height: 3000,
+    alt: "master-kim"
   }
 ];
 
@@ -42,8 +44,14 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Head>
         <title>Hapkido College of Australia | A Passion for a History of Excellence</title>
+        <meta
+            name="description"
+            content="The Hapkido College of Australia (HCA) is a Martial Arts 
+            organisation dedicated to teaching excellence in Self-Defence, 
+            Fitness and Discipline to improve personal development, health and 
+            well-being to all ages."/>
       </Head>
-      <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
+      <Parallax image="/img/hca-eagles-banner.jpeg" alt="Hapkido College of Australia"responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>Hapkido College of Australia</h1>
@@ -78,6 +86,7 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
             </div>
             <div className={classes.infoContent}>
               <Image 
+              alt="About - Hapkido College of Australia"
               layout="intrinsic" 
               src="/img/hca-banner-2.jpeg"
               height={1165}

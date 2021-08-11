@@ -150,6 +150,7 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
         >
           <Button
             color="transparent"
+            rel="noreferrer"
             href="https://www.facebook.com/HapkidoCollegeofAustralia"
             target="_blank"
             className={classes.navLink}
@@ -167,6 +168,7 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
         >
           <Button
             color="transparent"
+            rel="noreferrer"
             href="https://www.instagram.com/hapkido_college_of_australia/"
             target="_blank"
             className={classes.navLink}

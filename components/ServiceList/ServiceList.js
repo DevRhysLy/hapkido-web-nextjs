@@ -27,7 +27,6 @@ export default function ServiceList({ services = [] }) {
   const classes = useStyles();
   return (
     <GridContainer spacing={4}>
-      {console.log(services)}
       {services.slice(0, 3).map((service) => (
         <GridItem xs={12} sm={6} md={4} key={service.sys.id}>
           <Link href={`/services/${service.fields.slug}`}>

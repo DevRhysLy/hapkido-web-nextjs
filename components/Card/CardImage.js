@@ -1,11 +1,12 @@
 import React from "react"
 import Image from 'next/image';
+import styles from './CardImage.module.css'
 
 
 export default function CardImage({ src, alt }) {
 
     return (
-        <div style={{borderRadius: "4px 4px 0px 0px", height: "180px", width: "100%", position: 'relative' }}>
+        <div style={{ height: "180px", width: "100%", position: 'relative' }}>
             <Image
                 layout="fill"
                 objectFit="cover"

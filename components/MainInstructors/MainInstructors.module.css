@@ -1,0 +1,8 @@
+.infoDivRow{
+    margin-top: 240px !important;
+    float: none !important;
+    display: flex;
+    max-width: 1280px;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -25,7 +25,7 @@ const InstructorPage = ({ posts, studioLocations, services, instructors, aboutPa
       <Head>
         <title>Our Master and Instructors | Hapkido College of Australia</title>
       </Head>
-      <Parallax image="/img/hca-banner-2.jpeg" responsive={true}>
+      <Parallax image="/img/hca-banner-2.jpeg" alt="Master and Instructors" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>Hapkido College of Australia</h1>

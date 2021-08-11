@@ -23,7 +23,7 @@ const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] 
             <Head>
                 <title>Our Gallery | Hapkido College of Australia</title>
             </Head>
-            <Parallax image="/img/hca-banner-2.jpeg" responsive={true}>
+            <Parallax image="/img/hca-banner-2.jpeg" alt="Hapkido College - Gallery" responsive={true}>
                 <div className={classes.parallaxContainer}>
                     <div className={classes.brand}>
                         <h1 className={classes.title}>Hapkido College of Australia</h1>

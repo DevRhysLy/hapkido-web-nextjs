@@ -24,7 +24,7 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
       <Head>
         <title>Our Services | Hapkido College of Australia</title>
       </Head>
-      <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
+      <Parallax image="/img/hca-eagles-banner.jpeg" alt="Our Services - Hapkido College" responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>Hapkido College of Australia</h1>

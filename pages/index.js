@@ -43,7 +43,7 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
       <Head>
         <title>Hapkido College of Australia | A Passion for a History of Excellence</title>
       </Head>
-      <Parallax image="/img/hca-eagles-banner.jpeg" responsive={true}>
+      <Parallax image="/img/hca-eagles-banner.jpeg" alt="Hapkido College of Australia"responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <h1 className={classes.title}>Hapkido College of Australia</h1>
@@ -78,6 +78,7 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
             </div>
             <div className={classes.infoContent}>
               <Image 
+              alt="About - Hapkido College of Australia"
               layout="intrinsic" 
               src="/img/hca-banner-2.jpeg"
               height={1165}

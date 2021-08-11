@@ -22,7 +22,7 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
       <Head>
         <title>{allAboutPages.fields.title} | Hapkido College of Australia</title>
       </Head>
-      <Parallax image={`https:${allAboutPages.fields.bannerImage.fields.file.url}`} responsive={true}>
+      <Parallax image={`https:${allAboutPages.fields.bannerImage.fields.file.url}`} alt={allAboutPages.fields.title} responsive={true}>
         <div className={classes.parallaxContainer}>
               <div className={classes.brand}>
                 <h1 className={classes.title}>{allAboutPages.fields.title}</h1>

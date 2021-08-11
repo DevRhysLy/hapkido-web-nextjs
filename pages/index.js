@@ -44,6 +44,12 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Head>
         <title>Hapkido College of Australia | A Passion for a History of Excellence</title>
+        <meta
+            name="description"
+            content="The Hapkido College of Australia (HCA) is a Martial Arts 
+            organisation dedicated to teaching excellence in Self-Defence, 
+            Fitness and Discipline to improve personal development, health and 
+            well-being to all ages."/>
       </Head>
       <Parallax image="/img/hca-eagles-banner.jpeg" alt="Hapkido College of Australia"responsive={true}>
         <div className={classes.parallaxContainer}>

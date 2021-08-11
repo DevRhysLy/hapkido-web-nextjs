@@ -34,7 +34,8 @@ const ImageGallery = ({ subGallery = [] }) => {
     return {
       src: photo.fields.file.url,
       width: photo.fields.file.details.image.width,
-      height: photo.fields.file.details.image.height
+      height: photo.fields.file.details.image.height,
+      alt: photo.fields.title
     }
   })
 

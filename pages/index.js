@@ -27,12 +27,14 @@ const photos = [
   {
     src: '/img/master-kim-4.webp',
     width: 1125,
-    height: 1500
+    height: 1500,
+    alt: "master-kim"
   },
   {
     src: '/img/master-kim.webp',
     width: 2250,
-    height: 3000
+    height: 3000,
+    alt: "master-kim"
   }
 ];
 

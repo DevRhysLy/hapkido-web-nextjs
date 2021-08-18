@@ -1,12 +1,15 @@
 import React, { Component, useState } from "react";
-import { Box, Text, Grommet, Form, FormField, Heading, Header, TextArea, Select, TextInput } from "grommet";
+import { Form, FormField, TextArea, Select, TextInput, Grommet } from "grommet";
 import { FormDown, FormUp } from "grommet-icons";
 import styled from "styled-components";
 import axios from 'axios';
-import Button from 'components/CustomButtons/Button.js';
 import toast, { Toaster } from 'react-hot-toast';
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
+import { grommet } from 'grommet/themes';
+import { deepMerge } from 'grommet/utils';
+import Button from 'components/CustomButtons/Button.js';
+
 
 //form fields
 const GOOGLE_FORM_NAME_ID = "entry.331089697"
@@ -36,6 +39,31 @@ const studioLocationOptions = [
     'West Hoxton'
 ]
 
+const customTheme = deepMerge(grommet, {
+    global: {
+        colors: {
+            placeholder: "#8a919a",
+            selected: "#6FABD3",
+        },
+        input: {
+        },
+    },
+    formField: {
+        label: {
+            color: '#3c4858',
+            weight: 600,
+        },
+    },
+    select: {
+        icons: {
+            down: FormDown,
+            up: FormUp,
+            color: '#212121',
+            margin: 'small',
+          },
+    },
+});
+
 class Contact extends Component {
 
     constructor(props) {
@@ -51,7 +79,7 @@ class Contact extends Component {
             messageSent: false,
             messageError: false,
             studioOptions: studioLocationOptions,
-            ageOptions: ageGroupOptions
+            ageOptions: ageGroupOptions,
         }
     }
 
@@ -99,74 +127,80 @@ class Contact extends Component {
                 this.notify()
             })
     }
-    render() {
-        const { studioOptions, age, studio, ageOptions } = this.state;
-        return (
-            <div>
-                <div style={{margin: "24px"}}>
-                            <Toaster />
-                            <Form onSubmit={this.handleSubmit}>
-                                <FormField label="Name">
-                                    <TextInput
-                                        name='firstName'
-                                        id='firstName'
-                                        value={this.state.firstName}
-                                        onChange={this.handleChange}
-                                        required
-                                        placeholder="Your Name"
-                                    />
-                                </FormField>
-                                <FormField label="Email">
-                                    <TextInput
-                                        name='email'
-                                        id='email'
-                                        value={this.state.email}
-                                        onChange={this.handleChange}
-                                        required
-                                        placeholder="your@email.com"
-                                    />
-                                </FormField>
-                                <FormField label="Age Group/Service">
-                                    <Select
-                                        value={age}
-                                        onChange={event =>
-                                            this.setState({
-                                                age: event.value,
-                                            })
-                                        }
-                                        options={ageOptions}
-                                    />
-                                </FormField>
-                                <FormField label="Studio Location">
-                                    <Select
-                                        value={studio}
-                                        onChange={event =>
-                                            this.setState({
-                                                studio: event.value,
-                                            })
-                                        }
-                                        options={studioOptions}
-                                    />
-                                </FormField>
-                                <FormField label="Message">
-                                    <TextArea
-                                        name='message'
-                                        id='message'
-                                        value={this.state.message}
-                                        onChange={this.handleChange}
-                                        required
-                                        placeholder="Your Message"
-                                        required
-                                        rows="6"
-                                    />
-                                </FormField>
-                                <div style={{textAlign: "center"}}>
-                                <Button type="submit" color="info">Send</Button>
-                                </div>
-                            </Form>
 
+    render() {
+        const { studioOptions, age, studio, ageOptions, disabled } = this.state;
+        return (
+            <Grommet theme={customTheme}>
+                <div>
+                    <div style={{ margin: "24px" }}>
+                        <Toaster />
+                        <Form onSubmit={this.handleSubmit}>
+                            <FormField label="Name">
+                                <TextInput
+                                    name='firstName'
+                                    id='firstName'
+                                    value={this.state.firstName}
+                                    onChange={this.handleChange}
+                                    required
+                                    placeholder="Your Name"
+                                />
+                            </FormField>
+                            <FormField label="Email">
+                                <TextInput
+                                    name='email'
+                                    id='email'
+                                    type='email'
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    required
+                                    placeholder="your@email.com"
+                                />
+                            </FormField>
+                            <FormField label="Age Group/Service">
+                                <Select
+                                    value={age}
+                                    onChange={event =>
+                                        this.setState({
+                                            age: event.value,
+                                        })
+                                    }
+                                    options={ageOptions}
+                                />
+                            </FormField>
+                            <FormField label="Studio Location">
+                                <Select
+                                    value={studio}
+                                    onChange={event =>
+                                        this.setState({
+                                            studio: event.value,
+                                        })
+                                    }
+                                    options={studioOptions}
+                                />
+                            </FormField>
+                            <FormField label="Message">
+                                <TextArea
+                                    name='message'
+                                    id='message'
+                                    value={this.state.message}
+                                    onChange={this.handleChange}
+                                    required
+                                    placeholder="Your Message"
+                                    required
+                                    rows="6"
+                                />
+                            </FormField>
+                            <div style={{ textAlign: "center" }}>
+                                <Button type="submit" style={{ color: 'white', background: '#212121' }}>
+                                    Submit
+                                </Button>
+                            </div>
+                        </Form>
+
+                    </div>
                 </div>
-            </div>
+            </Grommet>
         )
     }
 }

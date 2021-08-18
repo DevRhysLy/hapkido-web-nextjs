@@ -7,7 +7,15 @@ export default function Slug({ instructors ,allLocations, allServices, aboutPage
   return (
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
-        <title>{instructors.fields.location} | Hapkido College of Australia</title>
+        <title>{instructors.fields.name} | Hapkido College of Australia</title>
+        <meta name="description" content={instructors.fields.bio} />
+        <meta property="og:title" content={instructors.fields.name} />
+        <meta property="og:description" content={allAboutPages.fields.bio} />
+        <meta property="og:image" content={instructors.fields.avatar.fields.file.url} />
+        <meta property="og:url" content="www.hapkidocollege.com.au"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <MainInstructors instructors={instructors} />
     </Layout>

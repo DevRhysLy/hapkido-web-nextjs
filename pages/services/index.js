@@ -23,6 +23,21 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Head>
         <title>Our Services | Hapkido College of Australia</title>
+        <meta
+            name="description"
+            content="At the Hapkido College of Australia We have a wide
+             variety of classes and serices for all ages. Our Martial Arts is dedicated to 
+             teaching excellence in self-defence, fitness and discipline"/>
+            <meta name="og:description" content="At the Hapkido College of 
+            Australia We have a wide variety of classes and serices for all 
+            ages. Our Martial Arts is dedicated to teaching excellence in self-defence, fitness 
+            and discipline" />
+        <meta property="og:title" content="Hapkido College of Australia" />
+        <meta property="og:image" content="/img/hca-logo.png" />
+        <meta property="og:url" content="www.hapkidocollege.com.au"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <Parallax image="/img/hca-eagles-banner.jpeg" alt="Our Services - Hapkido College" responsive={true}>
         <div className={classes.parallaxContainer}>

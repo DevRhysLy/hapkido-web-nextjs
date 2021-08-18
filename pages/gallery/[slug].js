@@ -4,11 +4,19 @@ import Layout from "components/Layout/Layout.js";
 import MainInstructors from "components/MainInstructors/MainInstructors.js";
 import ImageGallery from "components/ImageGallery/ImageGallery.js";
 
-export default function Slug({ galleries ,allLocations, allServices, aboutPages }) {
+export default function Slug({ galleries, allLocations, allServices, aboutPages }) {
   return (
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
         <title>{galleries.fields.title} | Hapkido College of Australia</title>
+        <meta name="description" content={galleries.fields.description} />
+        <meta name="og:description" content={galleries.fields.description} />
+        <meta property="og:title" content={`${galleries.fields.title} | Hapkido College of Australia`} />
+        <meta property="og:image" content={galleries.fields.images[0].fields.file.url} />
+        <meta property="og:url" content="www.hapkidocollege.com.au" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <ImageGallery subGallery={galleries} />
     </Layout>
@@ -30,16 +38,16 @@ export async function getStaticProps(context) {
     })
     .then((response) => response.items)
 
-    //Gets studio location data for Layout.js
-    const allLocations = await client
+  //Gets studio location data for Layout.js
+  const allLocations = await client
     .getEntries({ content_type: "studioLocations" })
     .then((response) => response.items)
 
-    const allServices = await client
+  const allServices = await client
     .getEntries({ content_type: "services" })
     .then((response) => response.items)
 
-    const aboutPages = await client
+  const aboutPages = await client
     .getEntries({ content_type: "aboutPages" })
     .then((response) => response.items)
 
@@ -56,10 +64,10 @@ export async function getStaticProps(context) {
   // Return the post as props
   return {
     props: {
-        galleries,
-        allLocations,
-        allServices,
-        aboutPages
+      galleries,
+      allLocations,
+      allServices,
+      aboutPages
     },
   }
 }

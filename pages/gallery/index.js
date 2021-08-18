@@ -22,6 +22,16 @@ const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] 
         <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
             <Head>
                 <title>Our Gallery | Hapkido College of Australia</title>
+                <meta name="description" content="Hapkido College's Online Gallery showcasing the best 
+                of our Martial Arts events" />
+                <meta name="og:description" content="Hapkido College's Online Gallery showcasing the best 
+                of our Martial Arts events" />
+                <meta property="og:title" content={`Our Gallery | Hapkido College of Australia`} />
+                <meta property="og:image" content="/img/hca-banner-2.jpeg" />
+                <meta property="og:url" content="www.hapkidocollege.com.au" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image:width" content="400" />
+                <meta property="og:image:height" content="400" />
             </Head>
             <Parallax image="/img/hca-banner-2.jpeg" alt="Hapkido College - Gallery" responsive={true}>
                 <div className={classes.parallaxContainer}>
@@ -38,9 +48,9 @@ const GalleryPage = ({ studioLocations, services, aboutPages, imageGallery = [] 
                 <div className={classes.container}>
                     <div className={classes.jumboHeadingContainer}>
                         <h1 className={classes.jumboHeading}>Our Gallery</h1>
-                        <GalleryList imageGallery={imageGallery}/>
+                        <GalleryList imageGallery={imageGallery} />
                     </div>
-            </div>
+                </div>
             </div>
         </Layout >
     );

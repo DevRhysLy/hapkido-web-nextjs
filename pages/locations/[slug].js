@@ -1,7 +1,6 @@
 import React from "react"
 import Head from "next/head"
 import Layout from "components/Layout/Layout.js";
-import Post from "components/Post/Post.js";
 import StudioLocation from "../../components/StudioLocation/StudioLocation";
 
 export default function Slug({ studioLocations ,allLocations, allServices, aboutPages }) {
@@ -9,6 +8,14 @@ export default function Slug({ studioLocations ,allLocations, allServices, about
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
         <title>{studioLocations.fields.location} | Hapkido College of Australia</title>
+        <meta name="description" content={studioLocations.fields.descritpion}/>
+        <meta name="og:description" content={studioLocations.fields.descritpion} />
+        <meta property="og:title" content={`${studioLocations.fields.location} | Hapkido College of Australia`} />
+        <meta property="og:image" content={studioLocations.fields.bannerImage.fields.file.url} />
+        <meta property="og:url" content="www.hapkidocollege.com.au"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <StudioLocation studioLocation={studioLocations} />
     </Layout>

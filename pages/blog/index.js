@@ -34,24 +34,40 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
     const desc = post.fields.description.length;
 
     return (
-      <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
-        <Link href={`/blog/${post.fields.slug}`}>
-          <a className={classes.serviceCardLink} >
-            <Card style={{ height: "450px" }}>
-              <CardImage
-                src={`https:${post.fields.bannerImage.fields.file.url}`}
-                alt={post.fields.title} />
-              <CardBody>
-                <h4 style={{ fontSize: "24px", fontWeight: "bold" }}>{post.fields.title}</h4>
-                <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
-                <p>By: {post.fields.author.fields.name}</p>
-                <p style={desc > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{post.fields.description}</p>
-                <Button color="primary" round>Read More</Button>
-              </CardBody>
-            </Card>
-          </a>
-        </Link>
-      </GridItem>)
+      <div>
+        <Head>
+          <title>Our Blog | Hapkido College of Australia</title>
+          <meta name="description" content="Hapkido College's Online Blog. Martial art related 
+          posts to give our students more knowledge about Hapkido" />
+          <meta name="og:description" content="Hapkido College's Online Blog. Martial art related 
+          posts to give our students more knowledge about Hapkido" />
+          <meta property="og:title" content={`Our Blog | Hapkido College of Australia`} />
+          <meta property="og:image" content="/img/hca-banner-2.jpeg" />
+          <meta property="og:url" content="www.hapkidocollege.com.au" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image:width" content="400" />
+          <meta property="og:image:height" content="400" />
+        </Head>
+        <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
+          <Link href={`/blog/${post.fields.slug}`}>
+            <a className={classes.serviceCardLink} >
+              <Card style={{ height: "450px" }}>
+                <CardImage
+                  src={`https:${post.fields.bannerImage.fields.file.url}`}
+                  alt={post.fields.title} />
+                <CardBody>
+                  <h4 style={{ fontSize: "24px", fontWeight: "bold" }}>{post.fields.title}</h4>
+                  <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
+                  <p>By: {post.fields.author.fields.name}</p>
+                  <p style={desc > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{post.fields.description}</p>
+                  <Button color="primary" round>Read More</Button>
+                </CardBody>
+              </Card>
+            </a>
+          </Link>
+        </GridItem>
+      </div>
+    )
   });
 
   const handlePageChange = (pageNumber) => {

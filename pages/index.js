@@ -50,6 +50,16 @@ const index = ({ posts, studioLocations, services, aboutPages, testimonials }) =
             organisation dedicated to teaching excellence in Self-Defence, 
             Fitness and Discipline to improve personal development, health and 
             well-being to all ages."/>
+            <meta name="og:description" content="The Hapkido College of Australia (HCA) is a Martial Arts 
+            organisation dedicated to teaching excellence in Self-Defence, 
+            Fitness and Discipline to improve personal development, health and 
+            well-being to all ages." />
+        <meta property="og:title" content="Hapkido College of Australia" />
+        <meta property="og:image" content="/img/hca-logo.png" />
+        <meta property="og:url" content="www.hapkidocollege.com.au"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <Parallax image="/img/hca-eagles-banner.jpeg" alt="Hapkido College of Australia"responsive={true}>
         <div className={classes.parallaxContainer}>

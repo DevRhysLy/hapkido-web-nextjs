@@ -21,6 +21,14 @@ export default function Slug({ allLocations, allServices, aboutPages, allAboutPa
     <Layout studioLocations={allLocations} services={allServices} aboutPages={aboutPages}>
       <Head>
         <title>{allAboutPages.fields.title} | Hapkido College of Australia</title>
+        <meta name="description" content={allAboutPages.fields.subtitle} />
+        <meta property="og:title" content={allAboutPages.fields.title} />
+        <meta property="og:description" content={allAboutPages.fields.subtitle} />
+        <meta property="og:image" content={allAboutPages.fields.bannerImage.fields.file.url} />
+        <meta property="og:url" content="www.hapkidocollege.com.au"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
       </Head>
       <Parallax image={`https:${allAboutPages.fields.bannerImage.fields.file.url}`} alt={allAboutPages.fields.title} responsive={true}>
         <div className={classes.parallaxContainer}>

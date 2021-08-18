@@ -10,7 +10,7 @@ export default function Slug({ instructors ,allLocations, allServices, aboutPage
         <title>{instructors.fields.name} | Hapkido College of Australia</title>
         <meta name="description" content={instructors.fields.bio} />
         <meta property="og:title" content={instructors.fields.name} />
-        <meta property="og:description" content={allAboutPages.fields.bio} />
+        <meta property="og:description" content={instructors.fields.bio} />
         <meta property="og:image" content={instructors.fields.avatar.fields.file.url} />
         <meta property="og:url" content="www.hapkidocollege.com.au"/>
         <meta property="og:type" content="article" />

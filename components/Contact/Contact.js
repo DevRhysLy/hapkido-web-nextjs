@@ -111,6 +111,7 @@ class Contact extends Component {
                                     <TextInput
                                         name='email'
                                         id='email'
+                                        type="email"
                                         value={this.state.email}
                                         onChange={this.handleChange}
                                         required

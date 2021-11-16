@@ -6,14 +6,14 @@
     margin-top: 1em;
     margin-bottom: 1em;
     list-style: disc outside none;
-    font-size: 24px;
+    font-size: 18px;
   }
   
   .reactMarkDown ul li {
     margin-left: 2em;
     display: list-item;
     text-align: -webkit-match-parent;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .reactMarkDown img {
@@ -26,7 +26,7 @@
     margin-top: 2%;
   }
   .reactMarkDown p {
-      font-size: 24px;
+      font-size: 18px;
       margin: 24px;
   }
   .reactMarkDown h2 {
@@ -43,4 +43,9 @@
 
   .reactMarkDown blockquote{
     text-align: center;
+  }
+  .reactMarkDown a{
+    color: #016db8;
+    font-weight: 400;
+    text-decoration: underline;
   }

@@ -1,0 +1,19 @@
+.searchBar{
+    width: 50%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px;
+  transition: width 0.4s ease-in-out;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.searchBar:focus{
+    width: 100%;
+}
+
+.form{
+    text-align: center;
+}

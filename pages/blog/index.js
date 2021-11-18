@@ -17,11 +17,14 @@ import Button from 'components/CustomButtons/Button.js';
 import Pagination from "react-js-pagination";
 import Head from "next/head"
 import CardImage from "components/Card/CardImage.js";
+import Search from "../../components/Search/Search";
 
 const useStyles = makeStyles(styles);
 
+
 const index = ({ posts, studioLocations, services, aboutPages }) => {
   const classes = useStyles();
+  const [search, setSearch] = useState(""); 
   const sortedPosts = posts.slice().sort((a, b) => new Date(b.fields.publishDate) - new Date(a.fields.publishDate));
   const firstElement = sortedPosts.shift();
   const postsPerPage = 6;
@@ -30,7 +33,7 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
   const indexOfLastPost = activePage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPost = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
-  const renderPosts = currentPost.map((post) => {
+  const renderPosts = currentPost.filter((filteredPost) => filteredPost.fields.title.toLowerCase().includes(search.toLowerCase())).map((post) => {
     const desc = post.fields.description.length;
 
     return (
@@ -58,13 +61,14 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
     setCurrentPage(pageNumber)
     window.scrollTo(0, 650);
   };
+  
+   
 
   return (
     <Layout studioLocations={studioLocations} services={services} aboutPages={aboutPages}>
       <Head>
         <title>Blogs | Hapkido College of Australia</title>
       </Head>
-      {console.log(firstElement)}
       <Parallax image={`https:${firstElement.fields.bannerImage.fields.file.url}`} alt={firstElement.fields.title} responsive={true}>
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
@@ -88,6 +92,7 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
         </div>
         <div className={classes.infoDivRow}>
           <div className={classes.infoContent}>
+            <Search setSearch={setSearch}/>
             <GridContainer spacing={4}>
               {renderPosts}
             </GridContainer>

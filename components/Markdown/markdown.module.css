@@ -1,51 +1,78 @@
 .reactMarkDown {
-    width: 100%;
-  }
-  
-  .reactMarkDown ul {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    list-style: disc outside none;
-    font-size: 18px;
-  }
-  
-  .reactMarkDown ul li {
-    margin-left: 2em;
-    display: list-item;
-    text-align: -webkit-match-parent;
-    font-size: 18px;
-  }
+  width: 100%;
+}
 
-  .reactMarkDown img {
-    overflow: hidden;
-    max-width: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    margin-top: 2%;
-  }
-  .reactMarkDown p {
-      font-size: 18px;
-      margin: 24px;
-  }
-  .reactMarkDown h2 {
-    font-size: 32px;
-    margin: 24px;
-    font-weight: 400;
-  }
-  .reactMarkDown h1 {
-    font-size: 46px;
-    margin: 24px;
-    border-bottom: solid;
-    font-weight: 500;
-  }
+.reactMarkDown ul {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  list-style: disc outside none;
+  font-size: 18px;
+}
 
-  .reactMarkDown blockquote{
-    text-align: center;
-  }
-  .reactMarkDown a{
-    color: #016db8;
-    font-weight: 400;
-    text-decoration: underline;
-  }
+.reactMarkDown ul li {
+  margin-left: 2em;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  font-size: 18px;
+}
+
+.reactMarkDown img {
+  overflow: hidden;
+  max-width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 2%;
+}
+
+.reactMarkDown p {
+  font-size: 18px;
+  margin: 24px;
+}
+
+.reactMarkDown h2 {
+  font-size: 32px;
+  margin: 24px;
+  font-weight: 400;
+}
+
+.reactMarkDown h1 {
+  font-size: 46px;
+  margin: 24px;
+  border-bottom: solid;
+  font-weight: 500;
+}
+
+.reactMarkDown h3 {
+  font-size: 25px;
+  margin: 24px;
+  font-weight: 400;
+}
+
+.reactMarkDown h4 {
+  font-size: 20px;
+  margin: 24px;
+  font-weight: 400;
+}
+
+.reactMarkDown h5 {
+  font-size: 20px;
+  margin: 24px;
+  font-weight: 300;
+}
+
+.reactMarkDown h6 {
+  font-size: 18px;
+  margin: 24px;
+  font-weight: 300;
+}
+
+.reactMarkDown blockquote {
+  text-align: center;
+}
+.reactMarkDown a {
+  color: #016db8;
+  font-weight: 400;
+  text-decoration: underline;
+}

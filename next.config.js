@@ -18,6 +18,7 @@ module.exports = withPlugins([[withImages]], {
     GOOGLE_FORM_AGE_OR_SERVICE_ID: process.env.GOOGLE_FORM_AGE_OR_SERVICE_ID,
     GOOGLE_FORM_EMAIL_ID: process.env.GOOGLE_FORM_EMAIL_ID,
     GOOGLE_FORM_NAME_ID: process.env.GOOGLE_FORM_NAME_ID,
+    GOOGLE_FORM_PHONE_ID: process.env.GOOGLE_FORM_PHONE_ID,
   }
 });
 

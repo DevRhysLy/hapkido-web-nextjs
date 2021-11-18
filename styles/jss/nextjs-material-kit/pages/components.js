@@ -106,7 +106,7 @@ const componentsStyle = {
   },
   jumboHeadingContainer: {
     marginTop: "85px",
-    marginBottom: "48px",
+    marginBottom: "85px",
     textAlign: "center",
   },
   buttonGrey: {

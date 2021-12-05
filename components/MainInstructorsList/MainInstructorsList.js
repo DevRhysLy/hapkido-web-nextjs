@@ -26,44 +26,91 @@ const useStyles = makeStyles(styles);
 export default function MainInstructorList({ instructors = [] }) {
   const classes = useStyles();
   return (
-    <GridContainer spacing={4}>
-      {instructors.map((instructor) => (
-        <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
-          <Link
-            href={`/about/our-master-and-instructors/${instructor.fields.slug}`}
-          >
-            <a className={classes.serviceCardLink}>
-              <Card>
-                <CardImage
-                  src={`https:${instructor.fields.avatar.fields.file.url}`}
-                  alt={instructor.fields.name}
-                />
-                <CardBody>
-                  <h4 className={classes.cardTitle}>
-                    {instructor.fields.name}
-                  </h4>
-                  <p
-                    style={
-                      instructor.fields.bio.length > 120
-                        ? {
-                            whiteSpace: "nowrap",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                          }
-                        : { fontSize: "14px" }
-                    }
-                  >
-                    {instructor.fields.bio}
-                  </p>
-                  <Button color="primary" round>
-                    Learn More
-                  </Button>
-                </CardBody>
-              </Card>
-            </a>
-          </Link>
-        </GridItem>
-      ))}
-    </GridContainer>
+    <div>
+      <h3>Our Main Instructors</h3>
+      <GridContainer spacing={4}>
+        {instructors
+          .filter((mainInstructor) => mainInstructor.fields.isMainInstructor)
+          .map((instructor) => (
+            <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
+              <Link
+                href={`/about/our-master-and-instructors/${instructor.fields.slug}`}
+              >
+                <a className={classes.serviceCardLink}>
+                  <Card>
+                    <CardImage
+                      src={`https:${instructor.fields.avatar.fields.file.url}`}
+                      alt={instructor.fields.name}
+                    />
+                    <CardBody>
+                      <h4 className={classes.cardTitle}>
+                        {instructor.fields.name}
+                      </h4>
+                      <p
+                        style={
+                          instructor.fields.bio.length > 120
+                            ? {
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                              }
+                            : { fontSize: "14px" }
+                        }
+                      >
+                        {instructor.fields.bio}
+                      </p>
+                      <Button color="primary" round>
+                        Learn More
+                      </Button>
+                    </CardBody>
+                  </Card>
+                </a>
+              </Link>
+            </GridItem>
+          ))}
+      </GridContainer>
+      <h3>Our Assistant Blackbelts</h3>
+      <GridContainer spacing={4}>
+        {instructors
+          .filter((mainInstructor) => !mainInstructor.fields.isMainInstructor)
+          .map((instructor) => (
+            <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
+              <Link
+                href={`/about/our-master-and-instructors/${instructor.fields.slug}`}
+              >
+                <a className={classes.serviceCardLink}>
+                  <Card>
+                    <CardImage
+                      src={`https:${instructor.fields.avatar.fields.file.url}`}
+                      alt={instructor.fields.name}
+                    />
+                    <CardBody>
+                      <h4 className={classes.cardTitle}>
+                        {instructor.fields.name}
+                      </h4>
+                      <p
+                        style={
+                          instructor.fields.bio.length > 120
+                            ? {
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                              }
+                            : { fontSize: "14px" }
+                        }
+                      >
+                        {instructor.fields.bio}
+                      </p>
+                      <Button color="primary" round>
+                        Learn More
+                      </Button>
+                    </CardBody>
+                  </Card>
+                </a>
+              </Link>
+            </GridItem>
+          ))}
+      </GridContainer>
+    </div>
   );
 }

@@ -28,7 +28,7 @@ export default function Service({ services }) {
         <div className={classes.jumboHeadingContainer}>
           <h1 className={classes.jumboHeading}>{services.fields.service}</h1>
         </div>
-        <ResponsivePlayer url={services.fields.url ? services.fields.url : "https://www.youtube.com/watch?v=Ec34NUIVFg0"}/>
+        <ResponsivePlayer url={services.fields.url ? services.fields.url : "https://youtu.be/xQI30nECz0Q"}/>
           <ReactMarkdown className={style.reactMarkDown}>{services.fields.longDescription}</ReactMarkdown>
           </div>
           </div>

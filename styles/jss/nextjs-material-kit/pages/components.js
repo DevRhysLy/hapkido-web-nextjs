@@ -231,6 +231,11 @@ const componentsStyle = {
   infoContainer: {
     borderTop: "solid",
   },
+  mobileBrand: {
+    background: "#ffffff73",
+    color: "#212121",
+    textAlign: "center"
+  },
 };
 
 export default componentsStyle;

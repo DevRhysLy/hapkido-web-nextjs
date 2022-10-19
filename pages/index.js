@@ -122,10 +122,11 @@ const index = ({
           responsive={true}
         >
           {/* <div className={classes.parallaxContainer}> */}
-            <div className={classes.mobileBrand}>
-              <h1 className={classes.title}>Hapkido College of Australia</h1>
-              <MobileIndexPage />
-            </div>
+          <div className={classes.mobileBrand}>
+            <h1 className={classes.title}>Hapkido College of Australia</h1>
+            <h3>What are you looking for?</h3>
+            <MobileIndexPage />
+          </div>
           {/* </div> */}
         </Parallax>
       )}
@@ -192,31 +193,32 @@ const index = ({
             </div>
           </div>
         </div>
-
-        <div className={classes.infoContainer}>
-          <div className={classes.infoDivRow}>
-            <div className={classes.infoContent}>
-              <h3 className={classes.h3}>Our Master</h3>
-              <div>
-                <div className={classes.galleryContainerIndex}>
-                  <Gallery photos={photos} />
+        {size.width > 650 ? (
+          <div className={classes.infoContainer}>
+            <div className={classes.infoDivRow}>
+              <div className={classes.infoContent}>
+                <h3 className={classes.h3}>Our Master</h3>
+                <div>
+                  <div className={classes.galleryContainerIndex}>
+                    <Gallery photos={photos} />
+                  </div>
                 </div>
+                <h4 className={classes.h4}>
+                  Master Yong Kil Kim originates from South Korea and has over
+                  30 years experience in studying and teaching various martial
+                  arts, predominantly Hapkido.
+                </h4>
+                <Link href="/about/our-master-and-instructors">
+                  <a className={classes.linkBtn}>
+                    <Button className={classes.buttonGrey}>
+                      More About Our Instructors {`>>`}
+                    </Button>
+                  </a>
+                </Link>
               </div>
-              <h4 className={classes.h4}>
-                Master Yong Kil Kim originates from South Korea and has over 30
-                years experience in studying and teaching various martial arts,
-                predominantly Hapkido.
-              </h4>
-              <Link href="/about/our-master-and-instructors">
-                <a className={classes.linkBtn}>
-                  <Button className={classes.buttonGrey}>
-                    More About Our Instructors {`>>`}
-                  </Button>
-                </a>
-              </Link>
             </div>
           </div>
-        </div>
+        ) : null}
 
         <div className={classes.infoContainer}>
           <div className={classes.infoDivColumn}>

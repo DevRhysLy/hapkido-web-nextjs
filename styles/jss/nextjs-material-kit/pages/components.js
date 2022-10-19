@@ -232,7 +232,7 @@ const componentsStyle = {
     borderTop: "solid",
   },
   mobileBrand: {
-    background: "#ffffff73",
+    background: "#ffffffc2",
     color: "#212121",
     textAlign: "center"
   },

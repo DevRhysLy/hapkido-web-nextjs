@@ -26,6 +26,7 @@ const navPillsStyle = (theme) => ({
     [theme.breakpoints.down("xs")]: {
       display: "flex",
       flexWrap: "wrap",
+      justifyContent: "center"
     },
   },
   displayNone: {
@@ -73,6 +74,8 @@ const navPillsStyle = (theme) => ({
   },
   contentWrapper: {
     marginTop: "20px",
+    paddingLeft:"25px",
+    paddingRight:"25px",
   },
   primary: {
     "&,&:hover": {

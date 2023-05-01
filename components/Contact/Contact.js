@@ -145,10 +145,12 @@ class Contact extends Component {
                 onChange={(phone) => this.setState({ phone })}
                 containerStyle={{
                   border: "0px",
+                  width: "auto",
                   borderRadius: "3px",
                 }}
                 inputStyle={{
                   border: "0px",
+                  width: "auto",
                 }}
                 buttonStyle={{ borderRadius: "0px" }}
                 inputProps={{

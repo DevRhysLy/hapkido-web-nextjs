@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
@@ -18,6 +18,8 @@ import News from "components/News/News.js";
 import Button from "components/CustomButtons/Button.js";
 import Head from "next/head";
 import Image from "next/image";
+import Card from "components/Card/Card.js";
+import MobileIndexPage from "components/MobileIndexPage/MobileIndexPage";
 
 import Gallery from "react-photo-gallery";
 
@@ -38,6 +40,38 @@ const photos = [
   },
 ];
 
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    // only execute all the code below in client side
+    if (typeof window !== "undefined") {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
+}
 const index = ({
   posts,
   studioLocations,
@@ -47,6 +81,7 @@ const index = ({
   news,
 }) => {
   const classes = useStyles();
+  const size = useWindowSize();
   return (
     <Layout
       studioLocations={studioLocations}
@@ -65,31 +100,46 @@ const index = ({
             well-being to all ages."
         />
       </Head>
-      <Parallax
-        image="/img/hca-eagles-banner.jpeg"
-        alt="Hapkido College of Australia"
-        responsive={true}
-      >
-        <div className={classes.parallaxContainer}>
-          <div className={classes.brand}>
-            <h1 className={classes.title}>Hapkido College of Australia</h1>
-            <h3 className={classes.subtitle}>
-              A Passion for a History of Excellence.
-            </h3>
+      {size.width > 650 ? (
+        <Parallax
+          image="/img/hca-eagles-banner.jpeg"
+          alt="Hapkido College of Australia"
+          responsive={true}
+        >
+          <div className={classes.parallaxContainer}>
+            <div className={classes.brand}>
+              <h1 className={classes.title}>Hapkido College of Australia</h1>
+              <h3 className={classes.subtitle}>
+                A Passion for a History of Excellence.
+              </h3>
+            </div>
           </div>
-        </div>
-      </Parallax>
+        </Parallax>
+      ) : (
+        <Parallax
+          image="/img/hca-eagles-banner.jpeg"
+          alt="Hapkido College of Australia"
+          responsive={true}
+        >
+          {/* <div className={classes.parallaxContainer}> */}
+          <div className={classes.mobileBrand}>
+            <h1 className={classes.title}>Hapkido College of Australia</h1>
+            <h3>What are you looking for?</h3>
+            <MobileIndexPage />
+          </div>
+          {/* </div> */}
+        </Parallax>
+      )}
 
       <div className={classNames(classes.main, classes.indexRaised)}>
         <div className={classes.jumboHeadingContainer}>
-          
           <div className={classes.infoContainer}>
-          <div className={classes.infoDivRow}>
-            <div className={classes.infoContent}>
-              <News news={news} />
+            <div className={classes.infoDivRow}>
+              <div className={classes.infoContent}>
+                <News news={news} />
+              </div>
             </div>
-            </div>
-            </div>
+          </div>
         </div>
         <div className={classes.infoContainer}>
           <div className={classes.infoDivRow}>
@@ -143,31 +193,32 @@ const index = ({
             </div>
           </div>
         </div>
-
-        <div className={classes.infoContainer}>
-          <div className={classes.infoDivRow}>
-            <div className={classes.infoContent}>
-              <h3 className={classes.h3}>Our Master</h3>
-              <div>
-                <div className={classes.galleryContainerIndex}>
-                  <Gallery photos={photos} />
+        {size.width > 650 ? (
+          <div className={classes.infoContainer}>
+            <div className={classes.infoDivRow}>
+              <div className={classes.infoContent}>
+                <h3 className={classes.h3}>Our Master</h3>
+                <div>
+                  <div className={classes.galleryContainerIndex}>
+                    <Gallery photos={photos} />
+                  </div>
                 </div>
+                <h4 className={classes.h4}>
+                  Master Yong Kil Kim originates from South Korea and has over
+                  30 years experience in studying and teaching various martial
+                  arts, predominantly Hapkido.
+                </h4>
+                <Link href="/about/our-master-and-instructors">
+                  <a className={classes.linkBtn}>
+                    <Button className={classes.buttonGrey}>
+                      More About Our Instructors {`>>`}
+                    </Button>
+                  </a>
+                </Link>
               </div>
-              <h4 className={classes.h4}>
-                Master Yong Kil Kim originates from South Korea and has over 30
-                years experience in studying and teaching various martial arts,
-                predominantly Hapkido.
-              </h4>
-              <Link href="/about/our-master-and-instructors">
-                <a className={classes.linkBtn}>
-                  <Button className={classes.buttonGrey}>
-                    More About Our Instructors {`>>`}
-                  </Button>
-                </a>
-              </Link>
             </div>
           </div>
-        </div>
+        ) : null}
 
         <div className={classes.infoContainer}>
           <div className={classes.infoDivColumn}>

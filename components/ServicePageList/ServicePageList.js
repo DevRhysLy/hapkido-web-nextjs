@@ -28,22 +28,24 @@ export default function ServiceList({ services = [] }) {
     <GridContainer spacing={4}>
       {services.map((service) => (
         <GridItem xs={12} sm={6} md={4} key={service.sys.id}>
-          <Link href={`/services/${service.fields.slug}`}>
-            <a className={classes.serviceCardLink} >
-              <Card >
-                <CardImage
-                  src={`https:${service.fields.image.fields.file.url}`}
-                  alt={service.fields.service} />
-                <CardBody>
-                  <h4 className={classes.cardTitle}>{service.fields.service}</h4>
-                  <p style={service.fields.shortDescription.length > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{service.fields.shortDescription}</p>
-                  <Button color="primary" round>Learn More</Button>
-                </CardBody>
-              </Card>
-            </a>
+          <Link
+            href={`/services/${service.fields.slug}`}
+            className={classes.serviceCardLink}>
+
+            <Card >
+              <CardImage
+                src={`https:${service.fields.image.fields.file.url}`}
+                alt={service.fields.service} />
+              <CardBody>
+                <h4 className={classes.cardTitle}>{service.fields.service}</h4>
+                <p style={service.fields.shortDescription.length > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{service.fields.shortDescription}</p>
+                <Button color="primary" round>Learn More</Button>
+              </CardBody>
+            </Card>
+
           </Link>
         </GridItem>
       ))}
     </GridContainer>
-  )
+  );
 }

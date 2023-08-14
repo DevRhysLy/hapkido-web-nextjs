@@ -49,16 +49,16 @@ const contactUs = ({ posts, studioLocations, services, aboutPages }) => {
             <div>
               <ul>
                 <li>
-                  <Link href="/locations/ermington-west"><a className={classes.contactLink}>Ermington West</a></Link>
+                  <Link href="/locations/ermington-west" className={classes.contactLink}>Ermington West</Link>
                 </li>
                 <li>
-                  <Link href="/locations/ermington-west"><a className={classes.contactLink}>Belrose</a></Link>
+                  <Link href="/locations/ermington-west" className={classes.contactLink}>Belrose</Link>
                 </li>
                 <li>
-                  <Link href="/locations/yarrawarrah"><a className={classes.contactLink}>Yarrawarrah</a></Link>
+                  <Link href="/locations/yarrawarrah" className={classes.contactLink}>Yarrawarrah</Link>
                 </li>
                 <li>
-                  <Link href="/locations/ermington-west"><a className={classes.contactLink}>West Hoxton</a></Link>
+                  <Link href="/locations/ermington-west" className={classes.contactLink}>West Hoxton</Link>
                 </li>
               </ul>
             </div>

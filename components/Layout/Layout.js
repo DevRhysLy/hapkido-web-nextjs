@@ -3,7 +3,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 
 const Layout = ({ children, props, studioLocations, services, aboutPages }) => {
-    const { ...rest } = props;
+    const { ...rest } = {props};
     return (
         <div>
             <Header

@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import StarsRating from "stars-rating";
-import Quote from "components/Typography/Quote.js";
-import TestimonialCard from "components/TestimonialCard/TestimonialCard.js";
-import CardBody from "components/Card/CardBody.js";
-import CardHeader from "components/Card/CardHeader.js";
 import ReactMarkdown from "react-markdown";
 
 import style from "components/Markdown/markdown.module.css";

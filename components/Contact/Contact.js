@@ -190,7 +190,6 @@ class Contact extends Component {
                 onChange={this.handleChange}
                 required
                 placeholder="Your Message"
-                required
                 rows="6"
               />
             </FormField>

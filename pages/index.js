@@ -151,10 +151,10 @@ const index = ({
                 Discipline to improve personal development, health and
                 well-being to all ages.
               </h4>
-              <Link href="/about/about-us">
-                <a className={classes.linkBtn}>
-                  <Button className={classes.buttonGrey}>Learn More!</Button>
-                </a>
+              <Link href="/about/about-us" className={classes.linkBtn}>
+
+                <Button className={classes.buttonGrey}>Learn More!</Button>
+
               </Link>
             </div>
             <div className={classes.infoContent}>
@@ -175,20 +175,20 @@ const index = ({
               <h3 className={classes.h3}>Our Services</h3>
               <h4 className={classes.h4}>
                 Please{" "}
-                <Link href="/contact-us">
-                  <a className={classes.contactLink}>contact us</a>
+                <Link href="/contact-us" className={classes.contactLink}>
+                  contact us
                 </Link>{" "}
                 if you are interested in any of our services!
               </h4>
               <div></div>
               <ServiceList services={services} />
 
-              <Link href="/services">
-                <a className={classes.linkBtn}>
-                  <Button className={classes.buttonGrey}>
-                    View All {`>>`}
-                  </Button>
-                </a>
+              <Link href="/services" className={classes.linkBtn}>
+
+                <Button className={classes.buttonGrey}>
+                  View All {`>>`}
+                </Button>
+
               </Link>
             </div>
           </div>
@@ -208,12 +208,12 @@ const index = ({
                   30 years experience in studying and teaching various martial
                   arts, predominantly Hapkido.
                 </h4>
-                <Link href="/about/our-master-and-instructors">
-                  <a className={classes.linkBtn}>
-                    <Button className={classes.buttonGrey}>
-                      More About Our Instructors {`>>`}
-                    </Button>
-                  </a>
+                <Link href="/about/our-master-and-instructors" className={classes.linkBtn}>
+
+                  <Button className={classes.buttonGrey}>
+                    More About Our Instructors {`>>`}
+                  </Button>
+
                 </Link>
               </div>
             </div>

@@ -1,7 +1,10 @@
 import React, { Component, useState } from "react";
 import axios from "axios";
-import Button from "components/CustomButtons/Button.js";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import toast, { Toaster } from "react-hot-toast";
+import { Select, MenuItem, InputLabel } from "@material-ui/core";
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -135,93 +138,118 @@ class Contact extends Component {
       <div>
         <div style={{ margin: "24px" }}>
           <Toaster />
-          <form onSubmit={this.handleSubmit}>
-            <label label="Name">
-              <input
-                name="firstName"
-                id="firstName"
-                value={this.state.firstName}
-                onChange={this.handleChange}
-                required
-                placeholder="Your Name"
-              />
-            </label>
-            <label label="Email">
-              <input
-                name="email"
-                id="email"
-                type="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-                required
-                placeholder="your@email.com"
-              />
-            </label>
-            <label label="Phone">
-              <PhoneInput
-                placeholder="(04) 1234 5678"
-                country={"au"}
-                onlyCountries={["au"]}
-                value={this.state.phone}
-                onChange={(phone) => this.setState({ phone })}
-                containerStyle={{
-                  border: "0px",
-                  width: "auto",
-                  borderRadius: "3px",
-                }}
-                inputStyle={{
-                  border: "0px",
-                  width: "auto",
-                }}
-                buttonStyle={{ borderRadius: "0px" }}
-                inputProps={{
-                  required: true,
-                }}
-                disableDropdown
-                disableCountryCode
-              />
-            </label>
-            <label label="Age Group/Service">
-              <select
-                value={age}
-                onChange={(event) =>
-                  this.setState({
-                    age: event.target.value,
-                  })
-                }
-              >
-                {ageOptions.map((option) => (
-                  <option value={option.value}>{option.label}</option>
-                ))}
-              </select>
-            </label>
-            <label label="Studio">
-              <select
-                value={studio}
-                onChange={(event) =>
-                  this.setState({
-                    studio: event.target.value,
-                  })
-                }
-              >
-                {studioOptions.map((option) => (
-                  <option value={option.value}>{option.label}</option>
-                ))}
-              </select>
-              <label>
-                <textarea
-                  name="message"
-                  id="message"
-                  value={this.state.message}
-                  onChange={this.handleChange}
-                  required
-                  placeholder="Your Message"
-                />
-              </label>
-            </label>
+          <Grid
+            container
+            spacing={4}
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <form onSubmit={this.handleSubmit}>
+                <Grid item style={{ margin: 10 }}>
+                  <TextField
+                    name="firstName"
+                    id="firstName"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                    required
+                    fullWidth
+                    placeholder="Your Name"
+                    label="Full Name"
+                  />
+                </Grid>
+                <Grid item
+                style={{ margin: 10 }}>
+                  <TextField
+                    name="email"
+                    id="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    required
+                    placeholder="your@email.com"
+                    label="Email"
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <InputLabel>Phone Number</InputLabel>
+                  <PhoneInput
+                    placeholder="(04) 1234 5678"
+                    country={"au"}
+                    onlyCountries={["au"]}
+                    value={this.state.phone}
+                    onChange={(phone) => this.setState({ phone })}
+                    containerStyle={{
+                      border: "0px",
+                      width: "auto",
+                      borderRadius: "3px",
+                    }}
+                    inputStyle={{
+                      border: "0px",
+                      width: "auto",
+                    }}
+                    buttonStyle={{ borderRadius: "0px" }}
+                    inputProps={{
+                      required: true,
+                    }}
+                    disableDropdown
+                    disableCountryCode
+                  />
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <InputLabel>Age Group/Service</InputLabel>
+                  <Select
+                    fullWidth
+                    label="Age Group/Service"
+                    value={age}
+                    onChange={(event) =>
+                      this.setState({
+                        age: event.target.value,
+                      })
+                    }
+                  >
+                    {ageOptions.map((option) => (
+                      <MenuItem value={option.value}>{option.label}</MenuItem>
+                    ))}
+                  </Select>
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <InputLabel>Studio</InputLabel>
+                  <Select
+                    fullWidth
+                    label="Studio"
+                    value={studio}
+                    onChange={(event) =>
+                      this.setState({
+                        studio: event.target.value,
+                      })
+                    }
+                  >
+                    {studioOptions.map((option) => (
+                      <MenuItem value={option.value}>{option.label}</MenuItem>
+                    ))}
+                  </Select>
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <TextField
+                    fullWidth
+                    name="message"
+                    id="message"
+                    value={this.state.message}
+                    onChange={this.handleChange}
+                    required
+                    multiline
+                    rows={6}
+                    placeholder="Your Message"
+                  />
+                </Grid>
 
-            <button type="submit">SEND</button>
-          </form>
+                <Button variant="contained" type="submit">SEND</Button>
+              </form>
+            </Grid>
+          </Grid>
         </div>
       </div>
     );

@@ -38,23 +38,24 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
 
     return (
       <GridItem xs={12} sm={6} md={4} key={post.sys.id}>
-        <Link href={`/blog/${post.fields.slug}`}>
-          <a className={classes.serviceCardLink} >
-            <Card style={{ height: "450px" }}>
-              <CardImage
-                src={`https:${post.fields.bannerImage.fields.file.url}`}
-                alt={post.fields.title} />
-              <CardBody>
-                <h4 style={{ fontSize: "24px", fontWeight: "bold" }}>{post.fields.title}</h4>
-                <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
-                <p>By: {post.fields.author.fields.name}</p>
-                <p style={desc > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{post.fields.description}</p>
-                <Button color="primary" round>Read More</Button>
-              </CardBody>
-            </Card>
-          </a>
+        <Link href={`/blog/${post.fields.slug}`} className={classes.serviceCardLink}>
+
+          <Card style={{ height: "450px" }}>
+            <CardImage
+              src={`https:${post.fields.bannerImage.fields.file.url}`}
+              alt={post.fields.title} />
+            <CardBody>
+              <h4 style={{ fontSize: "24px", fontWeight: "bold" }}>{post.fields.title}</h4>
+              <p>Published: {new Date(post.fields.publishDate).toDateString()}</p>
+              <p>By: {post.fields.author.fields.name}</p>
+              <p style={desc > 120 ? { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" } : { fontSize: "14px" }}>{post.fields.description}</p>
+              <Button color="primary" round>Read More</Button>
+            </CardBody>
+          </Card>
+
         </Link>
-      </GridItem>)
+      </GridItem>
+    );
   });
 
   const handlePageChange = (pageNumber) => {
@@ -73,7 +74,10 @@ const index = ({ posts, studioLocations, services, aboutPages }) => {
         <div className={classes.parallaxContainer}>
           <div className={classes.brand}>
             <div className={classes.blogHead}> Our Latest Blog</div>
-            <Link href={`/blog/${firstElement.fields.slug}`} className={classes.title}>
+            <Link
+              href={`/blog/${firstElement.fields.slug}`}
+              className={classes.title}
+              legacyBehavior>
               <div className={classes.simpleHover}>
                 <h1 className={classes.title}>{firstElement.fields.title}</h1>
                 <h3 className={classes.subtitle}>

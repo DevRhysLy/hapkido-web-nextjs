@@ -1,41 +1,67 @@
 import React, { Component, useState } from "react";
-import {
-  Box,
-  Text,
-  Grommet,
-  Form,
-  FormField,
-  Heading,
-  Header,
-  TextArea,
-  Select,
-  TextInput,
-} from "grommet";
 import axios from "axios";
-import Button from "components/CustomButtons/Button.js";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import toast, { Toaster } from "react-hot-toast";
+import { Select, MenuItem, InputLabel } from "@material-ui/core";
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 //age options
 const ageGroupOptions = [
-  "Little Tigers: 4 - 5 Years old",
-  "Childrens: 6 - 11 Years old",
-  "Youth: 12 - 17 Years old",
-  "Adults 18+",
-  "Demonstration Team",
-  "Private Lessons",
-  "Birthday Parties",
-  "School Courses",
-  "Other",
+  {
+    label: "Little Tigers: 4 - 5 Years old",
+    value: "Little Tigers: 4 - 5 Years old",
+  },
+  {
+    label: "Childrens: 6 - 11 Years old",
+    value: "Childrens: 6 - 11 Years old",
+  },
+  {
+    label: "Youth: 12 - 17 Years old",
+    value: "Youth: 12 - 17 Years old",
+  },
+  {
+    label: "Adults 18+",
+    value: "Adults 18+",
+  },
+  {
+    label: "Demonstration Team",
+    value: "Demonstration Team",
+  },
+  {
+    label: "Private Lessons",
+    value: "Private Lessons",
+  },
+  {
+    label: "Birthday Parties",
+    value: "Birthday Parties",
+  },
+  {
+    label: "School Courses",
+    value: "School Courses",
+  },
+  {
+    label: "Other",
+    value: "Other",
+  },
 ];
 //studio options
 const studioLocationOptions = [
-  "Croydon HQ",
-  "Ermington West",
-  "Belrose",
-  "Yarrawarrah",
+  {
+    label: "Croydon HQ",
+    value: "Croydon HQ",
+  },
+  {
+    label: "Ermington West",
+    value: "Ermington West",
+  },
+  {
+    label: "Belrose",
+    value: "Belrose",
+  },
 ];
 
 class Contact extends Component {
@@ -87,9 +113,7 @@ class Contact extends Component {
       process.env.GOOGLE_FORM_STUDIO_LOCATION_ID,
       this.state.studio
     );
-    console.log(this.state.phone);
     console.log(this.state.firstName);
-    //sends data using the google form
     axios
       .post(process.env.GOOGLE_FORM_ACTION, formData)
       .then(() => {
@@ -114,95 +138,122 @@ class Contact extends Component {
       <div>
         <div style={{ margin: "24px" }}>
           <Toaster />
-          <Form onSubmit={this.handleSubmit}>
-            <FormField label="Name">
-              <TextInput
-                name="firstName"
-                id="firstName"
-                value={this.state.firstName}
-                onChange={this.handleChange}
-                required
-                placeholder="Your Name"
-              />
-            </FormField>
-            <FormField label="Email">
-              <TextInput
-                name="email"
-                id="email"
-                type="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-                required
-                placeholder="your@email.com"
-              />
-            </FormField>
-            <FormField label="Phone">
-              <PhoneInput
-                placeholder="(04) 1234 5678"
-                country={"au"}
-                onlyCountries={["au"]}
-                value={this.state.phone}
-                onChange={(phone) => this.setState({ phone })}
-                containerStyle={{
-                  border: "0px",
-                  width: "auto",
-                  borderRadius: "3px",
-                }}
-                inputStyle={{
-                  border: "0px",
-                  width: "auto",
-                }}
-                buttonStyle={{ borderRadius: "0px" }}
-                inputProps={{
-                  required: true,
-                }}
-                disableDropdown
-                disableCountryCode
-              />
-            </FormField>
-            <FormField label="Age Group/Service">
-              <Select
-                value={age}
-                onChange={(event) =>
-                  this.setState({
-                    age: event.value,
-                  })
-                }
-                options={ageOptions}
-              />
-            </FormField>
-            <FormField label="Studio Location">
-              <Select
-                value={studio}
-                onChange={(event) =>
-                  this.setState({
-                    studio: event.value,
-                  })
-                }
-                options={studioOptions}
-              />
-            </FormField>
-            <FormField label="Message">
-              <TextArea
-                name="message"
-                id="message"
-                value={this.state.message}
-                onChange={this.handleChange}
-                required
-                placeholder="Your Message"
-                required
-                rows="6"
-              />
-            </FormField>
-            <div style={{ textAlign: "center" }}>
-              <Button type="submit" color="info">
-                Send
-              </Button>
-            </div>
-          </Form>
+          <Grid
+            container
+            spacing={4}
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <form onSubmit={this.handleSubmit}>
+                <Grid item style={{ margin: 10 }}>
+                  <TextField
+                    name="firstName"
+                    id="firstName"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                    required
+                    fullWidth
+                    placeholder="Your Name"
+                    label="Full Name"
+                  />
+                </Grid>
+                <Grid item
+                style={{ margin: 10 }}>
+                  <TextField
+                    name="email"
+                    id="email"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    required
+                    placeholder="your@email.com"
+                    label="Email"
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <InputLabel>Phone Number</InputLabel>
+                  <PhoneInput
+                    placeholder="(04) 1234 5678"
+                    country={"au"}
+                    onlyCountries={["au"]}
+                    value={this.state.phone}
+                    onChange={(phone) => this.setState({ phone })}
+                    containerStyle={{
+                      border: "0px",
+                      width: "auto",
+                      borderRadius: "3px",
+                    }}
+                    inputStyle={{
+                      border: "0px",
+                      width: "auto",
+                    }}
+                    buttonStyle={{ borderRadius: "0px" }}
+                    inputProps={{
+                      required: true,
+                    }}
+                    disableDropdown
+                    disableCountryCode
+                  />
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <InputLabel>Age Group/Service</InputLabel>
+                  <Select
+                    fullWidth
+                    label="Age Group/Service"
+                    value={age}
+                    onChange={(event) =>
+                      this.setState({
+                        age: event.target.value,
+                      })
+                    }
+                  >
+                    {ageOptions.map((option) => (
+                      <MenuItem value={option.value}>{option.label}</MenuItem>
+                    ))}
+                  </Select>
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <InputLabel>Studio</InputLabel>
+                  <Select
+                    fullWidth
+                    label="Studio"
+                    value={studio}
+                    onChange={(event) =>
+                      this.setState({
+                        studio: event.target.value,
+                      })
+                    }
+                  >
+                    {studioOptions.map((option) => (
+                      <MenuItem value={option.value}>{option.label}</MenuItem>
+                    ))}
+                  </Select>
+                </Grid>
+                <Grid item style={{ margin: 10 }}>
+                  <TextField
+                    fullWidth
+                    name="message"
+                    id="message"
+                    value={this.state.message}
+                    onChange={this.handleChange}
+                    required
+                    multiline
+                    rows={6}
+                    placeholder="Your Message"
+                  />
+                </Grid>
+
+                <Button variant="contained" type="submit">SEND</Button>
+              </form>
+            </Grid>
+          </Grid>
         </div>
       </div>
     );
   }
 }
+
 export default Contact;

@@ -44,14 +44,16 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
             //     <a className={classes.dropdownLink}>{aboutPage.fields.title}</a>
             //   </Link>
             // )),
-            <Link href={`/about/about-us`}>
-              <a className={classes.dropdownLink}>About Us</a>
+            <Link href={`/about/about-us`} className={classes.dropdownLink}>
+              About Us
             </Link>,
-            <Link href={`/about/history-of-hapkido`}>
-              <a className={classes.dropdownLink}>History of Hapkido</a>
+            <Link href={`/about/history-of-hapkido`} className={classes.dropdownLink}>
+              History of Hapkido
             </Link>,
-            <Link href={`/about/our-master-and-instructors`}>
-              <a className={classes.dropdownLink}>Our Master and Instructors</a>
+            <Link
+              href={`/about/our-master-and-instructors`}
+              className={classes.dropdownLink}>
+              Our Master and Instructors
             </Link>]}
         />
       </ListItem>
@@ -68,8 +70,11 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
           buttonIcon={InfoIcon}
           dropdownList={
             services.map((service, id) => (
-              <Link key={id} href={`/services/${service.fields.slug}`}>
-                <a className={classes.dropdownLink}>{service.fields.service}</a>
+              <Link
+                key={id}
+                href={`/services/${service.fields.slug}`}
+                className={classes.dropdownLink}>
+                {service.fields.service}
               </Link>
             ))
           }
@@ -89,8 +94,10 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
           dropdownList={
             studioLocations.map((studio) => (
               <div key={studio.sys.id}>
-                <Link href={`/locations/${studio.fields.slug}`}>
-                  <a className={classes.dropdownLink}>{studio.fields.location}</a>
+                <Link
+                  href={`/locations/${studio.fields.slug}`}
+                  className={classes.dropdownLink}>
+                  {studio.fields.location}
                 </Link>
               </div>
             ))
@@ -98,7 +105,7 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
         />
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/blog">
+        <Link href="/blog" legacyBehavior>
           <Tooltip
             id="blog"
             title="Checkout Our Blog!"
@@ -113,7 +120,7 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/contact-us">
+        <Link href="/contact-us" legacyBehavior>
           <Tooltip
             id="contact"
             title="Get in touch with HCA!"
@@ -128,7 +135,7 @@ export default function HeaderLinks({ studioLocations = [], services = [], about
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/gallery">
+        <Link href="/gallery" legacyBehavior>
           <Tooltip
             id="gallery"
             title="Our latest Images"

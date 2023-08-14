@@ -20,6 +20,7 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
   const classes = useStyles();
   return (
     // <footer className={footerClasses}>
+    // </footer>
     <div className={classes.container}>
       <div>
         <div className={classes.left}>
@@ -28,7 +29,7 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
             {aboutPages.map((aboutPage, id) => (
               <div key={aboutPage.sys.id}>
                 <Link className={classes.footerLink} key={id} href={`/about/${aboutPage.fields.slug}`}>
-                  <a className={classes.footerLink}>{aboutPage.fields.title}</a>
+                  {aboutPage.fields.title}
                 </Link>
               </div>
             ))}
@@ -40,7 +41,7 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
             {services.map((service, id) => (
               <div key={service.sys.id}>
                 <Link className={classes.footerLink} href={`/services/${service.fields.slug}`}>
-                  <a className={classes.footerLink}>{service.fields.service}</a>
+                  {service.fields.service}
                 </Link>
               </div>
             ))}
@@ -52,7 +53,7 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
             {studioLocations.map((studio) => (
               <div key={studio.sys.id}>
                 <Link className={classes.footerLink} href={`/locations/${studio.fields.slug}`}>
-                  <a className={classes.footerLink}>{studio.fields.location}</a>
+                  {studio.fields.location}
                 </Link>
               </div>
             ))}
@@ -63,6 +64,5 @@ export default function Footer({ studioLocations = [], services = [], aboutPages
         &copy; {1900 + new Date().getYear()} Hapkido College of Australia
       </div>
     </div>
-    // </footer>
   );
 }

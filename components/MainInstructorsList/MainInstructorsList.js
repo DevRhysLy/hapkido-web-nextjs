@@ -51,36 +51,36 @@ export default function MainInstructorList({ instructors = [] }) {
             <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
               <Link
                 href={`/about/our-master-and-instructors/${instructor.fields.slug}`}
-              >
-                <a className={classes.serviceCardLink}>
-                  <Card>
-                    <InstructorCardImage
-                      src={`https:${instructor.fields.avatar.fields.file.url}`}
-                      alt={instructor.fields.name}
-                    />
-                    <CardBody>
-                      <h4 className={classes.cardTitle}>
-                        {instructor.fields.name}
-                      </h4>
-                      <p
-                        style={
-                          instructor.fields.bio.length > 120
-                            ? {
-                                whiteSpace: "nowrap",
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                              }
-                            : { fontSize: "14px" }
-                        }
-                      >
-                        {instructor.fields.bio}
-                      </p>
-                      <Button color="primary" round>
-                        Learn More
-                      </Button>
-                    </CardBody>
-                  </Card>
-                </a>
+                className={classes.serviceCardLink}>
+
+                <Card>
+                  <InstructorCardImage
+                    src={`https:${instructor.fields.avatar.fields.file.url}`}
+                    alt={instructor.fields.name}
+                  />
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>
+                      {instructor.fields.name}
+                    </h4>
+                    <p
+                      style={
+                        instructor.fields.bio.length > 120
+                          ? {
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }
+                          : { fontSize: "14px" }
+                      }
+                    >
+                      {instructor.fields.bio}
+                    </p>
+                    <Button color="primary" round>
+                      Learn More
+                    </Button>
+                  </CardBody>
+                </Card>
+
               </Link>
             </GridItem>
           ))}
@@ -97,36 +97,36 @@ export default function MainInstructorList({ instructors = [] }) {
             <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
               <Link
                 href={`/about/our-master-and-instructors/${instructor.fields.slug}`}
-              >
-                <a className={classes.serviceCardLink}>
-                  <Card>
-                    <InstructorCardImage
-                      src={`https:${instructor.fields.avatar.fields.file.url}`}
-                      alt={instructor.fields.name}
-                    />
-                    <CardBody>
-                      <h4 className={classes.cardTitle}>
-                        {instructor.fields.name}
-                      </h4>
-                      <p
-                        style={
-                          instructor.fields.bio.length > 120
-                            ? {
-                                whiteSpace: "nowrap",
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                              }
-                            : { fontSize: "14px" }
-                        }
-                      >
-                        {instructor.fields.bio}
-                      </p>
-                      <Button color="primary" round>
-                        Learn More
-                      </Button>
-                    </CardBody>
-                  </Card>
-                </a>
+                className={classes.serviceCardLink}>
+
+                <Card>
+                  <InstructorCardImage
+                    src={`https:${instructor.fields.avatar.fields.file.url}`}
+                    alt={instructor.fields.name}
+                  />
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>
+                      {instructor.fields.name}
+                    </h4>
+                    <p
+                      style={
+                        instructor.fields.bio.length > 120
+                          ? {
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }
+                          : { fontSize: "14px" }
+                      }
+                    >
+                      {instructor.fields.bio}
+                    </p>
+                    <Button color="primary" round>
+                      Learn More
+                    </Button>
+                  </CardBody>
+                </Card>
+
               </Link>
             </GridItem>
           ))}
@@ -143,36 +143,36 @@ export default function MainInstructorList({ instructors = [] }) {
             <GridItem xs={12} sm={6} md={4} key={instructor.sys.id}>
               <Link
                 href={`/about/our-master-and-instructors/${instructor.fields.slug}`}
-              >
-                <a className={classes.serviceCardLink}>
-                  <Card>
-                    <InstructorCardImage
-                      src={`https:${instructor.fields.avatar.fields.file.url}`}
-                      alt={instructor.fields.name}
-                    />
-                    <CardBody>
-                      <h4 className={classes.cardTitle}>
-                        {instructor.fields.name}
-                      </h4>
-                      <p
-                        style={
-                          instructor.fields.bio.length > 120
-                            ? {
-                                whiteSpace: "nowrap",
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                              }
-                            : { fontSize: "14px" }
-                        }
-                      >
-                        {instructor.fields.bio}
-                      </p>
-                      <Button color="primary" round>
-                        Learn More
-                      </Button>
-                    </CardBody>
-                  </Card>
-                </a>
+                className={classes.serviceCardLink}>
+
+                <Card>
+                  <InstructorCardImage
+                    src={`https:${instructor.fields.avatar.fields.file.url}`}
+                    alt={instructor.fields.name}
+                  />
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>
+                      {instructor.fields.name}
+                    </h4>
+                    <p
+                      style={
+                        instructor.fields.bio.length > 120
+                          ? {
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }
+                          : { fontSize: "14px" }
+                      }
+                    >
+                      {instructor.fields.bio}
+                    </p>
+                    <Button color="primary" round>
+                      Learn More
+                    </Button>
+                  </CardBody>
+                </Card>
+
               </Link>
             </GridItem>
           ))}

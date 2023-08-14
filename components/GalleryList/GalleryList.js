@@ -28,21 +28,23 @@ export default function GalleryList({ imageGallery = [] }) {
     <GridContainer spacing={4}>
       {imageGallery.map((subGallery) => (
         <GridItem xs={12} sm={6} md={4} key={subGallery.sys.id}>
-          <Link href={`/gallery/${subGallery.fields.slug}`}>
-            <a className={classes.serviceCardLink} >
-              <Card>
-                <CardImage
-                  src={`https:${subGallery.fields.images[0].fields.file.url}`}
-                  alt={subGallery.fields.title} />
-                <CardBody>
-                  <h4 className={classes.cardTitle}>{subGallery.fields.title}</h4>
-                  <Button color="primary" round>View Gallery</Button>
-                </CardBody>
-              </Card>
-            </a>
+          <Link
+            href={`/gallery/${subGallery.fields.slug}`}
+            className={classes.serviceCardLink}>
+
+            <Card>
+              <CardImage
+                src={`https:${subGallery.fields.images[0].fields.file.url}`}
+                alt={subGallery.fields.title} />
+              <CardBody>
+                <h4 className={classes.cardTitle}>{subGallery.fields.title}</h4>
+                <Button color="primary" round>View Gallery</Button>
+              </CardBody>
+            </Card>
+
           </Link>
         </GridItem>
       ))}
     </GridContainer>
-  )
+  );
 }

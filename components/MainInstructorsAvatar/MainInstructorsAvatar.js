@@ -4,7 +4,9 @@ import Link from "next/link";
 
 export default function MainInstructorsAvatar({ instructors }) {
   return (
-    <Link href={`/about/our-master-and-instructors/${instructors.fields.slug}`}>
+    <Link
+      href={`/about/our-master-and-instructors/${instructors.fields.slug}`}
+      legacyBehavior>
       <div className={styles.wholeContainer}>
         <div className={styles.rowContainer}>
           <img
